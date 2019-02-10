@@ -1,4 +1,5 @@
 #include "Vector3.h"
+
 using namespace PhysicsEngineForFun;
 
 const Vector3 Vector3::right = Vector3(1, 0, 0);

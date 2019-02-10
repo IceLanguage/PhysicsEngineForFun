@@ -5,7 +5,7 @@
 
 namespace PhysicsEngineForFun
 {
-	class Vector3
+	struct Vector3
 	{
 	public:
 		Vector3() : x(0), y(0), z(0) {}

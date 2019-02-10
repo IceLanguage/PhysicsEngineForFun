@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Precision.h" />
     <ClInclude Include="Vector3.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="Precision.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -15,5 +18,6 @@
     <ClCompile Include="Vector3.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Particle.cpp" />
   </ItemGroup>
 </Project>
