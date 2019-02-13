@@ -4,9 +4,6 @@
     <ClInclude Include="Vector3.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Precision.h">
-      <Filter>Math</Filter>
-    </ClInclude>
     <ClInclude Include="Particle.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,30 +1,28 @@
 #include "Particle.h"
 #include <assert.h>
 
-using namespace PhysicsEngineForFun;
-
-void PhysicsEngineForFun::Particle::SetMass(real mass)
+void Particle::SetMass(float mass)
 {
 	assert(mass != 0);
-	inverseMass = ((real)1.0) / mass;
+	inverseMass = ((float)1.0) / mass;
 }
 
-real PhysicsEngineForFun::Particle::GetMass() const
+float Particle::GetMass() const
 {
 	if (inverseMass == 0) {
-		return REAL_MAX;
+		return FLT_MAX;
 	}
 	else {
-		return ((real)1.0) / inverseMass;
+		return ((float)1.0) / inverseMass;
 	}
 }
 
-void PhysicsEngineForFun::Particle::AddForce(const Vector3 & force)
+void Particle::AddForce(const Vector3 & force)
 {
 	this->force += force;
 }
 
-void PhysicsEngineForFun::Particle::Integrate(real duration)
+void Particle::Integrate(float duration)
 {
 	if (inverseMass <= 0.0f) return;
 	assert(duration > 0.0);
@@ -32,6 +30,6 @@ void PhysicsEngineForFun::Particle::Integrate(real duration)
 	Vector3 resultingAcc = acceleration;
 	resultingAcc.AddScaledVector(force, inverseMass);
 	velocity.AddScaledVector(resultingAcc, duration);
-	velocity *= real_pow(damping, duration);
+	velocity *= powf(damping, duration);
 	force.Clear();
 }
