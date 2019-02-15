@@ -16,5 +16,12 @@
       <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="PhysicsEngineForFun.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PhysicsEngineForFun.vcxproj.user" />
   </ItemGroup>
 </Project>

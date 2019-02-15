@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicsEngineForFunInUnity", "PhysicsEngineForFunInUnity.csproj", "{69C7170B-26E0-2798-CAA2-A2CF81D6A81A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicsEngineForFunInUnity.Plugins", "PhysicsEngineForFunInUnity.Plugins.csproj", "{2136B4F5-C2D2-0EA1-6085-9A33628E1212}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69C7170B-26E0-2798-CAA2-A2CF81D6A81A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C7170B-26E0-2798-CAA2-A2CF81D6A81A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C7170B-26E0-2798-CAA2-A2CF81D6A81A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C7170B-26E0-2798-CAA2-A2CF81D6A81A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2136B4F5-C2D2-0EA1-6085-9A33628E1212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2136B4F5-C2D2-0EA1-6085-9A33628E1212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2136B4F5-C2D2-0EA1-6085-9A33628E1212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2136B4F5-C2D2-0EA1-6085-9A33628E1212}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

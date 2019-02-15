@@ -1,9 +1,6 @@
 #ifndef _PhysicsEngineForFun_Vector3_
 #define _PhysicsEngineForFun_Vector3_
 
-#include <float.h>
-#include <math.h>
-
 struct Vector3
 {
 public:

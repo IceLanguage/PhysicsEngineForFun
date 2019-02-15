@@ -1,0 +1,28 @@
+%module PhysicsEngineForFun
+
+%{
+	#include "Particle.h"
+%}
+
+struct Vector3
+{
+public:
+	Vector3() : x(0), y(0), z(0) {}
+	Vector3(const float x, const float y, const float z)
+		: x(x), y(y), z(z) {}
+	float x, y, z;
+};
+
+class Particle
+{
+public:
+	void SetMass(float mass);
+	float GetMass() const;
+	void Integrate(float duration);
+	void AddForce(const Vector3 &force);
+
+	Vector3 position;
+	Vector3 velocity;
+	Vector3 acceleration;
+	float damping;
+};

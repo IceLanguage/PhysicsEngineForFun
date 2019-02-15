@@ -1,5 +1,7 @@
 #include "Particle.h"
 #include <assert.h>
+#include <float.h>
+#include <math.h>
 
 void Particle::SetMass(float mass)
 {
@@ -24,6 +26,7 @@ void Particle::AddForce(const Vector3 & force)
 
 void Particle::Integrate(float duration)
 {
+	
 	if (inverseMass <= 0.0f) return;
 	assert(duration > 0.0);
 	position.AddScaledVector(velocity, duration);
