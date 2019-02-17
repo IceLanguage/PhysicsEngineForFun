@@ -10,6 +10,7 @@ public:
 	float GetMass() const;
 	void Integrate(float duration);
 	void AddForce(const Vector3 &force);
+	bool hasFiniteMass() const;//Returns true if the mass of the particle is not-infinite.
 
 	Vector3 position;
 	Vector3 velocity;

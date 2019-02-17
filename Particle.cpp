@@ -24,6 +24,11 @@ void Particle::AddForce(const Vector3 & force)
 	this->force += force;
 }
 
+bool Particle::hasFiniteMass() const
+{
+	return inverseMass >= 0.f;
+}
+
 void Particle::Integrate(float duration)
 {
 	

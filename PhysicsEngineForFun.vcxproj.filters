@@ -5,6 +5,7 @@
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleForceGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -17,11 +18,12 @@
     </ClCompile>
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="PhysicsEngineForFun.idl" />
+    <ClCompile Include="ParticleForceGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="PhysicsEngineForFun.idl" />
   </ItemGroup>
 </Project>
