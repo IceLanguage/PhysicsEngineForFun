@@ -27,6 +27,50 @@ public:
 	virtual void UpdateForce(Particle *particle, float duration);
 };
 
+class SpringForceOnParticle :IParticleForceGenerator
+{
+protected:
+	Particle* other;
+	float restLength;
+	float elasticCoefficient;
+public:
+	SpringForceOnParticle(Particle* other, float restLength, float elasticCoefficient);
+	virtual void UpdateForce(Particle *particle, float duration);
+};
+
+class RubberBandElasticOnParticle :IParticleForceGenerator
+{
+protected:
+	Particle * other;
+	float restLength;
+	float elasticCoefficient;
+public:
+	RubberBandElasticOnParticle(Particle* other, float restLength, float elasticCoefficient);
+	virtual void UpdateForce(Particle *particle, float duration);
+};
+
+class BuoyancyOnParticle :IParticleForceGenerator
+{
+protected:
+	float liquidDensity;
+	float waterHeight;
+	float maxDepth;
+	float volume;
+public:
+	float gravity = 9.8f;
+	virtual void UpdateForce(Particle *particle, float duration);
+};
+
+class FakesSpringForceOnParticle :IParticleForceGenerator
+{
+protected:
+	Particle * other;//is attached to a fixed point in space.
+	float elasticCoefficient;
+	float damping;
+public:
+	virtual void UpdateForce(Particle *particle, float duration);
+};
+
 class ParticleForceRegistry
 {
 protected:
