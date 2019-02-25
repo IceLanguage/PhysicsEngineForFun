@@ -119,7 +119,6 @@ void BuoyancyOnParticle::UpdateForce(Particle * particle, float duration)
 	particle->AddForce(force);
 } 
 
-//I can not understand the principle about the Solution of differential equation -- from ¡¶Game Physics Engine Development¡· p96
 void FakesSpringForceOnParticle::UpdateForce(Particle * particle, float duration)
 {
 	if (!particle->hasFiniteMass()) return;
