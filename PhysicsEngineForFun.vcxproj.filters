@@ -6,6 +6,7 @@
     </ClInclude>
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleForceGenerator.h" />
+    <ClInclude Include="ParticleContact.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -19,6 +20,7 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="ParticleForceGenerator.cpp" />
+    <ClCompile Include="ParticleContact.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />

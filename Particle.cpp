@@ -29,6 +29,11 @@ bool Particle::hasFiniteMass() const
 	return inverseMass >= 0.f;
 }
 
+float Particle::GetInverseMass() const
+{
+	return inverseMass;
+}
+
 void Particle::Integrate(float duration)
 {
 	
