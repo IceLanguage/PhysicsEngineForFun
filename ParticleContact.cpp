@@ -17,9 +17,20 @@ void ParticleContact::ResolveVelocity(float duration)
 {
 	float separatingVelocity = CalculateSeparatingVelocity();
 
+	//No need to separate
 	if (separatingVelocity > 0) return;
 
 	float newSepVelocity = - separatingVelocity * restitutionCoefficient;
+
+	// If we've got a closing velocity due to acceleration build-up,
+	// remove it from the new separating velocity
+	Vector3 accCausedVelocity = particles[0]->acceleration - particles[1]->acceleration;
+	float accCausedSepVelocity = Vector3::Dot(accCausedVelocity, contactNormal) * duration;
+	if (accCausedSepVelocity < 0)
+	{
+		newSepVelocity += restitutionCoefficient * accCausedSepVelocity;
+		if (newSepVelocity < 0) newSepVelocity = 0;
+	}
 
 	float deltaVelocity = newSepVelocity - separatingVelocity;
 
@@ -30,7 +41,8 @@ void ParticleContact::ResolveVelocity(float duration)
 	float impulse = deltaVelocity / totalInverseMass;
 
 	Vector3 impulsePerIMass = contactNormal * impulse;
-
+	
+	//The result of the collision is the impulse acting on the object
 	particles[0]->velocity += impulsePerIMass * particles[0]->GetInverseMass();
 	particles[1]->velocity += impulsePerIMass * particles[1]->GetInverseMass();
 }
