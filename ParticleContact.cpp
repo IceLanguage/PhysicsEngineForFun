@@ -1,10 +1,17 @@
 #include "ParticleContact.h"
+#include <float.h>
 
 ParticleContact::ParticleContact(Particle * a, Particle * b, float restitutionCoefficient)
 {
 	particles[0] = a;
 	particles[1] = b;
 	this->restitutionCoefficient = restitutionCoefficient;
+}
+
+void ParticleContact::Resolve(float duration)
+{
+	ResolveVelocity(duration);
+	ResolveInterpenetration(duration);
 }
 
 float ParticleContact::CalculateSeparatingVelocity() const
@@ -59,4 +66,35 @@ void ParticleContact::ResolveInterpenetration(float duration)
 
 	particles[0]->position += movePerIMass * particles[0]->GetInverseMass();
 	particles[1]->position +=movePerIMass * -particles[1]->GetInverseMass();
+}
+
+ParticleContactsResolver::ParticleContactsResolver(unsigned int size)
+	:size(size)
+{
+}
+
+
+void ParticleContactsResolver::ResolveContacts(ParticleContact * contactsArray, unsigned int numContacts, float duration)
+{
+	unsigned int i;
+
+	index = 0;
+	while (index < size)
+	{
+		float max = FLT_MAX;
+		unsigned maxIndex = numContacts;
+		for (i = 0; i < numContacts; i++)
+		{
+			float sepVel = contactsArray[i].CalculateSeparatingVelocity();
+			if (sepVel < max &&
+				(sepVel < 0 || contactsArray[i].penetrationDepth > 0))
+			{
+				max = sepVel;
+				maxIndex = i;
+			}
+		}
+
+		contactsArray[maxIndex].Resolve(duration);
+		++index;
+	}
 }
