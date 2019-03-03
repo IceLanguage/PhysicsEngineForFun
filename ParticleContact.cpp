@@ -1,11 +1,10 @@
 #include "ParticleContact.h"
 #include <float.h>
 
-ParticleContact::ParticleContact(Particle * a, Particle * b, float restitutionCoefficient)
+ParticleContact::ParticleContact(Particle * a, Particle * b)
 {
 	particles[0] = a;
 	particles[1] = b;
-	this->restitutionCoefficient = restitutionCoefficient;
 }
 
 void ParticleContact::Resolve(float duration)
