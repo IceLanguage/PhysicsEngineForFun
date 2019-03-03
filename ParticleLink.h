@@ -3,13 +3,13 @@
 
 #include "ParticleContact.h"
 
-class ParticleLink
+class ParticleLink:public IParticleContactGenerator
 {
 public:
 	ParticleLink(Particle * a, Particle * b);
+	float GetCurrentLength() const;
 	virtual bool addContact(ParticleContact *contact,
 		unsigned int limit) const = 0;
-	float GetCurrentLength() const;
 protected:
 	Particle * particles[2];
 };

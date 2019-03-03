@@ -23,6 +23,7 @@
     <ClInclude Include="ParticleContact.h" />
     <ClInclude Include="ParticleForceGenerator.h" />
     <ClInclude Include="ParticleLink.h" />
+    <ClInclude Include="ParticleWorld.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +31,7 @@
     <ClCompile Include="ParticleContact.cpp" />
     <ClCompile Include="ParticleForceGenerator.cpp" />
     <ClCompile Include="ParticleLink.cpp" />
+    <ClCompile Include="ParticleWorld.cpp" />
     <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>

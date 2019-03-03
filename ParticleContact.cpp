@@ -67,18 +67,18 @@ void ParticleContact::ResolveInterpenetration(float duration)
 	particles[1]->position +=movePerIMass * -particles[1]->GetInverseMass();
 }
 
-ParticleContactsResolver::ParticleContactsResolver(unsigned int size)
-	:size(size)
+ParticleContactsResolver::ParticleContactsResolver(unsigned int Iterations)
+	:Iterations(Iterations)
 {
 }
 
 
-void ParticleContactsResolver::ResolveContacts(ParticleContact * contactsArray, unsigned int numContacts, float duration)
+void ParticleContactsResolver::ResolveContacts(std::vector<ParticleContact> contactsArray, unsigned int numContacts, float duration)
 {
 	unsigned int i;
 
 	index = 0;
-	while (index < size)
+	while (index < Iterations)
 	{
 		float max = FLT_MAX;
 		unsigned maxIndex = numContacts;
@@ -96,4 +96,9 @@ void ParticleContactsResolver::ResolveContacts(ParticleContact * contactsArray, 
 		contactsArray[maxIndex].Resolve(duration);
 		++index;
 	}
+}
+
+void ParticleContactsResolver::SetIterations(unsigned int iterations)
+{
+	Iterations = iterations;
 }

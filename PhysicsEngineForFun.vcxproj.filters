@@ -8,6 +8,7 @@
     <ClInclude Include="ParticleForceGenerator.h" />
     <ClInclude Include="ParticleContact.h" />
     <ClInclude Include="ParticleLink.h" />
+    <ClInclude Include="ParticleWorld.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -23,6 +24,7 @@
     <ClCompile Include="ParticleForceGenerator.cpp" />
     <ClCompile Include="ParticleContact.cpp" />
     <ClCompile Include="ParticleLink.cpp" />
+    <ClCompile Include="ParticleWorld.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />

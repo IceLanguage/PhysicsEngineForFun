@@ -34,6 +34,11 @@ float Particle::GetInverseMass() const
 	return inverseMass;
 }
 
+void Particle::ClearAccumulator()
+{
+	force.Clear();
+}
+
 void Particle::Integrate(float duration)
 {
 	

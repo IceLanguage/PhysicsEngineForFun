@@ -2,6 +2,7 @@
 #define _PhysicsEngineForFun_ParticleContact_
 
 #include "Particle.h"
+#include <vector>
 
 class ParticleContact
 {
@@ -21,12 +22,20 @@ private:
 class ParticleContactsResolver
 {
 private:
-	unsigned int size;
+	unsigned int Iterations;
 public:
 	unsigned int index;
-	ParticleContactsResolver(unsigned int size);
-	void ResolveContacts(ParticleContact *contactsArray,
+	ParticleContactsResolver(unsigned int Iterations);
+	void ResolveContacts(std::vector<ParticleContact> contactsArray,
 		unsigned int numContacts,
 		float duration);
+	void SetIterations(unsigned int iterations);
+};
+
+class IParticleContactGenerator
+{
+public:
+	virtual bool addContact(ParticleContact *contact,
+		unsigned int limit) const = 0;
 };
 #endif

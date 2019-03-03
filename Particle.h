@@ -12,6 +12,7 @@ public:
 	void AddForce(const Vector3 &force);
 	bool hasFiniteMass() const;//Returns true if the mass of the particle is not-infinite.
 	float GetInverseMass() const;
+	void ClearAccumulator();
 	Vector3 position;
 	Vector3 velocity;
 	Vector3 acceleration;
