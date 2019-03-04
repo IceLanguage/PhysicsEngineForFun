@@ -2,6 +2,8 @@
 
 %{
 	#include "ParticleWorld.h"
+	#include "ParticleConstraint.h"
+	#include "ParticleLink.h"
 %}
 
 struct Vector3
@@ -30,30 +32,31 @@ public:
 class ParticleContact
 {
 public:
-	ParticleContact(Particle* a, Particle* b);
 	void Resolve(float duration);
 	float CalculateSeparatingVelocity() const;
 	float restitutionCoefficient;
 	float penetrationDepth;
 	Vector3 contactNormal;
+	Particle * particle0, *particle1;
 };
 
 class ParticleCable
 {
 public:
-	ParticleCable(Particle * a, Particle * b);
-	bool AddContact(ParticleContact *contact,
+	virtual bool AddContact(ParticleContact *contact,
 	unsigned int limit) const;
 	float maxLength;
 	float restitutionCoefficient;
+	Particle * particle0, *particle1;
 };
 
 class ParticleCableConstraint 
 {
 public:
-	ParticleCableConstraint(Particle * a, const Vector3 &b);
-	bool AddContact(ParticleContact *contact,
+	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const;
 	float maxLength;
 	float restitutionCoefficient;
+	Particle * particle;
+	Vector3 anchorPoint;
 };

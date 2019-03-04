@@ -39,11 +39,7 @@ public class ParticleCableConstraint : global::System.IDisposable {
     }
   }
 
-  public ParticleCableConstraint(Particle a, Vector3 b) : this(PhysicsEngineForFunPINVOKE.new_ParticleCableConstraint(Particle.getCPtr(a), Vector3.getCPtr(b)), true) {
-    if (PhysicsEngineForFunPINVOKE.SWIGPendingException.Pending) throw PhysicsEngineForFunPINVOKE.SWIGPendingException.Retrieve();
-  }
-
-  public bool AddContact(ParticleContact contact, uint limit) {
+  public virtual bool AddContact(ParticleContact contact, uint limit) {
     bool ret = PhysicsEngineForFunPINVOKE.ParticleCableConstraint_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
     return ret;
   }
@@ -66,6 +62,31 @@ public class ParticleCableConstraint : global::System.IDisposable {
       float ret = PhysicsEngineForFunPINVOKE.ParticleCableConstraint_restitutionCoefficient_get(swigCPtr);
       return ret;
     } 
+  }
+
+  public Particle particle {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleCableConstraint_particle_set(swigCPtr, Particle.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleCableConstraint_particle_get(swigCPtr);
+      Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public Vector3 anchorPoint {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleCableConstraint_anchorPoint_set(swigCPtr, Vector3.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleCableConstraint_anchorPoint_get(swigCPtr);
+      Vector3 ret = (cPtr == global::System.IntPtr.Zero) ? null : new Vector3(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public ParticleCableConstraint() : this(PhysicsEngineForFunPINVOKE.new_ParticleCableConstraint(), true) {
   }
 
 }

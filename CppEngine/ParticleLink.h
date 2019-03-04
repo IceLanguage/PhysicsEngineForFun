@@ -6,18 +6,15 @@
 class ParticleLink:public IParticleContactGenerator
 {
 public:
-	ParticleLink(Particle * a, Particle * b);
 	float GetCurrentLength() const;
-	virtual bool addContact(ParticleContact *contact,
+	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const = 0;
-protected:
-	Particle * particles[2];
+	Particle * particle0, *particle1;
 };
 
 class ParticleCable: public ParticleLink
 {
 public:
-	ParticleCable(Particle * a, Particle * b);
 	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const;
 	float maxLength;
@@ -27,7 +24,6 @@ public:
 class ParticleConnectingRod : public ParticleLink
 {
 public:
-	ParticleConnectingRod(Particle * a, Particle * b);
 	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const;
 	float Length;

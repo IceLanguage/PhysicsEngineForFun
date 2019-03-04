@@ -34,6 +34,7 @@
     <ClCompile Include="ParticleForceGenerator.cpp" />
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
+    <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>

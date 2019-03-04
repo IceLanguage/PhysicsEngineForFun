@@ -26,6 +26,7 @@
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
     <ClCompile Include="ParticleConstraint.cpp" />
+    <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />

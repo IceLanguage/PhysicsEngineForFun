@@ -1,19 +1,9 @@
 #include "ParticleLink.h"
 
-ParticleLink::ParticleLink(Particle * a, Particle * b)
-{
-	particles[0] = a;
-	particles[1] = b;
-}
-
 float ParticleLink::GetCurrentLength() const
 {
-	Vector3 relativePos = particles[0]->position - particles[1]->position;
+	Vector3 relativePos = particle0->position - particle1->position;
 	return relativePos.Magnitude();
-}
-
-ParticleCable::ParticleCable(Particle * a, Particle * b): ParticleLink(a, b)
-{
 }
 
 bool ParticleCable::AddContact(ParticleContact * contact, unsigned int limit) const
@@ -25,10 +15,10 @@ bool ParticleCable::AddContact(ParticleContact * contact, unsigned int limit) co
 		return false;
 	}
 
-	contact->particles[0] = particles[0];
-	contact->particles[1] = particles[1];
+	contact->particle0 = particle0;
+	contact->particle1 = particle1;
 
-	Vector3 normal = particles[1]->position - particles[0]->position;
+	Vector3 normal = particle1->position - particle0->position;
 	normal.Normalize();
 
 	contact->contactNormal = normal;
@@ -37,10 +27,6 @@ bool ParticleCable::AddContact(ParticleContact * contact, unsigned int limit) co
 	contact->restitutionCoefficient = restitutionCoefficient;
 
 	return true;
-}
-
-ParticleConnectingRod::ParticleConnectingRod(Particle * a, Particle * b) : ParticleLink(a, b)
-{
 }
 
 bool ParticleConnectingRod::AddContact(ParticleContact * contact, unsigned int limit) const
@@ -52,10 +38,10 @@ bool ParticleConnectingRod::AddContact(ParticleContact * contact, unsigned int l
 		return false;
 	}
 
-	contact->particles[0] = particles[0];
-	contact->particles[1] = particles[1];
+	contact->particle0 = particle0;
+	contact->particle1 = particle1;
 
-	Vector3 normal = particles[1]->position - particles[0]->position;
+	Vector3 normal = particle1->position - particle0->position;
 	normal.Normalize();
 
 	contact->restitutionCoefficient = 0;

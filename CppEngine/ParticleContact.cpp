@@ -1,12 +1,6 @@
 #include "ParticleContact.h"
 #include <float.h>
 
-ParticleContact::ParticleContact(Particle * a, Particle * b)
-{
-	particles[0] = a;
-	particles[1] = b;
-}
-
 void ParticleContact::Resolve(float duration)
 {
 	ResolveVelocity(duration);
@@ -15,11 +9,11 @@ void ParticleContact::Resolve(float duration)
 
 float ParticleContact::CalculateSeparatingVelocity() const
 {
-	Vector3 relativeVelocity = particles[0]->velocity;
+	Vector3 relativeVelocity = particle0->velocity;
 
-	if (particles[1])
+	if (particle1)
 	{
-		relativeVelocity -= particles[1]->velocity;
+		relativeVelocity -= particle1->velocity;
 	}
 	
 	return Vector3::Dot(relativeVelocity, contactNormal);
@@ -36,8 +30,8 @@ void ParticleContact::ResolveVelocity(float duration)
 
 	// If we've got a closing velocity due to acceleration build-up,
 	// remove it from the new separating velocity
-	Vector3 accCausedVelocity = particles[0]->acceleration;
-	if(particles[1]) accCausedVelocity -= particles[1]->acceleration;
+	Vector3 accCausedVelocity = particle0->acceleration;
+	if(particle1) accCausedVelocity -= particle1->acceleration;
 
 	float accCausedSepVelocity = Vector3::Dot(accCausedVelocity, contactNormal) * duration;
 	if (accCausedSepVelocity < 0)
@@ -48,8 +42,8 @@ void ParticleContact::ResolveVelocity(float duration)
 
 	float deltaVelocity = newSepVelocity - separatingVelocity;
 
-	float totalInverseMass = particles[0]->GetInverseMass();
-	if (particles[1]) totalInverseMass += particles[1]->GetInverseMass();
+	float totalInverseMass = particle0->GetInverseMass();
+	if (particle1) totalInverseMass += particle1->GetInverseMass();
 
 	if (totalInverseMass <= 0) return;
 
@@ -58,23 +52,23 @@ void ParticleContact::ResolveVelocity(float duration)
 	Vector3 impulsePerIMass = contactNormal * impulse;
 	
 	//The result of the collision is the impulse acting on the object
-	particles[0]->velocity += impulsePerIMass * particles[0]->GetInverseMass();
-	if (particles[1]) particles[1]->velocity += impulsePerIMass * particles[1]->GetInverseMass();
+	particle0->velocity += impulsePerIMass * particle0->GetInverseMass();
+	if (particle1) particle1->velocity += impulsePerIMass * particle1->GetInverseMass();
 }
 
 void ParticleContact::ResolveInterpenetration(float duration)
 {
 	if (penetrationDepth <= 0) return;
 
-	float totalInverseMass = particles[0]->GetInverseMass();
-	if (particles[1]) totalInverseMass += particles[1]->GetInverseMass();
+	float totalInverseMass = particle0->GetInverseMass();
+	if (particle1) totalInverseMass += particle1->GetInverseMass();
 
 	if (totalInverseMass <= 0) return;
 
 	Vector3 movePerIMass = contactNormal * (penetrationDepth / totalInverseMass);
 
-	particles[0]->position += movePerIMass * particles[0]->GetInverseMass();
-	if (particles[1]) particles[1]->position +=movePerIMass * -particles[1]->GetInverseMass();
+	particle0->position += movePerIMass * particle0->GetInverseMass();
+	if (particle1) particle1->position +=movePerIMass * -particle1->GetInverseMass();
 }
 
 ParticleContactsResolver::ParticleContactsResolver(unsigned int Iterations)

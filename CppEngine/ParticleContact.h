@@ -7,13 +7,12 @@
 class ParticleContact
 {
 public:
-	ParticleContact(Particle* a, Particle* b);
 	void Resolve(float duration);
 	float CalculateSeparatingVelocity() const;
 	float restitutionCoefficient;
 	float penetrationDepth;
 	Vector3 contactNormal;
-	Particle * particles[2];
+	Particle * particle0,* particle1;
 private:
 	void ResolveVelocity(float duration);
 	void ResolveInterpenetration(float duration);

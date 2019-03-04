@@ -39,10 +39,7 @@ public class ParticleCable : global::System.IDisposable {
     }
   }
 
-  public ParticleCable(Particle a, Particle b) : this(PhysicsEngineForFunPINVOKE.new_ParticleCable(Particle.getCPtr(a), Particle.getCPtr(b)), true) {
-  }
-
-  public bool AddContact(ParticleContact contact, uint limit) {
+  public virtual bool AddContact(ParticleContact contact, uint limit) {
     bool ret = PhysicsEngineForFunPINVOKE.ParticleCable_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
     return ret;
   }
@@ -65,6 +62,31 @@ public class ParticleCable : global::System.IDisposable {
       float ret = PhysicsEngineForFunPINVOKE.ParticleCable_restitutionCoefficient_get(swigCPtr);
       return ret;
     } 
+  }
+
+  public Particle particle0 {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleCable_particle0_set(swigCPtr, Particle.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleCable_particle0_get(swigCPtr);
+      Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public Particle particle1 {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleCable_particle1_set(swigCPtr, Particle.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleCable_particle1_get(swigCPtr);
+      Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public ParticleCable() : this(PhysicsEngineForFunPINVOKE.new_ParticleCable(), true) {
   }
 
 }

@@ -39,9 +39,6 @@ public class ParticleContact : global::System.IDisposable {
     }
   }
 
-  public ParticleContact(Particle a, Particle b) : this(PhysicsEngineForFunPINVOKE.new_ParticleContact(Particle.getCPtr(a), Particle.getCPtr(b)), true) {
-  }
-
   public void Resolve(float duration) {
     PhysicsEngineForFunPINVOKE.ParticleContact_Resolve(swigCPtr, duration);
   }
@@ -80,6 +77,31 @@ public class ParticleContact : global::System.IDisposable {
       Vector3 ret = (cPtr == global::System.IntPtr.Zero) ? null : new Vector3(cPtr, false);
       return ret;
     } 
+  }
+
+  public Particle particle0 {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleContact_particle0_set(swigCPtr, Particle.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleContact_particle0_get(swigCPtr);
+      Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public Particle particle1 {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleContact_particle1_set(swigCPtr, Particle.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleContact_particle1_get(swigCPtr);
+      Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public ParticleContact() : this(PhysicsEngineForFunPINVOKE.new_ParticleContact(), true) {
   }
 
 }
