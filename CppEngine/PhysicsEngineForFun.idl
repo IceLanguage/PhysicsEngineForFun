@@ -1,7 +1,7 @@
 %module PhysicsEngineForFun
 
 %{
-	#include "Particle.h"
+	#include "ParticleWorld.h"
 %}
 
 struct Vector3
@@ -25,4 +25,35 @@ public:
 	Vector3 velocity;
 	Vector3 acceleration;
 	float damping;
+};
+
+class ParticleContact
+{
+public:
+	ParticleContact(Particle* a, Particle* b);
+	void Resolve(float duration);
+	float CalculateSeparatingVelocity() const;
+	float restitutionCoefficient;
+	float penetrationDepth;
+	Vector3 contactNormal;
+};
+
+class ParticleCable
+{
+public:
+	ParticleCable(Particle * a, Particle * b);
+	bool AddContact(ParticleContact *contact,
+	unsigned int limit) const;
+	float maxLength;
+	float restitutionCoefficient;
+};
+
+class ParticleCableConstraint 
+{
+public:
+	ParticleCableConstraint(Particle * a, const Vector3 &b);
+	bool AddContact(ParticleContact *contact,
+		unsigned int limit) const;
+	float maxLength;
+	float restitutionCoefficient;
 };

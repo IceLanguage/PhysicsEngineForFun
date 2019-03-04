@@ -16,7 +16,7 @@ ParticleCable::ParticleCable(Particle * a, Particle * b): ParticleLink(a, b)
 {
 }
 
-bool ParticleCable::addContact(ParticleContact * contact, unsigned int limit) const
+bool ParticleCable::AddContact(ParticleContact * contact, unsigned int limit) const
 {
 	float length = GetCurrentLength();
 
@@ -43,7 +43,7 @@ ParticleConnectingRod::ParticleConnectingRod(Particle * a, Particle * b) : Parti
 {
 }
 
-bool ParticleConnectingRod::addContact(ParticleContact * contact, unsigned int limit) const
+bool ParticleConnectingRod::AddContact(ParticleContact * contact, unsigned int limit) const
 {
 	float curlength = GetCurrentLength();
 

@@ -9,6 +9,7 @@
     <ClInclude Include="ParticleContact.h" />
     <ClInclude Include="ParticleLink.h" />
     <ClInclude Include="ParticleWorld.h" />
+    <ClInclude Include="ParticleConstraint.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -20,11 +21,11 @@
       <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="ParticleForceGenerator.cpp" />
     <ClCompile Include="ParticleContact.cpp" />
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
+    <ClCompile Include="ParticleConstraint.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />

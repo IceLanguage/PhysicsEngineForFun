@@ -35,7 +35,7 @@ public:
 class IParticleContactGenerator
 {
 public:
-	virtual bool addContact(ParticleContact *contact,
+	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const = 0;
 };
 #endif

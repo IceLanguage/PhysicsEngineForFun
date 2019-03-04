@@ -18,7 +18,7 @@ class ParticleCable: public ParticleLink
 {
 public:
 	ParticleCable(Particle * a, Particle * b);
-	virtual bool addContact(ParticleContact *contact,
+	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const;
 	float maxLength;
 	float restitutionCoefficient;
@@ -28,7 +28,7 @@ class ParticleConnectingRod : public ParticleLink
 {
 public:
 	ParticleConnectingRod(Particle * a, Particle * b);
-	virtual bool addContact(ParticleContact *contact,
+	virtual bool AddContact(ParticleContact *contact,
 		unsigned int limit) const;
 	float Length;
 };
