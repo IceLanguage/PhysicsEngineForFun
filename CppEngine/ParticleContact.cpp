@@ -77,7 +77,7 @@ ParticleContactsResolver::ParticleContactsResolver(unsigned int Iterations)
 }
 
 
-void ParticleContactsResolver::ResolveContacts(std::vector<ParticleContact> contactsArray, unsigned int numContacts, float duration)
+void ParticleContactsResolver::ResolveContacts(std::vector<ParticleContact*> contactsArray, unsigned int numContacts, float duration)
 {
 	unsigned int i;
 
@@ -88,16 +88,16 @@ void ParticleContactsResolver::ResolveContacts(std::vector<ParticleContact> cont
 		unsigned maxIndex = numContacts;
 		for (i = 0; i < numContacts; i++)
 		{
-			float sepVel = contactsArray[i].CalculateSeparatingVelocity();
+			float sepVel = contactsArray[i]->CalculateSeparatingVelocity();
 			if (sepVel < max &&
-				(sepVel < 0 || contactsArray[i].penetrationDepth > 0))
+				(sepVel < 0 || contactsArray[i]->penetrationDepth > 0))
 			{
 				max = sepVel;
 				maxIndex = i;
 			}
 		}
 
-		contactsArray[maxIndex].Resolve(duration);
+		contactsArray[maxIndex]->Resolve(duration);
 		++index;
 	}
 }

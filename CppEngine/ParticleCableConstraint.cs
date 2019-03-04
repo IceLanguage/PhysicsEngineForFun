@@ -9,12 +9,10 @@
 //------------------------------------------------------------------------------
 
 
-public class ParticleCableConstraint : global::System.IDisposable {
+public class ParticleCableConstraint : ParticleConstraint {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-  protected bool swigCMemOwn;
 
-  internal ParticleCableConstraint(global::System.IntPtr cPtr, bool cMemoryOwn) {
-    swigCMemOwn = cMemoryOwn;
+  internal ParticleCableConstraint(global::System.IntPtr cPtr, bool cMemoryOwn) : base(PhysicsEngineForFunPINVOKE.ParticleCableConstraint_SWIGUpcast(cPtr), cMemoryOwn) {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
@@ -26,7 +24,7 @@ public class ParticleCableConstraint : global::System.IDisposable {
     Dispose();
   }
 
-  public virtual void Dispose() {
+  public override void Dispose() {
     lock(this) {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
@@ -36,10 +34,11 @@ public class ParticleCableConstraint : global::System.IDisposable {
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
       global::System.GC.SuppressFinalize(this);
+      base.Dispose();
     }
   }
 
-  public virtual bool AddContact(ParticleContact contact, uint limit) {
+  public override bool AddContact(ParticleContact contact, uint limit) {
     bool ret = PhysicsEngineForFunPINVOKE.ParticleCableConstraint_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
     return ret;
   }

@@ -29,7 +29,7 @@ unsigned int ParticleWorld::GenerateContacts()
 		 it != contactGenerators.end() && nextContact!= contacts.end();
 		 ++it)
 	{
-		bool used = (*it)->AddContact(& *nextContact, limit);
+		bool used = (*it)->AddContact(*nextContact, limit);
 		if (used)
 		{
 			--limit;

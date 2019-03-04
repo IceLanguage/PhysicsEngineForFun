@@ -1,5 +1,7 @@
 %module PhysicsEngineForFun
 
+%include <std_vector.i>
+
 %{
 	#include "ParticleWorld.h"
 	#include "ParticleConstraint.h"
@@ -40,7 +42,23 @@ public:
 	Particle * particle0, *particle1;
 };
 
-class ParticleCable
+class IParticleContactGenerator
+{
+public:
+	virtual bool AddContact(ParticleContact *contact,
+	unsigned int limit) const = 0;
+};
+
+class ParticleLink : public IParticleContactGenerator
+{
+public:
+	float GetCurrentLength() const;
+	virtual bool AddContact(ParticleContact *contact,
+	unsigned int limit) const = 0;
+	Particle * particle0, *particle1;
+};
+
+class ParticleCable : public ParticleLink
 {
 public:
 	virtual bool AddContact(ParticleContact *contact,
@@ -50,7 +68,25 @@ public:
 	Particle * particle0, *particle1;
 };
 
-class ParticleCableConstraint 
+class ParticleConnectingRod : public ParticleLink
+{
+public:
+	virtual bool AddContact(ParticleContact *contact,
+	unsigned int limit) const;
+	float Length;
+};
+
+class ParticleConstraint : public IParticleContactGenerator
+{
+public:
+	float GetCurrentLength() const;
+	virtual bool AddContact(ParticleContact *contact,
+		unsigned int limit) const = 0;
+	Particle * particle;
+	Vector3 anchorPoint;
+};
+
+class ParticleCableConstraint : public ParticleConstraint
 {
 public:
 	virtual bool AddContact(ParticleContact *contact,
@@ -60,3 +96,20 @@ public:
 	Particle * particle;
 	Vector3 anchorPoint;
 };
+
+%template(VectorParticle) std::vector<Particle*>;
+%template(VectorIParticleContactGenerator) std::vector<IParticleContactGenerator*>;
+%template(VectorParticleContact) std::vector<ParticleContact*>;
+
+class ParticleWorld
+{
+public:
+	ParticleWorld(unsigned int maxContacts, unsigned int contactsResolverIterations = 0);
+	void Start();
+	void RunPhysics(float duration);
+	std::vector<Particle*> particles;
+	std::vector<IParticleContactGenerator*> contactGenerators;
+	std::vector<ParticleContact*> contacts;
+};
+
+

@@ -299,10 +299,367 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_PhysicsEngineForFun(SWIG_
 #define SWIG_contract_assert(nullreturn, expr, msg) if (!(expr)) {SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, msg, ""); return nullreturn; } else
 
 
+#include <typeinfo>
+#include <stdexcept>
+
+
+#include <vector>
+#include <algorithm>
+#include <stdexcept>
+
+
 	#include "ParticleWorld.h"
 	#include "ParticleConstraint.h"
 	#include "ParticleLink.h"
 
+SWIGINTERN std::vector< Particle * > *new_std_vector_Sl_Particle_Sm__Sg___SWIG_2(int capacity){
+        std::vector< Particle * >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< Particle * >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN Particle *std_vector_Sl_Particle_Sm__Sg__getitemcopy(std::vector< Particle * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN Particle *const &std_vector_Sl_Particle_Sm__Sg__getitem(std::vector< Particle * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__setitem(std::vector< Particle * > *self,int index,Particle *const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__AddRange(std::vector< Particle * > *self,std::vector< Particle * > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< Particle * > *std_vector_Sl_Particle_Sm__Sg__GetRange(std::vector< Particle * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< Particle * >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__Insert(std::vector< Particle * > *self,int index,Particle *const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__InsertRange(std::vector< Particle * > *self,int index,std::vector< Particle * > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__RemoveAt(std::vector< Particle * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__RemoveRange(std::vector< Particle * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< Particle * > *std_vector_Sl_Particle_Sm__Sg__Repeat(Particle *const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< Particle * >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__Reverse__SWIG_0(std::vector< Particle * > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__Reverse__SWIG_1(std::vector< Particle * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_Particle_Sm__Sg__SetRange(std::vector< Particle * > *self,int index,std::vector< Particle * > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
+SWIGINTERN bool std_vector_Sl_Particle_Sm__Sg__Contains(std::vector< Particle * > *self,Particle *const &value){
+        return std::find(self->begin(), self->end(), value) != self->end();
+      }
+SWIGINTERN int std_vector_Sl_Particle_Sm__Sg__IndexOf(std::vector< Particle * > *self,Particle *const &value){
+        int index = -1;
+        std::vector< Particle * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end())
+          index = (int)(it - self->begin());
+        return index;
+      }
+SWIGINTERN int std_vector_Sl_Particle_Sm__Sg__LastIndexOf(std::vector< Particle * > *self,Particle *const &value){
+        int index = -1;
+        std::vector< Particle * >::reverse_iterator rit = std::find(self->rbegin(), self->rend(), value);
+        if (rit != self->rend())
+          index = (int)(self->rend() - 1 - rit);
+        return index;
+      }
+SWIGINTERN bool std_vector_Sl_Particle_Sm__Sg__Remove(std::vector< Particle * > *self,Particle *const &value){
+        std::vector< Particle * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end()) {
+          self->erase(it);
+	  return true;
+        }
+        return false;
+      }
+SWIGINTERN std::vector< IParticleContactGenerator * > *new_std_vector_Sl_IParticleContactGenerator_Sm__Sg___SWIG_2(int capacity){
+        std::vector< IParticleContactGenerator * >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< IParticleContactGenerator * >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN IParticleContactGenerator *std_vector_Sl_IParticleContactGenerator_Sm__Sg__getitemcopy(std::vector< IParticleContactGenerator * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN IParticleContactGenerator *const &std_vector_Sl_IParticleContactGenerator_Sm__Sg__getitem(std::vector< IParticleContactGenerator * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__setitem(std::vector< IParticleContactGenerator * > *self,int index,IParticleContactGenerator *const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__AddRange(std::vector< IParticleContactGenerator * > *self,std::vector< IParticleContactGenerator * > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< IParticleContactGenerator * > *std_vector_Sl_IParticleContactGenerator_Sm__Sg__GetRange(std::vector< IParticleContactGenerator * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< IParticleContactGenerator * >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__Insert(std::vector< IParticleContactGenerator * > *self,int index,IParticleContactGenerator *const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__InsertRange(std::vector< IParticleContactGenerator * > *self,int index,std::vector< IParticleContactGenerator * > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__RemoveAt(std::vector< IParticleContactGenerator * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__RemoveRange(std::vector< IParticleContactGenerator * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< IParticleContactGenerator * > *std_vector_Sl_IParticleContactGenerator_Sm__Sg__Repeat(IParticleContactGenerator *const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< IParticleContactGenerator * >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__Reverse__SWIG_0(std::vector< IParticleContactGenerator * > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__Reverse__SWIG_1(std::vector< IParticleContactGenerator * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_IParticleContactGenerator_Sm__Sg__SetRange(std::vector< IParticleContactGenerator * > *self,int index,std::vector< IParticleContactGenerator * > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
+SWIGINTERN bool std_vector_Sl_IParticleContactGenerator_Sm__Sg__Contains(std::vector< IParticleContactGenerator * > *self,IParticleContactGenerator *const &value){
+        return std::find(self->begin(), self->end(), value) != self->end();
+      }
+SWIGINTERN int std_vector_Sl_IParticleContactGenerator_Sm__Sg__IndexOf(std::vector< IParticleContactGenerator * > *self,IParticleContactGenerator *const &value){
+        int index = -1;
+        std::vector< IParticleContactGenerator * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end())
+          index = (int)(it - self->begin());
+        return index;
+      }
+SWIGINTERN int std_vector_Sl_IParticleContactGenerator_Sm__Sg__LastIndexOf(std::vector< IParticleContactGenerator * > *self,IParticleContactGenerator *const &value){
+        int index = -1;
+        std::vector< IParticleContactGenerator * >::reverse_iterator rit = std::find(self->rbegin(), self->rend(), value);
+        if (rit != self->rend())
+          index = (int)(self->rend() - 1 - rit);
+        return index;
+      }
+SWIGINTERN bool std_vector_Sl_IParticleContactGenerator_Sm__Sg__Remove(std::vector< IParticleContactGenerator * > *self,IParticleContactGenerator *const &value){
+        std::vector< IParticleContactGenerator * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end()) {
+          self->erase(it);
+	  return true;
+        }
+        return false;
+      }
+SWIGINTERN std::vector< ParticleContact * > *new_std_vector_Sl_ParticleContact_Sm__Sg___SWIG_2(int capacity){
+        std::vector< ParticleContact * >* pv = 0;
+        if (capacity >= 0) {
+          pv = new std::vector< ParticleContact * >();
+          pv->reserve(capacity);
+       } else {
+          throw std::out_of_range("capacity");
+       }
+       return pv;
+      }
+SWIGINTERN ParticleContact *std_vector_Sl_ParticleContact_Sm__Sg__getitemcopy(std::vector< ParticleContact * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN ParticleContact *const &std_vector_Sl_ParticleContact_Sm__Sg__getitem(std::vector< ParticleContact * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          return (*self)[index];
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__setitem(std::vector< ParticleContact * > *self,int index,ParticleContact *const &val){
+        if (index>=0 && index<(int)self->size())
+          (*self)[index] = val;
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__AddRange(std::vector< ParticleContact * > *self,std::vector< ParticleContact * > const &values){
+        self->insert(self->end(), values.begin(), values.end());
+      }
+SWIGINTERN std::vector< ParticleContact * > *std_vector_Sl_ParticleContact_Sm__Sg__GetRange(std::vector< ParticleContact * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        return new std::vector< ParticleContact * >(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__Insert(std::vector< ParticleContact * > *self,int index,ParticleContact *const &x){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, x);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__InsertRange(std::vector< ParticleContact * > *self,int index,std::vector< ParticleContact * > const &values){
+        if (index>=0 && index<(int)self->size()+1)
+          self->insert(self->begin()+index, values.begin(), values.end());
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__RemoveAt(std::vector< ParticleContact * > *self,int index){
+        if (index>=0 && index<(int)self->size())
+          self->erase(self->begin() + index);
+        else
+          throw std::out_of_range("index");
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__RemoveRange(std::vector< ParticleContact * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        self->erase(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN std::vector< ParticleContact * > *std_vector_Sl_ParticleContact_Sm__Sg__Repeat(ParticleContact *const &value,int count){
+        if (count < 0)
+          throw std::out_of_range("count");
+        return new std::vector< ParticleContact * >(count, value);
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__Reverse__SWIG_0(std::vector< ParticleContact * > *self){
+        std::reverse(self->begin(), self->end());
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__Reverse__SWIG_1(std::vector< ParticleContact * > *self,int index,int count){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (count < 0)
+          throw std::out_of_range("count");
+        if (index >= (int)self->size()+1 || index+count > (int)self->size())
+          throw std::invalid_argument("invalid range");
+        std::reverse(self->begin()+index, self->begin()+index+count);
+      }
+SWIGINTERN void std_vector_Sl_ParticleContact_Sm__Sg__SetRange(std::vector< ParticleContact * > *self,int index,std::vector< ParticleContact * > const &values){
+        if (index < 0)
+          throw std::out_of_range("index");
+        if (index+values.size() > self->size())
+          throw std::out_of_range("index");
+        std::copy(values.begin(), values.end(), self->begin()+index);
+      }
+SWIGINTERN bool std_vector_Sl_ParticleContact_Sm__Sg__Contains(std::vector< ParticleContact * > *self,ParticleContact *const &value){
+        return std::find(self->begin(), self->end(), value) != self->end();
+      }
+SWIGINTERN int std_vector_Sl_ParticleContact_Sm__Sg__IndexOf(std::vector< ParticleContact * > *self,ParticleContact *const &value){
+        int index = -1;
+        std::vector< ParticleContact * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end())
+          index = (int)(it - self->begin());
+        return index;
+      }
+SWIGINTERN int std_vector_Sl_ParticleContact_Sm__Sg__LastIndexOf(std::vector< ParticleContact * > *self,ParticleContact *const &value){
+        int index = -1;
+        std::vector< ParticleContact * >::reverse_iterator rit = std::find(self->rbegin(), self->rend(), value);
+        if (rit != self->rend())
+          index = (int)(self->rend() - 1 - rit);
+        return index;
+      }
+SWIGINTERN bool std_vector_Sl_ParticleContact_Sm__Sg__Remove(std::vector< ParticleContact * > *self,ParticleContact *const &value){
+        std::vector< ParticleContact * >::iterator it = std::find(self->begin(), self->end(), value);
+        if (it != self->end()) {
+          self->erase(it);
+	  return true;
+        }
+        return false;
+      }
 
 #ifdef __cplusplus
 extern "C" {
@@ -710,6 +1067,110 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleContact(void * jarg1) {
 }
 
 
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IParticleContactGenerator_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  IParticleContactGenerator *arg1 = (IParticleContactGenerator *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  unsigned int arg3 ;
+  bool result;
+  
+  arg1 = (IParticleContactGenerator *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (bool)((IParticleContactGenerator const *)arg1)->AddContact(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_IParticleContactGenerator(void * jarg1) {
+  IParticleContactGenerator *arg1 = (IParticleContactGenerator *) 0 ;
+  
+  arg1 = (IParticleContactGenerator *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_ParticleLink_GetCurrentLength(void * jarg1) {
+  float jresult ;
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  float result;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  result = (float)((ParticleLink const *)arg1)->GetCurrentLength();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_ParticleLink_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  unsigned int arg3 ;
+  bool result;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (bool)((ParticleLink const *)arg1)->AddContact(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleLink_particle0_set(void * jarg1, void * jarg2) {
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  if (arg1) (arg1)->particle0 = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleLink_particle0_get(void * jarg1) {
+  void * jresult ;
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  Particle *result = 0 ;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  result = (Particle *) ((arg1)->particle0);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleLink_particle1_set(void * jarg1, void * jarg2) {
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  if (arg1) (arg1)->particle1 = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleLink_particle1_get(void * jarg1) {
+  void * jresult ;
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  Particle *result = 0 ;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  result = (Particle *) ((arg1)->particle1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleLink(void * jarg1) {
+  ParticleLink *arg1 = (ParticleLink *) 0 ;
+  
+  arg1 = (ParticleLink *)jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT unsigned int SWIGSTDCALL CSharp_ParticleCable_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
   unsigned int jresult ;
   ParticleCable *arg1 = (ParticleCable *) 0 ;
@@ -828,6 +1289,142 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleCable(void * jarg1) {
   ParticleCable *arg1 = (ParticleCable *) 0 ;
   
   arg1 = (ParticleCable *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_ParticleConnectingRod_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  ParticleConnectingRod *arg1 = (ParticleConnectingRod *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  unsigned int arg3 ;
+  bool result;
+  
+  arg1 = (ParticleConnectingRod *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (bool)((ParticleConnectingRod const *)arg1)->AddContact(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleConnectingRod_Length_set(void * jarg1, float jarg2) {
+  ParticleConnectingRod *arg1 = (ParticleConnectingRod *) 0 ;
+  float arg2 ;
+  
+  arg1 = (ParticleConnectingRod *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->Length = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_ParticleConnectingRod_Length_get(void * jarg1) {
+  float jresult ;
+  ParticleConnectingRod *arg1 = (ParticleConnectingRod *) 0 ;
+  float result;
+  
+  arg1 = (ParticleConnectingRod *)jarg1; 
+  result = (float) ((arg1)->Length);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleConnectingRod() {
+  void * jresult ;
+  ParticleConnectingRod *result = 0 ;
+  
+  result = (ParticleConnectingRod *)new ParticleConnectingRod();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleConnectingRod(void * jarg1) {
+  ParticleConnectingRod *arg1 = (ParticleConnectingRod *) 0 ;
+  
+  arg1 = (ParticleConnectingRod *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_ParticleConstraint_GetCurrentLength(void * jarg1) {
+  float jresult ;
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  float result;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
+  result = (float)((ParticleConstraint const *)arg1)->GetCurrentLength();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_ParticleConstraint_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  unsigned int arg3 ;
+  bool result;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (bool)((ParticleConstraint const *)arg1)->AddContact(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleConstraint_particle_set(void * jarg1, void * jarg2) {
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  if (arg1) (arg1)->particle = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleConstraint_particle_get(void * jarg1) {
+  void * jresult ;
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  Particle *result = 0 ;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
+  result = (Particle *) ((arg1)->particle);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleConstraint_anchorPoint_set(void * jarg1, void * jarg2) {
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  Vector3 *arg2 = (Vector3 *) 0 ;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
+  arg2 = (Vector3 *)jarg2; 
+  if (arg1) (arg1)->anchorPoint = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleConstraint_anchorPoint_get(void * jarg1) {
+  void * jresult ;
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  Vector3 *result = 0 ;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
+  result = (Vector3 *)& ((arg1)->anchorPoint);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleConstraint(void * jarg1) {
+  ParticleConstraint *arg1 = (ParticleConstraint *) 0 ;
+  
+  arg1 = (ParticleConstraint *)jarg1; 
   delete arg1;
 }
 
@@ -953,6 +1550,1452 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleCableConstraint(void * jarg1) 
   delete arg1;
 }
 
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_Clear(void * jarg1) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_Add(void * jarg1, void * jarg2) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  Particle **arg2 = 0 ;
+  Particle *temp2 = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  temp2 = (Particle *)jarg2;
+  arg2 = (Particle **)&temp2; 
+  (arg1)->push_back((Particle *const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_VectorParticle_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  std::vector< Particle * >::size_type result;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  result = ((std::vector< Particle * > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_VectorParticle_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  std::vector< Particle * >::size_type result;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  result = ((std::vector< Particle * > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  std::vector< Particle * >::size_type arg2 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (std::vector< Particle * >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorParticle__SWIG_0() {
+  void * jresult ;
+  std::vector< Particle * > *result = 0 ;
+  
+  result = (std::vector< Particle * > *)new std::vector< Particle * >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorParticle__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< Particle * > *arg1 = 0 ;
+  std::vector< Particle * > *result = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< Particle * > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< Particle * > *)new std::vector< Particle * >((std::vector< Particle * > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorParticle__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< Particle * > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< Particle * > *)new_std_vector_Sl_Particle_Sm__Sg___SWIG_2(arg1);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticle_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  Particle *result = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (Particle *)std_vector_Sl_Particle_Sm__Sg__getitemcopy(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticle_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  Particle **result = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (Particle **) &std_vector_Sl_Particle_Sm__Sg__getitem(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  Particle **arg3 = 0 ;
+  Particle *temp3 = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (Particle *)jarg3;
+  arg3 = (Particle **)&temp3; 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__setitem(arg1,arg2,(Particle *const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_AddRange(void * jarg1, void * jarg2) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  std::vector< Particle * > *arg2 = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (std::vector< Particle * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< Particle * > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_Particle_Sm__Sg__AddRange(arg1,(std::vector< Particle * > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticle_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< Particle * > *result = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< Particle * > *)std_vector_Sl_Particle_Sm__Sg__GetRange(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  Particle **arg3 = 0 ;
+  Particle *temp3 = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (Particle *)jarg3;
+  arg3 = (Particle **)&temp3; 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__Insert(arg1,arg2,(Particle *const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  std::vector< Particle * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< Particle * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< Particle * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__InsertRange(arg1,arg2,(std::vector< Particle * > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__RemoveAt(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__RemoveRange(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticle_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  Particle **arg1 = 0 ;
+  int arg2 ;
+  Particle *temp1 = 0 ;
+  std::vector< Particle * > *result = 0 ;
+  
+  temp1 = (Particle *)jarg1;
+  arg1 = (Particle **)&temp1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< Particle * > *)std_vector_Sl_Particle_Sm__Sg__Repeat((Particle *const &)*arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_Reverse__SWIG_0(void * jarg1) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  std_vector_Sl_Particle_Sm__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  int arg2 ;
+  std::vector< Particle * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< Particle * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< Particle * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_Particle_Sm__Sg__SetRange(arg1,arg2,(std::vector< Particle * > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_VectorParticle_Contains(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  Particle **arg2 = 0 ;
+  Particle *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  temp2 = (Particle *)jarg2;
+  arg2 = (Particle **)&temp2; 
+  result = (bool)std_vector_Sl_Particle_Sm__Sg__Contains(arg1,(Particle *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_VectorParticle_IndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  Particle **arg2 = 0 ;
+  Particle *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  temp2 = (Particle *)jarg2;
+  arg2 = (Particle **)&temp2; 
+  result = (int)std_vector_Sl_Particle_Sm__Sg__IndexOf(arg1,(Particle *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_VectorParticle_LastIndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  Particle **arg2 = 0 ;
+  Particle *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  temp2 = (Particle *)jarg2;
+  arg2 = (Particle **)&temp2; 
+  result = (int)std_vector_Sl_Particle_Sm__Sg__LastIndexOf(arg1,(Particle *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_VectorParticle_Remove(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  Particle **arg2 = 0 ;
+  Particle *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  temp2 = (Particle *)jarg2;
+  arg2 = (Particle **)&temp2; 
+  result = (bool)std_vector_Sl_Particle_Sm__Sg__Remove(arg1,(Particle *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_VectorParticle(void * jarg1) {
+  std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
+  
+  arg1 = (std::vector< Particle * > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Clear(void * jarg1) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Add(void * jarg1, void * jarg2) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  IParticleContactGenerator **arg2 = 0 ;
+  IParticleContactGenerator *temp2 = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  temp2 = (IParticleContactGenerator *)jarg2;
+  arg2 = (IParticleContactGenerator **)&temp2; 
+  (arg1)->push_back((IParticleContactGenerator *const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_VectorIParticleContactGenerator_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  std::vector< IParticleContactGenerator * >::size_type result;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  result = ((std::vector< IParticleContactGenerator * > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_VectorIParticleContactGenerator_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  std::vector< IParticleContactGenerator * >::size_type result;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  result = ((std::vector< IParticleContactGenerator * > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  std::vector< IParticleContactGenerator * >::size_type arg2 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (std::vector< IParticleContactGenerator * >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorIParticleContactGenerator__SWIG_0() {
+  void * jresult ;
+  std::vector< IParticleContactGenerator * > *result = 0 ;
+  
+  result = (std::vector< IParticleContactGenerator * > *)new std::vector< IParticleContactGenerator * >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorIParticleContactGenerator__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = 0 ;
+  std::vector< IParticleContactGenerator * > *result = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< IParticleContactGenerator * > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< IParticleContactGenerator * > *)new std::vector< IParticleContactGenerator * >((std::vector< IParticleContactGenerator * > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorIParticleContactGenerator__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< IParticleContactGenerator * > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< IParticleContactGenerator * > *)new_std_vector_Sl_IParticleContactGenerator_Sm__Sg___SWIG_2(arg1);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorIParticleContactGenerator_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  IParticleContactGenerator *result = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (IParticleContactGenerator *)std_vector_Sl_IParticleContactGenerator_Sm__Sg__getitemcopy(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorIParticleContactGenerator_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  IParticleContactGenerator **result = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (IParticleContactGenerator **) &std_vector_Sl_IParticleContactGenerator_Sm__Sg__getitem(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  IParticleContactGenerator **arg3 = 0 ;
+  IParticleContactGenerator *temp3 = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (IParticleContactGenerator *)jarg3;
+  arg3 = (IParticleContactGenerator **)&temp3; 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__setitem(arg1,arg2,(IParticleContactGenerator *const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_AddRange(void * jarg1, void * jarg2) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  std::vector< IParticleContactGenerator * > *arg2 = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (std::vector< IParticleContactGenerator * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< IParticleContactGenerator * > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_IParticleContactGenerator_Sm__Sg__AddRange(arg1,(std::vector< IParticleContactGenerator * > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorIParticleContactGenerator_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< IParticleContactGenerator * > *result = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< IParticleContactGenerator * > *)std_vector_Sl_IParticleContactGenerator_Sm__Sg__GetRange(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  IParticleContactGenerator **arg3 = 0 ;
+  IParticleContactGenerator *temp3 = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (IParticleContactGenerator *)jarg3;
+  arg3 = (IParticleContactGenerator **)&temp3; 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__Insert(arg1,arg2,(IParticleContactGenerator *const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  std::vector< IParticleContactGenerator * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< IParticleContactGenerator * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< IParticleContactGenerator * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__InsertRange(arg1,arg2,(std::vector< IParticleContactGenerator * > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__RemoveAt(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__RemoveRange(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  IParticleContactGenerator **arg1 = 0 ;
+  int arg2 ;
+  IParticleContactGenerator *temp1 = 0 ;
+  std::vector< IParticleContactGenerator * > *result = 0 ;
+  
+  temp1 = (IParticleContactGenerator *)jarg1;
+  arg1 = (IParticleContactGenerator **)&temp1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< IParticleContactGenerator * > *)std_vector_Sl_IParticleContactGenerator_Sm__Sg__Repeat((IParticleContactGenerator *const &)*arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Reverse__SWIG_0(void * jarg1) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  std_vector_Sl_IParticleContactGenerator_Sm__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorIParticleContactGenerator_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  int arg2 ;
+  std::vector< IParticleContactGenerator * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< IParticleContactGenerator * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< IParticleContactGenerator * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_IParticleContactGenerator_Sm__Sg__SetRange(arg1,arg2,(std::vector< IParticleContactGenerator * > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Contains(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  IParticleContactGenerator **arg2 = 0 ;
+  IParticleContactGenerator *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  temp2 = (IParticleContactGenerator *)jarg2;
+  arg2 = (IParticleContactGenerator **)&temp2; 
+  result = (bool)std_vector_Sl_IParticleContactGenerator_Sm__Sg__Contains(arg1,(IParticleContactGenerator *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_VectorIParticleContactGenerator_IndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  IParticleContactGenerator **arg2 = 0 ;
+  IParticleContactGenerator *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  temp2 = (IParticleContactGenerator *)jarg2;
+  arg2 = (IParticleContactGenerator **)&temp2; 
+  result = (int)std_vector_Sl_IParticleContactGenerator_Sm__Sg__IndexOf(arg1,(IParticleContactGenerator *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_VectorIParticleContactGenerator_LastIndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  IParticleContactGenerator **arg2 = 0 ;
+  IParticleContactGenerator *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  temp2 = (IParticleContactGenerator *)jarg2;
+  arg2 = (IParticleContactGenerator **)&temp2; 
+  result = (int)std_vector_Sl_IParticleContactGenerator_Sm__Sg__LastIndexOf(arg1,(IParticleContactGenerator *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_VectorIParticleContactGenerator_Remove(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  IParticleContactGenerator **arg2 = 0 ;
+  IParticleContactGenerator *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  temp2 = (IParticleContactGenerator *)jarg2;
+  arg2 = (IParticleContactGenerator **)&temp2; 
+  result = (bool)std_vector_Sl_IParticleContactGenerator_Sm__Sg__Remove(arg1,(IParticleContactGenerator *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_VectorIParticleContactGenerator(void * jarg1) {
+  std::vector< IParticleContactGenerator * > *arg1 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  
+  arg1 = (std::vector< IParticleContactGenerator * > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_Clear(void * jarg1) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_Add(void * jarg1, void * jarg2) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  ParticleContact **arg2 = 0 ;
+  ParticleContact *temp2 = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  temp2 = (ParticleContact *)jarg2;
+  arg2 = (ParticleContact **)&temp2; 
+  (arg1)->push_back((ParticleContact *const &)*arg2);
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_VectorParticleContact_size(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  std::vector< ParticleContact * >::size_type result;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  result = ((std::vector< ParticleContact * > const *)arg1)->size();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_VectorParticleContact_capacity(void * jarg1) {
+  unsigned long jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  std::vector< ParticleContact * >::size_type result;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  result = ((std::vector< ParticleContact * > const *)arg1)->capacity();
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_reserve(void * jarg1, unsigned long jarg2) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  std::vector< ParticleContact * >::size_type arg2 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (std::vector< ParticleContact * >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorParticleContact__SWIG_0() {
+  void * jresult ;
+  std::vector< ParticleContact * > *result = 0 ;
+  
+  result = (std::vector< ParticleContact * > *)new std::vector< ParticleContact * >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorParticleContact__SWIG_1(void * jarg1) {
+  void * jresult ;
+  std::vector< ParticleContact * > *arg1 = 0 ;
+  std::vector< ParticleContact * > *result = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< ParticleContact * > const & type is null", 0);
+    return 0;
+  } 
+  result = (std::vector< ParticleContact * > *)new std::vector< ParticleContact * >((std::vector< ParticleContact * > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_VectorParticleContact__SWIG_2(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  std::vector< ParticleContact * > *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  try {
+    result = (std::vector< ParticleContact * > *)new_std_vector_Sl_ParticleContact_Sm__Sg___SWIG_2(arg1);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticleContact_getitemcopy(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  ParticleContact *result = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (ParticleContact *)std_vector_Sl_ParticleContact_Sm__Sg__getitemcopy(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticleContact_getitem(void * jarg1, int jarg2) {
+  void * jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  ParticleContact **result = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (ParticleContact **) &std_vector_Sl_ParticleContact_Sm__Sg__getitem(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_setitem(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  ParticleContact **arg3 = 0 ;
+  ParticleContact *temp3 = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (ParticleContact *)jarg3;
+  arg3 = (ParticleContact **)&temp3; 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__setitem(arg1,arg2,(ParticleContact *const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_AddRange(void * jarg1, void * jarg2) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  std::vector< ParticleContact * > *arg2 = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (std::vector< ParticleContact * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< ParticleContact * > const & type is null", 0);
+    return ;
+  } 
+  std_vector_Sl_ParticleContact_Sm__Sg__AddRange(arg1,(std::vector< ParticleContact * > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticleContact_GetRange(void * jarg1, int jarg2, int jarg3) {
+  void * jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  std::vector< ParticleContact * > *result = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    result = (std::vector< ParticleContact * > *)std_vector_Sl_ParticleContact_Sm__Sg__GetRange(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_Insert(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  ParticleContact **arg3 = 0 ;
+  ParticleContact *temp3 = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (ParticleContact *)jarg3;
+  arg3 = (ParticleContact **)&temp3; 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__Insert(arg1,arg2,(ParticleContact *const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_InsertRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  std::vector< ParticleContact * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< ParticleContact * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< ParticleContact * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__InsertRange(arg1,arg2,(std::vector< ParticleContact * > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_RemoveAt(void * jarg1, int jarg2) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__RemoveAt(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_RemoveRange(void * jarg1, int jarg2, int jarg3) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__RemoveRange(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_VectorParticleContact_Repeat(void * jarg1, int jarg2) {
+  void * jresult ;
+  ParticleContact **arg1 = 0 ;
+  int arg2 ;
+  ParticleContact *temp1 = 0 ;
+  std::vector< ParticleContact * > *result = 0 ;
+  
+  temp1 = (ParticleContact *)jarg1;
+  arg1 = (ParticleContact **)&temp1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< ParticleContact * > *)std_vector_Sl_ParticleContact_Sm__Sg__Repeat((ParticleContact *const &)*arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return 0;
+  }
+  
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_Reverse__SWIG_0(void * jarg1) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  std_vector_Sl_ParticleContact_Sm__Sg__Reverse__SWIG_0(arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_Reverse__SWIG_1(void * jarg1, int jarg2, int jarg3) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__Reverse__SWIG_1(arg1,arg2,arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  catch(std::invalid_argument &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentException, (&_e)->what(), "");
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticleContact_SetRange(void * jarg1, int jarg2, void * jarg3) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  int arg2 ;
+  std::vector< ParticleContact * > *arg3 = 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (std::vector< ParticleContact * > *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "std::vector< ParticleContact * > const & type is null", 0);
+    return ;
+  } 
+  try {
+    std_vector_Sl_ParticleContact_Sm__Sg__SetRange(arg1,arg2,(std::vector< ParticleContact * > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, 0, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_VectorParticleContact_Contains(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  ParticleContact **arg2 = 0 ;
+  ParticleContact *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  temp2 = (ParticleContact *)jarg2;
+  arg2 = (ParticleContact **)&temp2; 
+  result = (bool)std_vector_Sl_ParticleContact_Sm__Sg__Contains(arg1,(ParticleContact *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_VectorParticleContact_IndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  ParticleContact **arg2 = 0 ;
+  ParticleContact *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  temp2 = (ParticleContact *)jarg2;
+  arg2 = (ParticleContact **)&temp2; 
+  result = (int)std_vector_Sl_ParticleContact_Sm__Sg__IndexOf(arg1,(ParticleContact *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_VectorParticleContact_LastIndexOf(void * jarg1, void * jarg2) {
+  int jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  ParticleContact **arg2 = 0 ;
+  ParticleContact *temp2 = 0 ;
+  int result;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  temp2 = (ParticleContact *)jarg2;
+  arg2 = (ParticleContact **)&temp2; 
+  result = (int)std_vector_Sl_ParticleContact_Sm__Sg__LastIndexOf(arg1,(ParticleContact *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_VectorParticleContact_Remove(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  ParticleContact **arg2 = 0 ;
+  ParticleContact *temp2 = 0 ;
+  bool result;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  temp2 = (ParticleContact *)jarg2;
+  arg2 = (ParticleContact **)&temp2; 
+  result = (bool)std_vector_Sl_ParticleContact_Sm__Sg__Remove(arg1,(ParticleContact *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_VectorParticleContact(void * jarg1) {
+  std::vector< ParticleContact * > *arg1 = (std::vector< ParticleContact * > *) 0 ;
+  
+  arg1 = (std::vector< ParticleContact * > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleWorld__SWIG_0(unsigned int jarg1, unsigned int jarg2) {
+  void * jresult ;
+  unsigned int arg1 ;
+  unsigned int arg2 ;
+  ParticleWorld *result = 0 ;
+  
+  arg1 = (unsigned int)jarg1; 
+  arg2 = (unsigned int)jarg2; 
+  result = (ParticleWorld *)new ParticleWorld(arg1,arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleWorld__SWIG_1(unsigned int jarg1) {
+  void * jresult ;
+  unsigned int arg1 ;
+  ParticleWorld *result = 0 ;
+  
+  arg1 = (unsigned int)jarg1; 
+  result = (ParticleWorld *)new ParticleWorld(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_Start(void * jarg1) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  (arg1)->Start();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_RunPhysics(void * jarg1, float jarg2) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  float arg2 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  arg2 = (float)jarg2; 
+  (arg1)->RunPhysics(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_particles_set(void * jarg1, void * jarg2) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  std::vector< Particle * > *arg2 = (std::vector< Particle * > *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  arg2 = (std::vector< Particle * > *)jarg2; 
+  if (arg1) (arg1)->particles = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleWorld_particles_get(void * jarg1) {
+  void * jresult ;
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  std::vector< Particle * > *result = 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  result = (std::vector< Particle * > *)& ((arg1)->particles);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_contactGenerators_set(void * jarg1, void * jarg2) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  std::vector< IParticleContactGenerator * > *arg2 = (std::vector< IParticleContactGenerator * > *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  arg2 = (std::vector< IParticleContactGenerator * > *)jarg2; 
+  if (arg1) (arg1)->contactGenerators = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleWorld_contactGenerators_get(void * jarg1) {
+  void * jresult ;
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  std::vector< IParticleContactGenerator * > *result = 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  result = (std::vector< IParticleContactGenerator * > *)& ((arg1)->contactGenerators);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_contacts_set(void * jarg1, void * jarg2) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  std::vector< ParticleContact * > *arg2 = (std::vector< ParticleContact * > *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  arg2 = (std::vector< ParticleContact * > *)jarg2; 
+  if (arg1) (arg1)->contacts = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleWorld_contacts_get(void * jarg1) {
+  void * jresult ;
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  std::vector< ParticleContact * > *result = 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  result = (std::vector< ParticleContact * > *)& ((arg1)->contacts);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleWorld(void * jarg1) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT IParticleContactGenerator * SWIGSTDCALL CSharp_ParticleLink_SWIGUpcast(ParticleLink *jarg1) {
+    return (IParticleContactGenerator *)jarg1;
+}
+
+SWIGEXPORT ParticleLink * SWIGSTDCALL CSharp_ParticleCable_SWIGUpcast(ParticleCable *jarg1) {
+    return (ParticleLink *)jarg1;
+}
+
+SWIGEXPORT ParticleLink * SWIGSTDCALL CSharp_ParticleConnectingRod_SWIGUpcast(ParticleConnectingRod *jarg1) {
+    return (ParticleLink *)jarg1;
+}
+
+SWIGEXPORT IParticleContactGenerator * SWIGSTDCALL CSharp_ParticleConstraint_SWIGUpcast(ParticleConstraint *jarg1) {
+    return (IParticleContactGenerator *)jarg1;
+}
+
+SWIGEXPORT ParticleConstraint * SWIGSTDCALL CSharp_ParticleCableConstraint_SWIGUpcast(ParticleCableConstraint *jarg1) {
+    return (ParticleConstraint *)jarg1;
+}
 
 #ifdef __cplusplus
 }

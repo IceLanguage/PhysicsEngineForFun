@@ -25,7 +25,7 @@ private:
 public:
 	unsigned int index;
 	ParticleContactsResolver(unsigned int Iterations);
-	void ResolveContacts(std::vector<ParticleContact> contactsArray,
+	void ResolveContacts(std::vector<ParticleContact*> contactsArray,
 		unsigned int numContacts,
 		float duration);
 	void SetIterations(unsigned int iterations);

@@ -7,20 +7,23 @@
 
 class ParticleWorld
 {
-private:
-	std::vector<Particle*> particles;
-	std::vector<IParticleContactGenerator*> contactGenerators;
+private:	
 	ParticleForceRegistry registry;
 	ParticleContactsResolver resolver;
-	std::vector<ParticleContact> contacts;
 	unsigned int maxContacts;
 	bool needCalculateIterations;
+
+	unsigned int GenerateContacts();
+	void Integrate(float duration);
+
 public:
+	std::vector<Particle*> particles;
+	std::vector<IParticleContactGenerator*> contactGenerators;
+	std::vector<ParticleContact*> contacts;
+
 	ParticleWorld(unsigned int maxContacts, unsigned int contactsResolverIterations = 0);
 	~ParticleWorld();
 	void Start();
-	unsigned int GenerateContacts();
-	void Integrate(float duration);
 	void RunPhysics(float duration);
 };
 
