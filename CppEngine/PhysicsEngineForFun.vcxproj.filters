@@ -15,6 +15,9 @@
     <Filter Include="Math">
       <UniqueIdentifier>{b8f1c235-d13e-40f2-b026-67575534d992}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Generate">
+      <UniqueIdentifier>{8f822f86-92e2-4501-8ce4-fe789aed54d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector3.cpp">
@@ -26,12 +29,16 @@
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
     <ClCompile Include="ParticleConstraint.cpp" />
-    <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
+    <ClCompile Include="Generate\PhysicsEngineForFun_wrap.cxx">
+      <Filter>Generate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="PhysicsEngineForFun.idl" />
+    <CustomBuild Include="Generate\PhysicsEngineForFun.idl">
+      <Filter>Generate</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

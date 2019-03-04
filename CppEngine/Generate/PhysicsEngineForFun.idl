@@ -3,9 +3,9 @@
 %include <std_vector.i>
 
 %{
-	#include "ParticleWorld.h"
-	#include "ParticleConstraint.h"
-	#include "ParticleLink.h"
+	#include "../ParticleWorld.h"
+	#include "../ParticleConstraint.h"
+	#include "../ParticleLink.h"
 %}
 
 struct Vector3

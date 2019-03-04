@@ -308,9 +308,9 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_PhysicsEngineForFun(SWIG_
 #include <stdexcept>
 
 
-	#include "ParticleWorld.h"
-	#include "ParticleConstraint.h"
-	#include "ParticleLink.h"
+	#include "../ParticleWorld.h"
+	#include "../ParticleConstraint.h"
+	#include "../ParticleLink.h"
 
 SWIGINTERN std::vector< Particle * > *new_std_vector_Sl_Particle_Sm__Sg___SWIG_2(int capacity){
         std::vector< Particle * >* pv = 0;

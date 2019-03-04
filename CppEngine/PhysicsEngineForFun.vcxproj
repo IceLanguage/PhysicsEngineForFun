@@ -28,23 +28,20 @@
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Generate\PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleConstraint.cpp" />
     <ClCompile Include="ParticleContact.cpp" />
     <ClCompile Include="ParticleForceGenerator.cpp" />
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
-    <ClCompile Include="PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="PhysicsEngineForFun.idl">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </Command>
-    </CustomBuild>
+    <None Include="PhysicsEngineForFun.vcxproj.user" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PhysicsEngineForFun.vcxproj.user" />
+    <CustomBuild Include="Generate\PhysicsEngineForFun.idl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
