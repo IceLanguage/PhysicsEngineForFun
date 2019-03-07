@@ -19,7 +19,7 @@ private:
 public:
 	std::vector<Particle*> particles;
 	std::vector<IParticleContactGenerator*> contactGenerators;
-	std::vector<ParticleContact*> contacts;
+	ParticleContact* contacts;
 
 	ParticleWorld(unsigned int maxContacts, unsigned int contactsResolverIterations = 0);
 	~ParticleWorld();

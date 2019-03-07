@@ -2,7 +2,6 @@
 #define _PhysicsEngineForFun_ParticleContact_
 
 #include "Particle.h"
-#include <vector>
 
 class ParticleContact
 {
@@ -13,9 +12,11 @@ public:
 	float penetrationDepth;
 	Vector3 contactNormal;
 	Particle * particle0,* particle1;
+	Vector3 particleMovement[2];
 private:
 	void ResolveVelocity(float duration);
 	void ResolveInterpenetration(float duration);
+
 };
 
 class ParticleContactsResolver
@@ -25,7 +26,7 @@ private:
 public:
 	unsigned int index;
 	ParticleContactsResolver(unsigned int Iterations);
-	void ResolveContacts(std::vector<ParticleContact*> contactsArray,
+	void ResolveContacts(ParticleContact* contactsArray,
 		unsigned int numContacts,
 		float duration);
 	void SetIterations(unsigned int iterations);

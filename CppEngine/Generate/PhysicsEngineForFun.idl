@@ -24,6 +24,7 @@ public:
 	float GetMass() const;
 	void Integrate(float duration);
 	void AddForce(const Vector3 &force);
+	void ClearAccumulator();
 
 	Vector3 position;
 	Vector3 velocity;
@@ -99,7 +100,6 @@ public:
 
 %template(VectorParticle) std::vector<Particle*>;
 %template(VectorIParticleContactGenerator) std::vector<IParticleContactGenerator*>;
-%template(VectorParticleContact) std::vector<ParticleContact*>;
 
 class ParticleWorld
 {
@@ -109,7 +109,6 @@ public:
 	void RunPhysics(float duration);
 	std::vector<Particle*> particles;
 	std::vector<IParticleContactGenerator*> contactGenerators;
-	std::vector<ParticleContact*> contacts;
 };
 
 

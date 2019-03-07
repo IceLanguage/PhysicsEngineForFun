@@ -226,6 +226,9 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_Particle_AddForce")]
   public static extern void Particle_AddForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_Particle_ClearAccumulator")]
+  public static extern void Particle_ClearAccumulator(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_Particle_position_set")]
   public static extern void Particle_position_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
@@ -583,84 +586,6 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_VectorIParticleContactGenerator")]
   public static extern void delete_VectorIParticleContactGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Clear")]
-  public static extern void VectorParticleContact_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Add")]
-  public static extern void VectorParticleContact_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_size")]
-  public static extern uint VectorParticleContact_size(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_capacity")]
-  public static extern uint VectorParticleContact_capacity(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_reserve")]
-  public static extern void VectorParticleContact_reserve(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_VectorParticleContact__SWIG_0")]
-  public static extern global::System.IntPtr new_VectorParticleContact__SWIG_0();
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_VectorParticleContact__SWIG_1")]
-  public static extern global::System.IntPtr new_VectorParticleContact__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_VectorParticleContact__SWIG_2")]
-  public static extern global::System.IntPtr new_VectorParticleContact__SWIG_2(int jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_getitemcopy")]
-  public static extern global::System.IntPtr VectorParticleContact_getitemcopy(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_getitem")]
-  public static extern global::System.IntPtr VectorParticleContact_getitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_setitem")]
-  public static extern void VectorParticleContact_setitem(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_AddRange")]
-  public static extern void VectorParticleContact_AddRange(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_GetRange")]
-  public static extern global::System.IntPtr VectorParticleContact_GetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Insert")]
-  public static extern void VectorParticleContact_Insert(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_InsertRange")]
-  public static extern void VectorParticleContact_InsertRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_RemoveAt")]
-  public static extern void VectorParticleContact_RemoveAt(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_RemoveRange")]
-  public static extern void VectorParticleContact_RemoveRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Repeat")]
-  public static extern global::System.IntPtr VectorParticleContact_Repeat(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Reverse__SWIG_0")]
-  public static extern void VectorParticleContact_Reverse__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Reverse__SWIG_1")]
-  public static extern void VectorParticleContact_Reverse__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_SetRange")]
-  public static extern void VectorParticleContact_SetRange(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Contains")]
-  public static extern bool VectorParticleContact_Contains(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_IndexOf")]
-  public static extern int VectorParticleContact_IndexOf(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_LastIndexOf")]
-  public static extern int VectorParticleContact_LastIndexOf(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticleContact_Remove")]
-  public static extern bool VectorParticleContact_Remove(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_VectorParticleContact")]
-  public static extern void delete_VectorParticleContact(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_ParticleWorld__SWIG_0")]
   public static extern global::System.IntPtr new_ParticleWorld__SWIG_0(uint jarg1, uint jarg2);
 
@@ -684,12 +609,6 @@ class PhysicsEngineForFunPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_contactGenerators_get")]
   public static extern global::System.IntPtr ParticleWorld_contactGenerators_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_contacts_set")]
-  public static extern void ParticleWorld_contacts_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_contacts_get")]
-  public static extern global::System.IntPtr ParticleWorld_contacts_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleWorld")]
   public static extern void delete_ParticleWorld(global::System.Runtime.InteropServices.HandleRef jarg1);

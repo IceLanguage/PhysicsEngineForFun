@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ballistic.unity
+- path: Assets/Scenes/Bridge.unity
   isLoaded: 1
   isActive: 1

@@ -75,15 +75,4 @@ public class ParticleWorld : global::System.IDisposable {
     } 
   }
 
-  public VectorParticleContact contacts {
-    set {
-      PhysicsEngineForFunPINVOKE.ParticleWorld_contacts_set(swigCPtr, VectorParticleContact.getCPtr(value));
-    } 
-    get {
-      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleWorld_contacts_get(swigCPtr);
-      VectorParticleContact ret = (cPtr == global::System.IntPtr.Zero) ? null : new VectorParticleContact(cPtr, false);
-      return ret;
-    } 
-  }
-
 }

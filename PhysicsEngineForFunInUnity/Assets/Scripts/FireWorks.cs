@@ -10,7 +10,7 @@ public class FireWorks : MonoBehaviour
         public int treeDepth;
         public Color color;
 
-        public FireParticle()
+        public FireParticle() 
         {
             age = Random.Range(0.5f, 1.4f);
             treeDepth = Random.Range(3, 10);

@@ -70,6 +70,11 @@ namespace PhysicsEngineForFun
             if (PhysicsEngineForFunPINVOKE.SWIGPendingException.Pending) throw PhysicsEngineForFunPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        public void ClearAccumulator()
+        {
+            PhysicsEngineForFunPINVOKE.Particle_ClearAccumulator(swigCPtr);
+        }
+
         public Vector3 position
         {
             set
@@ -130,4 +135,5 @@ namespace PhysicsEngineForFun
         }
 
     }
+
 }

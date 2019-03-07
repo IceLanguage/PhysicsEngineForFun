@@ -41,7 +41,6 @@ void Particle::ClearAccumulator()
 
 void Particle::Integrate(float duration)
 {
-	
 	if (inverseMass <= 0.0f) return;
 	assert(duration > 0.0);
 	position.AddScaledVector(velocity, duration);

@@ -6,10 +6,12 @@ ParticleWorld::ParticleWorld(unsigned int maxContacts, unsigned int contactsReso
 	maxContacts(maxContacts)
 {
 	needCalculateIterations = (contactsResolverIterations == 0);
+	contacts = new ParticleContact[maxContacts];
 }
 
 ParticleWorld::~ParticleWorld()
 {
+	delete[] contacts;
 }
 
 void ParticleWorld::Start()
@@ -23,17 +25,17 @@ void ParticleWorld::Start()
 unsigned int ParticleWorld::GenerateContacts()
 {
 	unsigned limit = maxContacts;
-	auto nextContact = contacts.begin();
+	ParticleContact *nextContact = contacts;
 
 	for (auto it = contactGenerators.begin(); 
-		 it != contactGenerators.end() && nextContact!= contacts.end();
+		 it != contactGenerators.end();
 		 ++it)
 	{
-		bool used = (*it)->AddContact(*nextContact, limit);
+		bool used = (*it)->AddContact(nextContact, limit);
 		if (used)
 		{
 			--limit;
-			++nextContact;
+			nextContact += 1;
 		}
 
 		if (limit <= 0) break;
@@ -53,6 +55,8 @@ void ParticleWorld::Integrate(float duration)
 
 void ParticleWorld::RunPhysics(float duration)
 {
+	Start();
+
 	registry.UpdateForces(duration);
 	Integrate(duration);
 

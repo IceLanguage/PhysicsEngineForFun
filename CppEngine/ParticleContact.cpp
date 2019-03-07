@@ -53,7 +53,7 @@ void ParticleContact::ResolveVelocity(float duration)
 	
 	//The result of the collision is the impulse acting on the object
 	particle0->velocity += impulsePerIMass * particle0->GetInverseMass();
-	if (particle1) particle1->velocity += impulsePerIMass * particle1->GetInverseMass();
+	if (particle1) particle1->velocity -= impulsePerIMass * particle1->GetInverseMass();
 }
 
 void ParticleContact::ResolveInterpenetration(float duration)
@@ -67,8 +67,15 @@ void ParticleContact::ResolveInterpenetration(float duration)
 
 	Vector3 movePerIMass = contactNormal * (penetrationDepth / totalInverseMass);
 
-	particle0->position += movePerIMass * particle0->GetInverseMass();
-	if (particle1) particle1->position +=movePerIMass * -particle1->GetInverseMass();
+	particleMovement[0] = movePerIMass * particle0->GetInverseMass();
+	if (particle1) {
+		particleMovement[1] = movePerIMass * -particle1->GetInverseMass();
+	}
+	else {
+		particleMovement[1].Clear();
+	}
+	particle0->position += particleMovement[0];
+	if (particle1) particle1->position += particleMovement[1];
 }
 
 ParticleContactsResolver::ParticleContactsResolver(unsigned int Iterations)
@@ -77,7 +84,7 @@ ParticleContactsResolver::ParticleContactsResolver(unsigned int Iterations)
 }
 
 
-void ParticleContactsResolver::ResolveContacts(std::vector<ParticleContact*> contactsArray, unsigned int numContacts, float duration)
+void ParticleContactsResolver::ResolveContacts(ParticleContact* contactsArray, unsigned int numContacts, float duration)
 {
 	unsigned int i;
 
@@ -85,19 +92,45 @@ void ParticleContactsResolver::ResolveContacts(std::vector<ParticleContact*> con
 	while (index < Iterations)
 	{
 		float max = FLT_MAX;
-		unsigned maxIndex = numContacts;
+		unsigned int maxIndex = numContacts;
 		for (i = 0; i < numContacts; i++)
 		{
-			float sepVel = contactsArray[i]->CalculateSeparatingVelocity();
+			float sepVel = contactsArray[i].CalculateSeparatingVelocity();
 			if (sepVel < max &&
-				(sepVel < 0 || contactsArray[i]->penetrationDepth > 0))
+				(sepVel < 0 || contactsArray[i].penetrationDepth > 0))
 			{
 				max = sepVel;
 				maxIndex = i;
 			}
 		}
 
-		contactsArray[maxIndex]->Resolve(duration);
+		if (maxIndex == numContacts) break;
+
+		contactsArray[maxIndex].Resolve(duration);
+
+		Vector3 *move = contactsArray[maxIndex].particleMovement;
+		for (i = 0; i < numContacts; i++)
+		{
+			if (contactsArray[i].particle0 == contactsArray[maxIndex].particle0)
+			{
+				contactsArray[i].penetrationDepth -= Vector3::Dot(move[0], contactsArray[i].contactNormal);
+			}
+			else if (contactsArray[i].particle0 == contactsArray[maxIndex].particle1)
+			{
+				contactsArray[i].penetrationDepth -= Vector3::Dot(move[1], contactsArray[i].contactNormal);
+			}
+			if (contactsArray[i].particle1)
+			{
+				if (contactsArray[i].particle1 == contactsArray[maxIndex].particle0)
+				{
+					contactsArray[i].penetrationDepth += Vector3::Dot(move[0], contactsArray[i].contactNormal);
+				}
+				else if (contactsArray[i].particle1 == contactsArray[maxIndex].particle1)
+				{
+					contactsArray[i].penetrationDepth += Vector3::Dot(move[1], contactsArray[i].contactNormal);
+				}
+			}
+		}
 		++index;
 	}
 }

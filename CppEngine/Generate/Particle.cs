@@ -57,6 +57,10 @@ public class Particle : global::System.IDisposable {
     if (PhysicsEngineForFunPINVOKE.SWIGPendingException.Pending) throw PhysicsEngineForFunPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public void ClearAccumulator() {
+    PhysicsEngineForFunPINVOKE.Particle_ClearAccumulator(swigCPtr);
+  }
+
   public Vector3 position {
     set {
       PhysicsEngineForFunPINVOKE.Particle_position_set(swigCPtr, Vector3.getCPtr(value));
