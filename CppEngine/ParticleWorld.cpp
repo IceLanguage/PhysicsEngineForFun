@@ -24,7 +24,7 @@ void ParticleWorld::Start()
 
 unsigned int ParticleWorld::GenerateContacts()
 {
-	unsigned limit = maxContacts;
+	unsigned int limit = maxContacts;
 	ParticleContact *nextContact = contacts;
 
 	for (auto it = contactGenerators.begin(); 
