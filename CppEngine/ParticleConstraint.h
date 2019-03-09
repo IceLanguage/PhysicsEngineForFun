@@ -21,4 +21,12 @@ public:
 	float maxLength;
 	float restitutionCoefficient;
 };
+
+class ParticleConnectingRodConstraint : public ParticleConstraint
+{
+public:
+	virtual bool AddContact(ParticleContact *contact,
+		unsigned int limit) const;
+	float Length;
+};
 #endif

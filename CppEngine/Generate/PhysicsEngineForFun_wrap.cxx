@@ -1123,50 +1123,6 @@ SWIGEXPORT float SWIGSTDCALL CSharp_ParticleCable_restitutionCoefficient_get(voi
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_ParticleCable_particle0_set(void * jarg1, void * jarg2) {
-  ParticleCable *arg1 = (ParticleCable *) 0 ;
-  Particle *arg2 = (Particle *) 0 ;
-  
-  arg1 = (ParticleCable *)jarg1; 
-  arg2 = (Particle *)jarg2; 
-  if (arg1) (arg1)->particle0 = arg2;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleCable_particle0_get(void * jarg1) {
-  void * jresult ;
-  ParticleCable *arg1 = (ParticleCable *) 0 ;
-  Particle *result = 0 ;
-  
-  arg1 = (ParticleCable *)jarg1; 
-  result = (Particle *) ((arg1)->particle0);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_ParticleCable_particle1_set(void * jarg1, void * jarg2) {
-  ParticleCable *arg1 = (ParticleCable *) 0 ;
-  Particle *arg2 = (Particle *) 0 ;
-  
-  arg1 = (ParticleCable *)jarg1; 
-  arg2 = (Particle *)jarg2; 
-  if (arg1) (arg1)->particle1 = arg2;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleCable_particle1_get(void * jarg1) {
-  void * jresult ;
-  ParticleCable *arg1 = (ParticleCable *) 0 ;
-  Particle *result = 0 ;
-  
-  arg1 = (ParticleCable *)jarg1; 
-  result = (Particle *) ((arg1)->particle1);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleCable() {
   void * jresult ;
   ParticleCable *result = 0 ;
@@ -1381,50 +1337,6 @@ SWIGEXPORT float SWIGSTDCALL CSharp_ParticleCableConstraint_restitutionCoefficie
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_ParticleCableConstraint_particle_set(void * jarg1, void * jarg2) {
-  ParticleCableConstraint *arg1 = (ParticleCableConstraint *) 0 ;
-  Particle *arg2 = (Particle *) 0 ;
-  
-  arg1 = (ParticleCableConstraint *)jarg1; 
-  arg2 = (Particle *)jarg2; 
-  if (arg1) (arg1)->particle = arg2;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleCableConstraint_particle_get(void * jarg1) {
-  void * jresult ;
-  ParticleCableConstraint *arg1 = (ParticleCableConstraint *) 0 ;
-  Particle *result = 0 ;
-  
-  arg1 = (ParticleCableConstraint *)jarg1; 
-  result = (Particle *) ((arg1)->particle);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_ParticleCableConstraint_anchorPoint_set(void * jarg1, void * jarg2) {
-  ParticleCableConstraint *arg1 = (ParticleCableConstraint *) 0 ;
-  Vector3 *arg2 = (Vector3 *) 0 ;
-  
-  arg1 = (ParticleCableConstraint *)jarg1; 
-  arg2 = (Vector3 *)jarg2; 
-  if (arg1) (arg1)->anchorPoint = *arg2;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleCableConstraint_anchorPoint_get(void * jarg1) {
-  void * jresult ;
-  ParticleCableConstraint *arg1 = (ParticleCableConstraint *) 0 ;
-  Vector3 *result = 0 ;
-  
-  arg1 = (ParticleCableConstraint *)jarg1; 
-  result = (Vector3 *)& ((arg1)->anchorPoint);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleCableConstraint() {
   void * jresult ;
   ParticleCableConstraint *result = 0 ;
@@ -1439,6 +1351,62 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleCableConstraint(void * jarg1) 
   ParticleCableConstraint *arg1 = (ParticleCableConstraint *) 0 ;
   
   arg1 = (ParticleCableConstraint *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_ParticleConnectingRodConstraint_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  ParticleConnectingRodConstraint *arg1 = (ParticleConnectingRodConstraint *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  unsigned int arg3 ;
+  bool result;
+  
+  arg1 = (ParticleConnectingRodConstraint *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (bool)((ParticleConnectingRodConstraint const *)arg1)->AddContact(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleConnectingRodConstraint_Length_set(void * jarg1, float jarg2) {
+  ParticleConnectingRodConstraint *arg1 = (ParticleConnectingRodConstraint *) 0 ;
+  float arg2 ;
+  
+  arg1 = (ParticleConnectingRodConstraint *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->Length = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_ParticleConnectingRodConstraint_Length_get(void * jarg1) {
+  float jresult ;
+  ParticleConnectingRodConstraint *arg1 = (ParticleConnectingRodConstraint *) 0 ;
+  float result;
+  
+  arg1 = (ParticleConnectingRodConstraint *)jarg1; 
+  result = (float) ((arg1)->Length);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleConnectingRodConstraint() {
+  void * jresult ;
+  ParticleConnectingRodConstraint *result = 0 ;
+  
+  result = (ParticleConnectingRodConstraint *)new ParticleConnectingRodConstraint();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleConnectingRodConstraint(void * jarg1) {
+  ParticleConnectingRodConstraint *arg1 = (ParticleConnectingRodConstraint *) 0 ;
+  
+  arg1 = (ParticleConnectingRodConstraint *)jarg1; 
   delete arg1;
 }
 
@@ -2428,6 +2396,10 @@ SWIGEXPORT IParticleContactGenerator * SWIGSTDCALL CSharp_ParticleConstraint_SWI
 }
 
 SWIGEXPORT ParticleConstraint * SWIGSTDCALL CSharp_ParticleCableConstraint_SWIGUpcast(ParticleCableConstraint *jarg1) {
+    return (ParticleConstraint *)jarg1;
+}
+
+SWIGEXPORT ParticleConstraint * SWIGSTDCALL CSharp_ParticleConnectingRodConstraint_SWIGUpcast(ParticleConnectingRodConstraint *jarg1) {
     return (ParticleConstraint *)jarg1;
 }
 

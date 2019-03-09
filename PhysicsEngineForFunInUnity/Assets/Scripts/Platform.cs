@@ -5,8 +5,13 @@ public class Platform : MonoBehaviour
 {
     private readonly PhysicsEngineForFun.ParticleWorld world = new PhysicsEngineForFun.ParticleWorld(6 * 10);
     private readonly PhysicsEngineForFun.Particle[] particles = new PhysicsEngineForFun.Particle[4];
-    private readonly PhysicsEngineForFun.ParticleConnectingRod[] connectingRods = new PhysicsEngineForFun.ParticleConnectingRod[15];
-
+    private readonly PhysicsEngineForFun.ParticleConnectingRod[] connectingRods = new PhysicsEngineForFun.ParticleConnectingRod[6];
+    private readonly PhysicsEngineForFun.ParticleConnectingRodConstraint[] rodsConstraints = new PhysicsEngineForFun.ParticleConnectingRodConstraint[8];
+    private readonly PhysicsEngineForFun.Vector3[] fixedPoints = new PhysicsEngineForFun.Vector3[2]
+    {
+        new PhysicsEngineForFun.Vector3(0, 0 , 1),
+        new PhysicsEngineForFun.Vector3(0, 0 ,-1)
+    };
     public Vector3 AdditionalMassRealPos;
     public float ParticleMass = 1;
     public float AdditionalMass = 10f;
@@ -36,7 +41,7 @@ public class Platform : MonoBehaviour
         particles[2].position = new PhysicsEngineForFun.Vector3(4, 2, 1);
         particles[3].position = new PhysicsEngineForFun.Vector3(4, 2, -1);
 
-        for (int i = 0; i < 15; ++i)
+        for (int i = 0; i < 6; ++i)
         {
             connectingRods[i] = new PhysicsEngineForFun.ParticleConnectingRod();
             world.contactGenerators.Add(connectingRods[i]);
@@ -48,56 +53,56 @@ public class Platform : MonoBehaviour
         connectingRods[1].particle0 = particles[2];
         connectingRods[1].particle1 = particles[3];
         connectingRods[1].Length = 2;
-        connectingRods[2].particle0 = particles[4];
-        connectingRods[2].particle1 = particles[5];
-        connectingRods[2].Length = 2;
-
-        connectingRods[3].particle0 = particles[2];
-        connectingRods[3].particle1 = particles[4];
+        connectingRods[2].particle0 = particles[0];
+        connectingRods[2].particle1 = particles[2];
+        connectingRods[2].Length = 7;
+        connectingRods[3].particle0 = particles[1];
+        connectingRods[3].particle1 = particles[3];
         connectingRods[3].Length = 7;
-        connectingRods[4].particle0 = particles[3];
-        connectingRods[4].particle1 = particles[5];
-        connectingRods[4].Length = 7;
-
-        connectingRods[5].particle0 = particles[0];
+        connectingRods[4].particle0 = particles[0];
+        connectingRods[4].particle1 = particles[3];
+        connectingRods[4].Length = 7.28f;     
+        connectingRods[5].particle0 = particles[1];
         connectingRods[5].particle1 = particles[2];
-        connectingRods[5].Length = 3.606f;
-        connectingRods[6].particle0 = particles[1];
-        connectingRods[6].particle1 = particles[3];
-        connectingRods[6].Length = 3.606f;
+        connectingRods[5].Length = 7.28f;
 
-        connectingRods[7].particle0 = particles[0];
-        connectingRods[7].particle1 = particles[4];
-        connectingRods[7].Length = 4.472f;
-        connectingRods[8].particle0 = particles[1];
-        connectingRods[8].particle1 = particles[5];
-        connectingRods[8].Length = 4.472f;
+        for (int i = 0; i < 8; ++i)
+        {
+            rodsConstraints[i] = new PhysicsEngineForFun.ParticleConnectingRodConstraint();
+            world.contactGenerators.Add(rodsConstraints[i]);
+        }
 
-        connectingRods[9].particle0 = particles[0];
-        connectingRods[9].particle1 = particles[3];
-        connectingRods[9].Length = 4.123f;
-        connectingRods[10].particle0 = particles[2];
-        connectingRods[10].particle1 = particles[5];
-        connectingRods[10].Length = 7.28f;
-        connectingRods[11].particle0 = particles[4];
-        connectingRods[11].particle1 = particles[1];
-        connectingRods[11].Length = 4.899f;
-        connectingRods[12].particle0 = particles[1];
-        connectingRods[12].particle1 = particles[2];
-        connectingRods[12].Length = 4.123f;
-        connectingRods[13].particle0 = particles[3];
-        connectingRods[13].particle1 = particles[4];
-        connectingRods[13].Length = 7.28f;
-        connectingRods[14].particle0 = particles[5];
-        connectingRods[14].particle1 = particles[0];
-        connectingRods[14].Length = 4.899f;
+        rodsConstraints[0].anchorPoint = fixedPoints[0];
+        rodsConstraints[0].particle = particles[0];
+        rodsConstraints[0].Length = 3.606f;
+        rodsConstraints[1].anchorPoint = fixedPoints[1];
+        rodsConstraints[1].particle = particles[1];
+        rodsConstraints[1].Length = 3.606f;
+        rodsConstraints[2].anchorPoint = fixedPoints[0];
+        rodsConstraints[2].particle = particles[2];
+        rodsConstraints[2].Length = 4.472f;
+        rodsConstraints[3].anchorPoint = fixedPoints[1];
+        rodsConstraints[3].particle = particles[3];
+        rodsConstraints[3].Length = 4.472f;
+        rodsConstraints[4].anchorPoint = fixedPoints[0];
+        rodsConstraints[4].particle = particles[1];
+        rodsConstraints[4].Length = 4.123f;
+        rodsConstraints[5].particle = particles[3];
+        rodsConstraints[5].anchorPoint = fixedPoints[0];
+        rodsConstraints[5].Length = 4.899f;
+        rodsConstraints[6].particle = particles[2];
+        rodsConstraints[6].anchorPoint = fixedPoints[1];
+        rodsConstraints[6].Length = 4.899f;
+        rodsConstraints[7].anchorPoint = fixedPoints[1];
+        rodsConstraints[7].particle = particles[0];
+        rodsConstraints[7].Length = 4.123f;
 
         UpdateAdditionalMass();
     }
 
     private void OnDestroy()
     {
-        for(int i = 0; i < 6; ++i)
+        for(int i = 0; i < 4; ++i)
         {
             if(particles[i] != null)
             {
@@ -106,12 +111,21 @@ public class Platform : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 15; ++i)
+        for (int i = 0; i < 6; ++i)
         {
             if (connectingRods[i] != null)
             {
                 connectingRods[i].Dispose();
                 connectingRods[i] = null;
+            }
+        }
+
+        for (int i = 0; i < 8; ++i)
+        {
+            if (rodsConstraints[i] != null)
+            {
+                rodsConstraints[i].Dispose();
+                rodsConstraints[i] = null;
             }
         }
 
@@ -151,7 +165,7 @@ public class Platform : MonoBehaviour
 
     private void UpdateAdditionalMass()
     {
-        for (int i = 0; i < 6; ++i) particles[i].SetMass(ParticleMass);
+        for (int i = 0; i < 4; ++i) particles[i].SetMass(ParticleMass);
         AdditionalMassPos.x = Mathf.Clamp(AdditionalMassPos.x, 0, 1);
         AdditionalMassPos.z = Mathf.Clamp(AdditionalMassPos.z, 0, 1);
         int x = 0;
@@ -190,30 +204,47 @@ public class Platform : MonoBehaviour
         
         GL.Begin(GL.LINES);
         GL.Color(Color.green);
-        for (int i = 0; i < 15; ++i)
+        for (int i = 0; i < 6; ++i)
         {
             if (connectingRods[i] == null) break;
             GL.Vertex3(connectingRods[i].particle0.position.x, connectingRods[i].particle0.position.y, connectingRods[i].particle0.position.z);
             GL.Vertex3(connectingRods[i].particle1.position.x, connectingRods[i].particle1.position.y, connectingRods[i].particle1.position.z);
         }
+        GL.Color(Color.cyan);
+        for (int i = 0; i < 8; ++i)
+        {
+            if (rodsConstraints[i] == null) break;
+            GL.Vertex3(rodsConstraints[i].particle.position.x, rodsConstraints[i].particle.position.y, rodsConstraints[i].particle.position.z);
+            GL.Vertex3(rodsConstraints[i].anchorPoint.x, rodsConstraints[i].anchorPoint.y, rodsConstraints[i].anchorPoint.z);
+        }
         GL.End();
 
-        for (int i = 0; i < 6; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             GLDrawSphere(new Vector3(particles[i].position.x, particles[i].position.y, particles[i].position.z),
                 0.1f,
-                Color.yellow);
+                Color.yellow, 3);
         }
-
+        GL.PopMatrix();
         GLDrawSphere(AdditionalMassRealPos,
                 0.3f,
-                Color.red);
+                Color.red, 3);
 
-        GL.PopMatrix();
+        GLDrawSphere(new Vector3(fixedPoints[0].x, fixedPoints[0].y, fixedPoints[0].z),
+                0.1f,
+                Color.black, 3);
+
+        GLDrawSphere(new Vector3(fixedPoints[1].x, fixedPoints[1].y, fixedPoints[1].z),
+                0.1f,
+                Color.black, 3);
+
+        
     }
 
     private void GLDrawSphere(Vector3 center, float radius, Color color, int n = 3)
     {
+        GL.PushMatrix();
+        Mat.SetPass(0);
         GL.Begin(GL.TRIANGLES);
         GL.Color(color);
 
@@ -228,6 +259,7 @@ public class Platform : MonoBehaviour
         DivideTriangle(a, c, d, n, center, radius);
 
         GL.End();
+        GL.PopMatrix();
     }
 
     private void DivideTriangle(Vector3 a, Vector3 b, Vector3 c, int count, Vector3 center, float radius)

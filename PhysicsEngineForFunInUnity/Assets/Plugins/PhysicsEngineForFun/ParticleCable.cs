@@ -79,34 +79,6 @@ namespace PhysicsEngineForFun
             }
         }
 
-        public Particle particle0
-        {
-            set
-            {
-                PhysicsEngineForFunPINVOKE.ParticleCable_particle0_set(swigCPtr, Particle.getCPtr(value));
-            }
-            get
-            {
-                global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleCable_particle0_get(swigCPtr);
-                Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
-                return ret;
-            }
-        }
-
-        public Particle particle1
-        {
-            set
-            {
-                PhysicsEngineForFunPINVOKE.ParticleCable_particle1_set(swigCPtr, Particle.getCPtr(value));
-            }
-            get
-            {
-                global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleCable_particle1_get(swigCPtr);
-                Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
-                return ret;
-            }
-        }
-
         public ParticleCable() : this(PhysicsEngineForFunPINVOKE.new_ParticleCable(), true)
         {
         }

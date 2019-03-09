@@ -93,8 +93,14 @@ public:
 		unsigned int limit) const;
 	float maxLength;
 	float restitutionCoefficient;
-	Particle * particle;
-	Vector3 anchorPoint;
+};
+
+class ParticleConnectingRodConstraint : public ParticleConstraint
+{
+public:
+	virtual bool AddContact(ParticleContact *contact,
+	unsigned int limit) const;
+	float Length;
 };
 
 %template(VectorParticle) std::vector<Particle*>;

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleCable.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleCableConstraint.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleConnectingRod.cs" />
+    <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleConnectingRodConstraint.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleConstraint.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleContact.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleLink.cs" />

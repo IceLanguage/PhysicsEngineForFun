@@ -343,18 +343,6 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCable_restitutionCoefficient_get")]
   public static extern float ParticleCable_restitutionCoefficient_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCable_particle0_set")]
-  public static extern void ParticleCable_particle0_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCable_particle0_get")]
-  public static extern global::System.IntPtr ParticleCable_particle0_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCable_particle1_set")]
-  public static extern void ParticleCable_particle1_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCable_particle1_get")]
-  public static extern global::System.IntPtr ParticleCable_particle1_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_ParticleCable")]
   public static extern global::System.IntPtr new_ParticleCable();
 
@@ -412,23 +400,26 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCableConstraint_restitutionCoefficient_get")]
   public static extern float ParticleCableConstraint_restitutionCoefficient_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCableConstraint_particle_set")]
-  public static extern void ParticleCableConstraint_particle_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCableConstraint_particle_get")]
-  public static extern global::System.IntPtr ParticleCableConstraint_particle_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCableConstraint_anchorPoint_set")]
-  public static extern void ParticleCableConstraint_anchorPoint_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCableConstraint_anchorPoint_get")]
-  public static extern global::System.IntPtr ParticleCableConstraint_anchorPoint_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_ParticleCableConstraint")]
   public static extern global::System.IntPtr new_ParticleCableConstraint();
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleCableConstraint")]
   public static extern void delete_ParticleCableConstraint(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleConnectingRodConstraint_AddContact")]
+  public static extern bool ParticleConnectingRodConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleConnectingRodConstraint_Length_set")]
+  public static extern void ParticleConnectingRodConstraint_Length_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleConnectingRodConstraint_Length_get")]
+  public static extern float ParticleConnectingRodConstraint_Length_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_ParticleConnectingRodConstraint")]
+  public static extern global::System.IntPtr new_ParticleConnectingRodConstraint();
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleConnectingRodConstraint")]
+  public static extern void delete_ParticleConnectingRodConstraint(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticle_Clear")]
   public static extern void VectorParticle_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -627,4 +618,7 @@ class PhysicsEngineForFunPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleCableConstraint_SWIGUpcast")]
   public static extern global::System.IntPtr ParticleCableConstraint_SWIGUpcast(global::System.IntPtr jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleConnectingRodConstraint_SWIGUpcast")]
+  public static extern global::System.IntPtr ParticleConnectingRodConstraint_SWIGUpcast(global::System.IntPtr jarg1);
 }
