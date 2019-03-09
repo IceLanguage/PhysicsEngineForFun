@@ -134,4 +134,14 @@ public class FireWorks : MonoBehaviour
         FireParticle particle = new FireParticle();
         fireParticles.Enqueue(particle);
     }
+
+    private void OnDestroy()
+    {
+        while(fireParticles.Count > 0)
+        {
+            FireParticle p = fireParticles.Dequeue();
+            if(p != null)
+                p.Dispose();
+        }
+    }
 }
