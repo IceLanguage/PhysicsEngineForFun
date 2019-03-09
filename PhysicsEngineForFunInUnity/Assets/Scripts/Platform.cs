@@ -7,18 +7,20 @@ public class Platform : MonoBehaviour
     private readonly PhysicsEngineForFun.Particle[] particles = new PhysicsEngineForFun.Particle[4];
     private readonly PhysicsEngineForFun.ParticleConnectingRod[] connectingRods = new PhysicsEngineForFun.ParticleConnectingRod[6];
     private readonly PhysicsEngineForFun.ParticleConnectingRodConstraint[] rodsConstraints = new PhysicsEngineForFun.ParticleConnectingRodConstraint[8];
+
     private readonly PhysicsEngineForFun.Vector3[] fixedPoints = new PhysicsEngineForFun.Vector3[2]
     {
         new PhysicsEngineForFun.Vector3(0, 0 , 1),
         new PhysicsEngineForFun.Vector3(0, 0 ,-1)
     };
+
     public Vector3 AdditionalMassRealPos;
     public float ParticleMass = 1;
     public float AdditionalMass = 10f;
     private Vector3 AdditionalMassPos = new Vector3(2.5f, 0, 0.5f);
 
     public Material Mat;
-
+    
     private void Start()
     {
         for (int i = 0; i < 4; ++i)
@@ -201,7 +203,6 @@ public class Platform : MonoBehaviour
         GL.PushMatrix();
         Mat.SetPass(0);
 
-        
         GL.Begin(GL.LINES);
         GL.Color(Color.green);
         for (int i = 0; i < 6; ++i)

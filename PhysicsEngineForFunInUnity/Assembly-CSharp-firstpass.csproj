@@ -73,6 +73,7 @@
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleWorld.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\PhysicsEngineForFun.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\PhysicsEngineForFunPINVOKE.cs" />
+    <Compile Include="Assets\Plugins\PhysicsEngineForFun\SimpleGroundContactGenerator.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\Vector3.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\VectorIParticleContactGenerator.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\VectorParticle.cs" />

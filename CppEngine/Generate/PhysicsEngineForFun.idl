@@ -110,10 +110,18 @@ class ParticleWorld
 {
 public:
 	ParticleWorld(unsigned int maxContacts, unsigned int contactsResolverIterations = 0);
-	void Start();
 	void RunPhysics(float duration);
 	std::vector<Particle*> particles;
 	std::vector<IParticleContactGenerator*> contactGenerators;
 };
 
-
+class SimpleGroundContactGenerator : public IParticleContactGenerator
+{
+public:
+	virtual bool AddContact(ParticleContact *contact,
+		unsigned int limit) const;
+	Vector3 pointInGround;
+	Vector3 normal;
+	Particle* particle;
+	float restitutionCoefficient;
+};

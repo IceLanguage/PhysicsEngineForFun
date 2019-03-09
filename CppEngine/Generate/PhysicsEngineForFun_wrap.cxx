@@ -2309,14 +2309,6 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleWorld__SWIG_1(unsigned int jarg
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_Start(void * jarg1) {
-  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
-  
-  arg1 = (ParticleWorld *)jarg1; 
-  (arg1)->Start();
-}
-
-
 SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_RunPhysics(void * jarg1, float jarg2) {
   ParticleWorld *arg1 = (ParticleWorld *) 0 ;
   float arg2 ;
@@ -2379,6 +2371,128 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleWorld(void * jarg1) {
 }
 
 
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_SimpleGroundContactGenerator_AddContact(void * jarg1, void * jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  unsigned int arg3 ;
+  bool result;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (bool)((SimpleGroundContactGenerator const *)arg1)->AddContact(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_SimpleGroundContactGenerator_pointInGround_set(void * jarg1, void * jarg2) {
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  Vector3 *arg2 = (Vector3 *) 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  arg2 = (Vector3 *)jarg2; 
+  if (arg1) (arg1)->pointInGround = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_SimpleGroundContactGenerator_pointInGround_get(void * jarg1) {
+  void * jresult ;
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  Vector3 *result = 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  result = (Vector3 *)& ((arg1)->pointInGround);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_SimpleGroundContactGenerator_normal_set(void * jarg1, void * jarg2) {
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  Vector3 *arg2 = (Vector3 *) 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  arg2 = (Vector3 *)jarg2; 
+  if (arg1) (arg1)->normal = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_SimpleGroundContactGenerator_normal_get(void * jarg1) {
+  void * jresult ;
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  Vector3 *result = 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  result = (Vector3 *)& ((arg1)->normal);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_SimpleGroundContactGenerator_particle_set(void * jarg1, void * jarg2) {
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  if (arg1) (arg1)->particle = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_SimpleGroundContactGenerator_particle_get(void * jarg1) {
+  void * jresult ;
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  Particle *result = 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  result = (Particle *) ((arg1)->particle);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_SimpleGroundContactGenerator_restitutionCoefficient_set(void * jarg1, float jarg2) {
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  float arg2 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->restitutionCoefficient = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_SimpleGroundContactGenerator_restitutionCoefficient_get(void * jarg1) {
+  float jresult ;
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  float result;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  result = (float) ((arg1)->restitutionCoefficient);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_SimpleGroundContactGenerator() {
+  void * jresult ;
+  SimpleGroundContactGenerator *result = 0 ;
+  
+  result = (SimpleGroundContactGenerator *)new SimpleGroundContactGenerator();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_SimpleGroundContactGenerator(void * jarg1) {
+  SimpleGroundContactGenerator *arg1 = (SimpleGroundContactGenerator *) 0 ;
+  
+  arg1 = (SimpleGroundContactGenerator *)jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT IParticleContactGenerator * SWIGSTDCALL CSharp_ParticleLink_SWIGUpcast(ParticleLink *jarg1) {
     return (IParticleContactGenerator *)jarg1;
 }
@@ -2401,6 +2515,10 @@ SWIGEXPORT ParticleConstraint * SWIGSTDCALL CSharp_ParticleCableConstraint_SWIGU
 
 SWIGEXPORT ParticleConstraint * SWIGSTDCALL CSharp_ParticleConnectingRodConstraint_SWIGUpcast(ParticleConnectingRodConstraint *jarg1) {
     return (ParticleConstraint *)jarg1;
+}
+
+SWIGEXPORT IParticleContactGenerator * SWIGSTDCALL CSharp_SimpleGroundContactGenerator_SWIGUpcast(SimpleGroundContactGenerator *jarg1) {
+    return (IParticleContactGenerator *)jarg1;
 }
 
 #ifdef __cplusplus

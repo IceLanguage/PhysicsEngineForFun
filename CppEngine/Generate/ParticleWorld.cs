@@ -45,10 +45,6 @@ public class ParticleWorld : global::System.IDisposable {
   public ParticleWorld(uint maxContacts) : this(PhysicsEngineForFunPINVOKE.new_ParticleWorld__SWIG_1(maxContacts), true) {
   }
 
-  public void Start() {
-    PhysicsEngineForFunPINVOKE.ParticleWorld_Start(swigCPtr);
-  }
-
   public void RunPhysics(float duration) {
     PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics(swigCPtr, duration);
   }

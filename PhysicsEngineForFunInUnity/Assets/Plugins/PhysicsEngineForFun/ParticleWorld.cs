@@ -57,11 +57,6 @@ namespace PhysicsEngineForFun
         {
         }
 
-        public void Start()
-        {
-            PhysicsEngineForFunPINVOKE.ParticleWorld_Start(swigCPtr);
-        }
-
         public void RunPhysics(float duration)
         {
             PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics(swigCPtr, duration);

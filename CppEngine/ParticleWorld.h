@@ -27,4 +27,14 @@ public:
 	void RunPhysics(float duration);
 };
 
+class SimpleGroundContactGenerator :IParticleContactGenerator
+{
+public:
+	Vector3 pointInGround;
+	Vector3 normal;
+	Particle* particle;
+	float restitutionCoefficient;
+	virtual bool AddContact(ParticleContact *contact,
+		unsigned int limit) const;
+};
 #endif

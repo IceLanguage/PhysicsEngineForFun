@@ -68,3 +68,23 @@ void ParticleWorld::RunPhysics(float duration)
         resolver.ResolveContacts(contacts, usedContacts, duration);
     }
 }
+
+bool SimpleGroundContactGenerator::AddContact(ParticleContact * contact, unsigned int limit) const
+{
+	Vector3 dir = particle->position - pointInGround;
+	float dot = Vector3::Dot(dir, normal);
+	if (dot >= 0)
+	{
+		return false;
+	}
+
+	contact->particle0 = particle;
+	contact->particle1 = 0;
+
+	contact->contactNormal = normal;
+
+	contact->penetrationDepth = sqrtf(dir.SquareMagnitude() - dot * dot);
+	contact->restitutionCoefficient = restitutionCoefficient;
+
+	return true;
+}
