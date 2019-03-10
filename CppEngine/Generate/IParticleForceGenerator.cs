@@ -40,10 +40,32 @@ public class IParticleForceGenerator : global::System.IDisposable {
   }
 
   public virtual void UpdateForce(Particle particle, float duration) {
-    PhysicsEngineForFunPINVOKE.IParticleForceGenerator_UpdateForce(swigCPtr, Particle.getCPtr(particle), duration);
+    if (SwigDerivedClassHasMethod("UpdateForce", swigMethodTypes0)) PhysicsEngineForFunPINVOKE.IParticleForceGenerator_UpdateForceSwigExplicitIParticleForceGenerator(swigCPtr, Particle.getCPtr(particle), duration); else PhysicsEngineForFunPINVOKE.IParticleForceGenerator_UpdateForce(swigCPtr, Particle.getCPtr(particle), duration);
   }
 
   public IParticleForceGenerator() : this(PhysicsEngineForFunPINVOKE.new_IParticleForceGenerator(), true) {
+    SwigDirectorConnect();
   }
 
+  private void SwigDirectorConnect() {
+    if (SwigDerivedClassHasMethod("UpdateForce", swigMethodTypes0))
+      swigDelegate0 = new SwigDelegateIParticleForceGenerator_0(SwigDirectorUpdateForce);
+    PhysicsEngineForFunPINVOKE.IParticleForceGenerator_director_connect(swigCPtr, swigDelegate0);
+  }
+
+  private bool SwigDerivedClassHasMethod(string methodName, global::System.Type[] methodTypes) {
+    global::System.Reflection.MethodInfo methodInfo = this.GetType().GetMethod(methodName, global::System.Reflection.BindingFlags.Public | global::System.Reflection.BindingFlags.NonPublic | global::System.Reflection.BindingFlags.Instance, null, methodTypes, null);
+    bool hasDerivedMethod = methodInfo.DeclaringType.IsSubclassOf(typeof(IParticleForceGenerator));
+    return hasDerivedMethod;
+  }
+
+  private void SwigDirectorUpdateForce(global::System.IntPtr particle, float duration) {
+    UpdateForce((particle == global::System.IntPtr.Zero) ? null : new Particle(particle, false), duration);
+  }
+
+  public delegate void SwigDelegateIParticleForceGenerator_0(global::System.IntPtr particle, float duration);
+
+  private SwigDelegateIParticleForceGenerator_0 swigDelegate0;
+
+  private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(Particle), typeof(float) };
 }

@@ -1,4 +1,4 @@
-%module PhysicsEngineForFun
+%module(directors = "1") PhysicsEngineForFun
 
 %include <std_vector.i>
 
@@ -7,6 +7,9 @@
 	#include "../ParticleConstraint.h"
 	#include "../ParticleLink.h"
 %}
+
+%feature("director") IParticleContactGenerator;
+%feature("director") IParticleForceGenerator;
 
 struct Vector3
 {
@@ -124,4 +127,3 @@ public:
 	std::vector<IParticleContactGenerator*> contactGenerators;
 	ParticleForceRegistry registry;
 };
-

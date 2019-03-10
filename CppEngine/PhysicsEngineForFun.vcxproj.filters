@@ -10,6 +10,9 @@
     <ClInclude Include="ParticleLink.h" />
     <ClInclude Include="ParticleWorld.h" />
     <ClInclude Include="ParticleConstraint.h" />
+    <ClInclude Include="Generate\PhysicsEngineForFun_wrap.h">
+      <Filter>Generate</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">

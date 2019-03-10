@@ -130,7 +130,7 @@ public class BlobGame : MonoBehaviour
         blobForceGenerator = new BlobForceGenerator()
         {
             particles = particles,
-            maximumForceToPullTogether = 20f,
+            maximumForceToPullTogether = 10f,
             maximumForceToPushApart = 10f,
             maximumForceToFloat = 2f,
             minNaturalDistance = partcleRadius * 0.7f,
@@ -174,7 +174,7 @@ public class BlobGame : MonoBehaviour
         world.Start();
         xmove *= Mathf.Pow(0.1f, Time.fixedDeltaTime);
         ymove *= Mathf.Pow(0.1f, Time.fixedDeltaTime);
-        particles[0].AddForce(new PhysicsEngineForFun.Vector3(xmove * 10, ymove * 10, 0));
+        particles[0].AddForce(new PhysicsEngineForFun.Vector3(xmove, ymove, 0));
         world.RunPhysics(Time.fixedDeltaTime, false);
     }
 

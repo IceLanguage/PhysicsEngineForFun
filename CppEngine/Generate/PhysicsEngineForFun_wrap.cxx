@@ -13,6 +13,7 @@
 #define SWIGCSHARP
 #endif
 
+#define SWIG_DIRECTORS
 
 
 #ifdef __cplusplus
@@ -298,6 +299,67 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_PhysicsEngineForFun(SWIG_
 
 #define SWIG_contract_assert(nullreturn, expr, msg) if (!(expr)) {SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, msg, ""); return nullreturn; } else
 
+/* -----------------------------------------------------------------------------
+ * director_common.swg
+ *
+ * This file contains support for director classes which is common between
+ * languages.
+ * ----------------------------------------------------------------------------- */
+
+/*
+  Use -DSWIG_DIRECTOR_STATIC if you prefer to avoid the use of the
+  'Swig' namespace. This could be useful for multi-modules projects.
+*/
+#ifdef SWIG_DIRECTOR_STATIC
+/* Force anonymous (static) namespace */
+#define Swig
+#endif
+/* -----------------------------------------------------------------------------
+ * director.swg
+ *
+ * This file contains support for director classes so that C# proxy
+ * methods can be called from C++.
+ * ----------------------------------------------------------------------------- */
+
+#if defined(DEBUG_DIRECTOR_OWNED)
+#include <iostream>
+#endif
+#include <string>
+#include <exception>
+
+namespace Swig {
+  /* Director base class - not currently used in C# directors */
+  class Director {
+  };
+
+  /* Base class for director exceptions */
+  class DirectorException : public std::exception {
+  protected:
+    std::string swig_msg;
+
+  public:
+    DirectorException(const char *msg) : swig_msg(msg) {
+    }
+
+    DirectorException(const std::string &msg) : swig_msg(msg) {
+    }
+
+    virtual ~DirectorException() throw() {
+    }
+
+    const char *what() const throw() {
+      return swig_msg.c_str();
+    }
+  };
+
+  /* Pure virtual method exception */
+  class DirectorPureVirtualException : public DirectorException {
+  public:
+    DirectorPureVirtualException(const char *msg) : DirectorException(std::string("Attempt to invoke pure virtual method ") + msg) {
+    }
+  };
+}
+
 
 #include <typeinfo>
 #include <stdexcept>
@@ -544,6 +606,67 @@ SWIGINTERN bool std_vector_Sl_IParticleContactGenerator_Sm__Sg__Remove(std::vect
         }
         return false;
       }
+
+
+/* ---------------------------------------------------
+ * C++ director class methods
+ * --------------------------------------------------- */
+
+#include "PhysicsEngineForFun_wrap.h"
+
+SwigDirector_IParticleContactGenerator::SwigDirector_IParticleContactGenerator() : IParticleContactGenerator(), Swig::Director() {
+  swig_init_callbacks();
+}
+
+bool SwigDirector_IParticleContactGenerator::AddContact(ParticleContact *contact) const {
+  bool c_result = SwigValueInit< bool >() ;
+  unsigned int jresult = 0 ;
+  void * jcontact = 0 ;
+  
+  if (!swig_callbackAddContact) {
+    return IParticleContactGenerator::AddContact(contact);
+  } else {
+    jcontact = (void *) contact; 
+    jresult = (unsigned int) swig_callbackAddContact(jcontact);
+    c_result = jresult ? true : false; 
+  }
+  return c_result;
+}
+
+void SwigDirector_IParticleContactGenerator::swig_connect_director(SWIG_Callback0_t callbackAddContact) {
+  swig_callbackAddContact = callbackAddContact;
+}
+
+void SwigDirector_IParticleContactGenerator::swig_init_callbacks() {
+  swig_callbackAddContact = 0;
+}
+
+SwigDirector_IParticleForceGenerator::SwigDirector_IParticleForceGenerator() : IParticleForceGenerator(), Swig::Director() {
+  swig_init_callbacks();
+}
+
+void SwigDirector_IParticleForceGenerator::UpdateForce(Particle *particle, float duration) {
+  void * jparticle = 0 ;
+  float jduration  ;
+  
+  if (!swig_callbackUpdateForce) {
+    IParticleForceGenerator::UpdateForce(particle,duration);
+    return;
+  } else {
+    jparticle = (void *) particle; 
+    jduration = duration;
+    swig_callbackUpdateForce(jparticle, jduration);
+  }
+}
+
+void SwigDirector_IParticleForceGenerator::swig_connect_director(SWIG_Callback0_t callbackUpdateForce) {
+  swig_callbackUpdateForce = callbackUpdateForce;
+}
+
+void SwigDirector_IParticleForceGenerator::swig_init_callbacks() {
+  swig_callbackUpdateForce = 0;
+}
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -973,11 +1096,25 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IParticleContactGenerator_AddContact(
 }
 
 
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_IParticleContactGenerator_AddContactSwigExplicitIParticleContactGenerator(void * jarg1, void * jarg2) {
+  unsigned int jresult ;
+  IParticleContactGenerator *arg1 = (IParticleContactGenerator *) 0 ;
+  ParticleContact *arg2 = (ParticleContact *) 0 ;
+  bool result;
+  
+  arg1 = (IParticleContactGenerator *)jarg1; 
+  arg2 = (ParticleContact *)jarg2; 
+  result = (bool)((IParticleContactGenerator const *)arg1)->IParticleContactGenerator::AddContact(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_new_IParticleContactGenerator() {
   void * jresult ;
   IParticleContactGenerator *result = 0 ;
   
-  result = (IParticleContactGenerator *)new IParticleContactGenerator();
+  result = (IParticleContactGenerator *)new SwigDirector_IParticleContactGenerator();
   jresult = (void *)result; 
   return jresult;
 }
@@ -988,6 +1125,15 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_IParticleContactGenerator(void * jarg1
   
   arg1 = (IParticleContactGenerator *)jarg1; 
   delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_IParticleContactGenerator_director_connect(void *objarg, SwigDirector_IParticleContactGenerator::SWIG_Callback0_t callback0) {
+  IParticleContactGenerator *obj = (IParticleContactGenerator *)objarg;
+  SwigDirector_IParticleContactGenerator *director = dynamic_cast<SwigDirector_IParticleContactGenerator *>(obj);
+  if (director) {
+    director->swig_connect_director(callback0);
+  }
 }
 
 
@@ -1439,11 +1585,23 @@ SWIGEXPORT void SWIGSTDCALL CSharp_IParticleForceGenerator_UpdateForce(void * ja
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_IParticleForceGenerator_UpdateForceSwigExplicitIParticleForceGenerator(void * jarg1, void * jarg2, float jarg3) {
+  IParticleForceGenerator *arg1 = (IParticleForceGenerator *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  float arg3 ;
+  
+  arg1 = (IParticleForceGenerator *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->IParticleForceGenerator::UpdateForce(arg2,arg3);
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_new_IParticleForceGenerator() {
   void * jresult ;
   IParticleForceGenerator *result = 0 ;
   
-  result = (IParticleForceGenerator *)new IParticleForceGenerator();
+  result = (IParticleForceGenerator *)new SwigDirector_IParticleForceGenerator();
   jresult = (void *)result; 
   return jresult;
 }
@@ -1454,6 +1612,15 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_IParticleForceGenerator(void * jarg1) 
   
   arg1 = (IParticleForceGenerator *)jarg1; 
   delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_IParticleForceGenerator_director_connect(void *objarg, SwigDirector_IParticleForceGenerator::SWIG_Callback0_t callback0) {
+  IParticleForceGenerator *obj = (IParticleForceGenerator *)objarg;
+  SwigDirector_IParticleForceGenerator *director = dynamic_cast<SwigDirector_IParticleForceGenerator *>(obj);
+  if (director) {
+    director->swig_connect_director(callback0);
+  }
 }
 
 

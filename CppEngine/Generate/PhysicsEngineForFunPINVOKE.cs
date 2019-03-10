@@ -304,11 +304,17 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleContactGenerator_AddContact")]
   public static extern bool IParticleContactGenerator_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleContactGenerator_AddContactSwigExplicitIParticleContactGenerator")]
+  public static extern bool IParticleContactGenerator_AddContactSwigExplicitIParticleContactGenerator(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_IParticleContactGenerator")]
   public static extern global::System.IntPtr new_IParticleContactGenerator();
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_IParticleContactGenerator")]
   public static extern void delete_IParticleContactGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleContactGenerator_director_connect")]
+  public static extern void IParticleContactGenerator_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, IParticleContactGenerator.SwigDelegateIParticleContactGenerator_0 delegate0);
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleLink_GetCurrentLength")]
   public static extern float ParticleLink_GetCurrentLength(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -433,11 +439,17 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleForceGenerator_UpdateForce")]
   public static extern void IParticleForceGenerator_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
 
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleForceGenerator_UpdateForceSwigExplicitIParticleForceGenerator")]
+  public static extern void IParticleForceGenerator_UpdateForceSwigExplicitIParticleForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_IParticleForceGenerator")]
   public static extern global::System.IntPtr new_IParticleForceGenerator();
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_IParticleForceGenerator")]
   public static extern void delete_IParticleForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleForceGenerator_director_connect")]
+  public static extern void IParticleForceGenerator_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, IParticleForceGenerator.SwigDelegateIParticleForceGenerator_0 delegate0);
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleForceRegistry_Add")]
   public static extern void ParticleForceRegistry_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);

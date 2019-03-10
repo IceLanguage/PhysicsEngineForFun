@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Generate\PhysicsEngineForFun_wrap.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleConstraint.h" />
     <ClInclude Include="ParticleContact.h" />

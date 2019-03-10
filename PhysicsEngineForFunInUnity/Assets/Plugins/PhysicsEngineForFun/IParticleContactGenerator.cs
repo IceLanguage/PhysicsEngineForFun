@@ -50,14 +50,38 @@ namespace PhysicsEngineForFun
 
         public virtual bool AddContact(ParticleContact contact)
         {
-            bool ret = PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
+            bool ret = (SwigDerivedClassHasMethod("AddContact", swigMethodTypes0) ? PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContactSwigExplicitIParticleContactGenerator(swigCPtr, ParticleContact.getCPtr(contact)) : PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContact(swigCPtr, ParticleContact.getCPtr(contact)));
             return ret;
         }
 
         public IParticleContactGenerator() : this(PhysicsEngineForFunPINVOKE.new_IParticleContactGenerator(), true)
         {
+            SwigDirectorConnect();
         }
 
-    }
+        private void SwigDirectorConnect()
+        {
+            if (SwigDerivedClassHasMethod("AddContact", swigMethodTypes0))
+                swigDelegate0 = new SwigDelegateIParticleContactGenerator_0(SwigDirectorAddContact);
+            PhysicsEngineForFunPINVOKE.IParticleContactGenerator_director_connect(swigCPtr, swigDelegate0);
+        }
 
+        private bool SwigDerivedClassHasMethod(string methodName, global::System.Type[] methodTypes)
+        {
+            global::System.Reflection.MethodInfo methodInfo = this.GetType().GetMethod(methodName, global::System.Reflection.BindingFlags.Public | global::System.Reflection.BindingFlags.NonPublic | global::System.Reflection.BindingFlags.Instance, null, methodTypes, null);
+            bool hasDerivedMethod = methodInfo.DeclaringType.IsSubclassOf(typeof(IParticleContactGenerator));
+            return hasDerivedMethod;
+        }
+
+        private bool SwigDirectorAddContact(global::System.IntPtr contact)
+        {
+            return AddContact((contact == global::System.IntPtr.Zero) ? null : new ParticleContact(contact, false));
+        }
+
+        public delegate bool SwigDelegateIParticleContactGenerator_0(global::System.IntPtr contact);
+
+        private SwigDelegateIParticleContactGenerator_0 swigDelegate0;
+
+        private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(ParticleContact) };
+    }
 }
