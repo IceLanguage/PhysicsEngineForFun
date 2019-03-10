@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\IParticleContactGenerator.cs" />
+    <Compile Include="Assets\Plugins\PhysicsEngineForFun\IParticleForceGenerator.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\Particle.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleCable.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleCableConstraint.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleConnectingRodConstraint.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleConstraint.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleContact.cs" />
+    <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleForceRegistry.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleLink.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\ParticleWorld.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\PhysicsEngineForFun.cs" />

@@ -190,10 +190,10 @@ public class Platform : MonoBehaviour
         particles[a3].SetMass(ParticleMass + AdditionalMass * t3);
         particles[a4].SetMass(ParticleMass + AdditionalMass * t4);
 
-        Vector3 p1 = new Vector3(particles[a1].position.x, particles[a1].position.y, particles[a1].position.z);
-        Vector3 p2 = new Vector3(particles[a2].position.x, particles[a2].position.y, particles[a2].position.z);
-        Vector3 p3 = new Vector3(particles[a3].position.x, particles[a3].position.y, particles[a3].position.z);
-        Vector3 p4 = new Vector3(particles[a4].position.x, particles[a4].position.y, particles[a4].position.z);
+        Vector3 p1 = particles[a1].GetParticlePos();
+        Vector3 p2 = particles[a2].GetParticlePos();
+        Vector3 p3 = particles[a3].GetParticlePos();
+        Vector3 p4 = particles[a4].GetParticlePos();
 
         AdditionalMassRealPos = p1 * t1 + p2 * t2 + p3 * t3 + p4 * t4;
     }

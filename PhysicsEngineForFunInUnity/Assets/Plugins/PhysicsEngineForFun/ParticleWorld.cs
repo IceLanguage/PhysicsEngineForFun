@@ -57,9 +57,19 @@ namespace PhysicsEngineForFun
         {
         }
 
+        public void Start()
+        {
+            PhysicsEngineForFunPINVOKE.ParticleWorld_Start(swigCPtr);
+        }
+
+        public void RunPhysics(float duration, bool needRestart)
+        {
+            PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics__SWIG_0(swigCPtr, duration, needRestart);
+        }
+
         public void RunPhysics(float duration)
         {
-            PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics(swigCPtr, duration);
+            PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics__SWIG_1(swigCPtr, duration);
         }
 
         public VectorParticle particles
@@ -90,6 +100,21 @@ namespace PhysicsEngineForFun
             }
         }
 
+        public ParticleForceRegistry registry
+        {
+            set
+            {
+                PhysicsEngineForFunPINVOKE.ParticleWorld_registry_set(swigCPtr, ParticleForceRegistry.getCPtr(value));
+            }
+            get
+            {
+                global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleWorld_registry_get(swigCPtr);
+                ParticleForceRegistry ret = (cPtr == global::System.IntPtr.Zero) ? null : new ParticleForceRegistry(cPtr, false);
+                return ret;
+            }
+        }
+
     }
+
 
 }

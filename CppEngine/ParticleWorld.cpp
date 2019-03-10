@@ -53,9 +53,9 @@ void ParticleWorld::Integrate(float duration)
 	}
 }
 
-void ParticleWorld::RunPhysics(float duration)
+void ParticleWorld::RunPhysics(float duration ,bool needRestart)
 {
-	Start();
+	if(needRestart) Start();
 
 	registry.UpdateForces(duration);
 	Integrate(duration);

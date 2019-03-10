@@ -8,7 +8,6 @@
 class ParticleWorld
 {
 private:	
-	ParticleForceRegistry registry;
 	ParticleContactsResolver resolver;
 	unsigned int maxContacts;
 	bool needCalculateIterations;
@@ -20,11 +19,12 @@ public:
 	std::vector<Particle*> particles;
 	std::vector<IParticleContactGenerator*> contactGenerators;
 	ParticleContact* contacts;
+	ParticleForceRegistry registry;
 
 	ParticleWorld(unsigned int maxContacts, unsigned int contactsResolverIterations = 0);
 	~ParticleWorld();
 	void Start();
-	void RunPhysics(float duration);
+	void RunPhysics(float duration, bool needRestart = true);
 };
 
 #endif

@@ -1427,6 +1427,96 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleConnectingRodConstraint(void *
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_IParticleForceGenerator_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
+  IParticleForceGenerator *arg1 = (IParticleForceGenerator *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  float arg3 ;
+  
+  arg1 = (IParticleForceGenerator *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->UpdateForce(arg2,arg3);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_IParticleForceGenerator() {
+  void * jresult ;
+  IParticleForceGenerator *result = 0 ;
+  
+  result = (IParticleForceGenerator *)new IParticleForceGenerator();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_IParticleForceGenerator(void * jarg1) {
+  IParticleForceGenerator *arg1 = (IParticleForceGenerator *) 0 ;
+  
+  arg1 = (IParticleForceGenerator *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleForceRegistry_Add(void * jarg1, void * jarg2, void * jarg3) {
+  ParticleForceRegistry *arg1 = (ParticleForceRegistry *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  IParticleForceGenerator *arg3 = (IParticleForceGenerator *) 0 ;
+  
+  arg1 = (ParticleForceRegistry *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  arg3 = (IParticleForceGenerator *)jarg3; 
+  (arg1)->Add(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleForceRegistry_Remove(void * jarg1, void * jarg2, void * jarg3) {
+  ParticleForceRegistry *arg1 = (ParticleForceRegistry *) 0 ;
+  Particle *arg2 = (Particle *) 0 ;
+  IParticleForceGenerator *arg3 = (IParticleForceGenerator *) 0 ;
+  
+  arg1 = (ParticleForceRegistry *)jarg1; 
+  arg2 = (Particle *)jarg2; 
+  arg3 = (IParticleForceGenerator *)jarg3; 
+  (arg1)->Remove(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleForceRegistry_Clear(void * jarg1) {
+  ParticleForceRegistry *arg1 = (ParticleForceRegistry *) 0 ;
+  
+  arg1 = (ParticleForceRegistry *)jarg1; 
+  (arg1)->Clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleForceRegistry_UpdateForces(void * jarg1, float jarg2) {
+  ParticleForceRegistry *arg1 = (ParticleForceRegistry *) 0 ;
+  float arg2 ;
+  
+  arg1 = (ParticleForceRegistry *)jarg1; 
+  arg2 = (float)jarg2; 
+  (arg1)->UpdateForces(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleForceRegistry() {
+  void * jresult ;
+  ParticleForceRegistry *result = 0 ;
+  
+  result = (ParticleForceRegistry *)new ParticleForceRegistry();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleForceRegistry(void * jarg1) {
+  ParticleForceRegistry *arg1 = (ParticleForceRegistry *) 0 ;
+  
+  arg1 = (ParticleForceRegistry *)jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_VectorParticle_Clear(void * jarg1) {
   std::vector< Particle * > *arg1 = (std::vector< Particle * > *) 0 ;
   
@@ -2325,7 +2415,27 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_ParticleWorld__SWIG_1(unsigned int jarg
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_RunPhysics(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_Start(void * jarg1) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  (arg1)->Start();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_RunPhysics__SWIG_0(void * jarg1, float jarg2, unsigned int jarg3) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  float arg2 ;
+  bool arg3 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  arg2 = (float)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  (arg1)->RunPhysics(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_RunPhysics__SWIG_1(void * jarg1, float jarg2) {
   ParticleWorld *arg1 = (ParticleWorld *) 0 ;
   float arg2 ;
   
@@ -2374,6 +2484,28 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleWorld_contactGenerators_get(void * 
   
   arg1 = (ParticleWorld *)jarg1; 
   result = (std::vector< IParticleContactGenerator * > *)& ((arg1)->contactGenerators);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ParticleWorld_registry_set(void * jarg1, void * jarg2) {
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  ParticleForceRegistry *arg2 = (ParticleForceRegistry *) 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  arg2 = (ParticleForceRegistry *)jarg2; 
+  if (arg1) (arg1)->registry = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ParticleWorld_registry_get(void * jarg1) {
+  void * jresult ;
+  ParticleWorld *arg1 = (ParticleWorld *) 0 ;
+  ParticleForceRegistry *result = 0 ;
+  
+  arg1 = (ParticleWorld *)jarg1; 
+  result = (ParticleForceRegistry *)& ((arg1)->registry);
   jresult = (void *)result; 
   return jresult;
 }

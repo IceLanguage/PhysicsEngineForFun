@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Platform.unity
+- path: Assets/Scenes/BlobGame.unity
   isLoaded: 1
   isActive: 1

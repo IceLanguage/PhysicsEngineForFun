@@ -96,6 +96,21 @@ public:
 	float Length;
 };
 
+class IParticleForceGenerator
+{
+public:
+	virtual void UpdateForce(Particle *particle, float duration);
+};
+
+class ParticleForceRegistry
+{
+public:
+	void Add(Particle* particle, IParticleForceGenerator *fg);
+	void Remove(Particle* particle, IParticleForceGenerator *fg);
+	void Clear();
+	void UpdateForces(float duration);
+};
+
 %template(VectorParticle) std::vector<Particle*>;
 %template(VectorIParticleContactGenerator) std::vector<IParticleContactGenerator*>;
 
@@ -103,7 +118,10 @@ class ParticleWorld
 {
 public:
 	ParticleWorld(unsigned int maxContacts, unsigned int contactsResolverIterations = 0);
-	void RunPhysics(float duration);
+	void Start();
+	void RunPhysics(float duration, bool needRestart = true);
 	std::vector<Particle*> particles;
 	std::vector<IParticleContactGenerator*> contactGenerators;
+	ParticleForceRegistry registry;
 };
+

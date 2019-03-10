@@ -45,8 +45,16 @@ public class ParticleWorld : global::System.IDisposable {
   public ParticleWorld(uint maxContacts) : this(PhysicsEngineForFunPINVOKE.new_ParticleWorld__SWIG_1(maxContacts), true) {
   }
 
+  public void Start() {
+    PhysicsEngineForFunPINVOKE.ParticleWorld_Start(swigCPtr);
+  }
+
+  public void RunPhysics(float duration, bool needRestart) {
+    PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics__SWIG_0(swigCPtr, duration, needRestart);
+  }
+
   public void RunPhysics(float duration) {
-    PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics(swigCPtr, duration);
+    PhysicsEngineForFunPINVOKE.ParticleWorld_RunPhysics__SWIG_1(swigCPtr, duration);
   }
 
   public VectorParticle particles {
@@ -67,6 +75,17 @@ public class ParticleWorld : global::System.IDisposable {
     get {
       global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleWorld_contactGenerators_get(swigCPtr);
       VectorIParticleContactGenerator ret = (cPtr == global::System.IntPtr.Zero) ? null : new VectorIParticleContactGenerator(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public ParticleForceRegistry registry {
+    set {
+      PhysicsEngineForFunPINVOKE.ParticleWorld_registry_set(swigCPtr, ParticleForceRegistry.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.ParticleWorld_registry_get(swigCPtr);
+      ParticleForceRegistry ret = (cPtr == global::System.IntPtr.Zero) ? null : new ParticleForceRegistry(cPtr, false);
       return ret;
     } 
   }

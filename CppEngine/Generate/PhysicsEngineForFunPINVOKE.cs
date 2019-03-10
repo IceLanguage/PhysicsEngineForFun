@@ -430,6 +430,33 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleConnectingRodConstraint")]
   public static extern void delete_ParticleConnectingRodConstraint(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IParticleForceGenerator_UpdateForce")]
+  public static extern void IParticleForceGenerator_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_IParticleForceGenerator")]
+  public static extern global::System.IntPtr new_IParticleForceGenerator();
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_IParticleForceGenerator")]
+  public static extern void delete_IParticleForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleForceRegistry_Add")]
+  public static extern void ParticleForceRegistry_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleForceRegistry_Remove")]
+  public static extern void ParticleForceRegistry_Remove(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleForceRegistry_Clear")]
+  public static extern void ParticleForceRegistry_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleForceRegistry_UpdateForces")]
+  public static extern void ParticleForceRegistry_UpdateForces(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_ParticleForceRegistry")]
+  public static extern global::System.IntPtr new_ParticleForceRegistry();
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleForceRegistry")]
+  public static extern void delete_ParticleForceRegistry(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_VectorParticle_Clear")]
   public static extern void VectorParticle_Clear(global::System.Runtime.InteropServices.HandleRef jarg1);
 
@@ -592,8 +619,14 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_ParticleWorld__SWIG_1")]
   public static extern global::System.IntPtr new_ParticleWorld__SWIG_1(uint jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_RunPhysics")]
-  public static extern void ParticleWorld_RunPhysics(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_Start")]
+  public static extern void ParticleWorld_Start(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_RunPhysics__SWIG_0")]
+  public static extern void ParticleWorld_RunPhysics__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, bool jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_RunPhysics__SWIG_1")]
+  public static extern void ParticleWorld_RunPhysics__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_particles_set")]
   public static extern void ParticleWorld_particles_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -606,6 +639,12 @@ class PhysicsEngineForFunPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_contactGenerators_get")]
   public static extern global::System.IntPtr ParticleWorld_contactGenerators_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_registry_set")]
+  public static extern void ParticleWorld_registry_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_ParticleWorld_registry_get")]
+  public static extern global::System.IntPtr ParticleWorld_registry_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleWorld")]
   public static extern void delete_ParticleWorld(global::System.Runtime.InteropServices.HandleRef jarg1);
