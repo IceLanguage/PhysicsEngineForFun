@@ -43,8 +43,8 @@ public class ParticleLink : IParticleContactGenerator {
     return ret;
   }
 
-  public override bool AddContact(ParticleContact contact, uint limit) {
-    bool ret = PhysicsEngineForFunPINVOKE.ParticleLink_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+  public override bool AddContact(ParticleContact contact) {
+    bool ret = PhysicsEngineForFunPINVOKE.ParticleLink_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
     return ret;
   }
 
@@ -68,6 +68,9 @@ public class ParticleLink : IParticleContactGenerator {
       Particle ret = (cPtr == global::System.IntPtr.Zero) ? null : new Particle(cPtr, false);
       return ret;
     } 
+  }
+
+  public ParticleLink() : this(PhysicsEngineForFunPINVOKE.new_ParticleLink(), true) {
   }
 
 }

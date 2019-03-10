@@ -39,9 +39,12 @@ public class IParticleContactGenerator : global::System.IDisposable {
     }
   }
 
-  public virtual bool AddContact(ParticleContact contact, uint limit) {
-    bool ret = PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+  public virtual bool AddContact(ParticleContact contact) {
+    bool ret = PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
     return ret;
+  }
+
+  public IParticleContactGenerator() : this(PhysicsEngineForFunPINVOKE.new_IParticleContactGenerator(), true) {
   }
 
 }

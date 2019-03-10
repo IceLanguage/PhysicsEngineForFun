@@ -48,10 +48,14 @@ namespace PhysicsEngineForFun
             }
         }
 
-        public virtual bool AddContact(ParticleContact contact, uint limit)
+        public virtual bool AddContact(ParticleContact contact)
         {
-            bool ret = PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+            bool ret = PhysicsEngineForFunPINVOKE.IParticleContactGenerator_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
             return ret;
+        }
+
+        public IParticleContactGenerator() : this(PhysicsEngineForFunPINVOKE.new_IParticleContactGenerator(), true)
+        {
         }
 
     }

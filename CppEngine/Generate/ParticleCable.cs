@@ -38,8 +38,8 @@ public class ParticleCable : ParticleLink {
     }
   }
 
-  public override bool AddContact(ParticleContact contact, uint limit) {
-    bool ret = PhysicsEngineForFunPINVOKE.ParticleCable_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+  public override bool AddContact(ParticleContact contact) {
+    bool ret = PhysicsEngineForFunPINVOKE.ParticleCable_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
     return ret;
   }
 

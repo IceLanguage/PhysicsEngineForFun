@@ -47,9 +47,9 @@ namespace PhysicsEngineForFun
             }
         }
 
-        public override bool AddContact(ParticleContact contact, uint limit)
+        public override bool AddContact(ParticleContact contact)
         {
-            bool ret = PhysicsEngineForFunPINVOKE.ParticleConnectingRod_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+            bool ret = PhysicsEngineForFunPINVOKE.ParticleConnectingRod_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
             return ret;
         }
 

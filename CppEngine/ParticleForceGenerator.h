@@ -7,7 +7,7 @@
 class IParticleForceGenerator
 {
 public:
-	virtual void UpdateForce(Particle *particle, float duration) = 0;
+	virtual void UpdateForce(Particle *particle, float duration) {};
 };
 
 class GravityOnParticle : IParticleForceGenerator

@@ -7,8 +7,7 @@ class ParticleConstraint :public IParticleContactGenerator
 {
 public:
 	float GetCurrentLength() const;
-	virtual bool AddContact(ParticleContact *contact,
-		unsigned int limit) const = 0;
+	virtual bool AddContact(ParticleContact *contact) const { return false; };
 	Particle * particle;
 	Vector3 anchorPoint;
 };
@@ -16,8 +15,7 @@ public:
 class ParticleCableConstraint : public ParticleConstraint
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-		unsigned int limit) const;
+	virtual bool AddContact(ParticleContact *contact) const;
 	float maxLength;
 	float restitutionCoefficient;
 };
@@ -25,8 +23,7 @@ public:
 class ParticleConnectingRodConstraint : public ParticleConstraint
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-		unsigned int limit) const;
+	virtual bool AddContact(ParticleContact *contact) const;
 	float Length;
 };
 #endif

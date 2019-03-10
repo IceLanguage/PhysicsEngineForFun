@@ -12,8 +12,10 @@ namespace PhysicsEngineForFun
 {
     class PhysicsEngineForFunPINVOKE
     {
+
         protected class SWIGExceptionHelper
         {
+
             public delegate void ExceptionDelegate(string message);
             public delegate void ExceptionArgumentDelegate(string message, string paramName);
 
@@ -331,7 +333,10 @@ namespace PhysicsEngineForFun
         public static extern void delete_ParticleContact(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_IParticleContactGenerator_AddContact")]
-        public static extern bool IParticleContactGenerator_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool IParticleContactGenerator_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_new_IParticleContactGenerator")]
+        public static extern global::System.IntPtr new_IParticleContactGenerator();
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_delete_IParticleContactGenerator")]
         public static extern void delete_IParticleContactGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -340,7 +345,7 @@ namespace PhysicsEngineForFun
         public static extern float ParticleLink_GetCurrentLength(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleLink_AddContact")]
-        public static extern bool ParticleLink_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool ParticleLink_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleLink_particle0_set")]
         public static extern void ParticleLink_particle0_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -354,11 +359,14 @@ namespace PhysicsEngineForFun
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleLink_particle1_get")]
         public static extern global::System.IntPtr ParticleLink_particle1_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_new_ParticleLink")]
+        public static extern global::System.IntPtr new_ParticleLink();
+
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_delete_ParticleLink")]
         public static extern void delete_ParticleLink(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleCable_AddContact")]
-        public static extern bool ParticleCable_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool ParticleCable_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleCable_maxLength_set")]
         public static extern void ParticleCable_maxLength_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
@@ -379,7 +387,7 @@ namespace PhysicsEngineForFun
         public static extern void delete_ParticleCable(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConnectingRod_AddContact")]
-        public static extern bool ParticleConnectingRod_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool ParticleConnectingRod_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConnectingRod_Length_set")]
         public static extern void ParticleConnectingRod_Length_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
@@ -397,7 +405,7 @@ namespace PhysicsEngineForFun
         public static extern float ParticleConstraint_GetCurrentLength(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConstraint_AddContact")]
-        public static extern bool ParticleConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool ParticleConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConstraint_particle_set")]
         public static extern void ParticleConstraint_particle_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -411,11 +419,14 @@ namespace PhysicsEngineForFun
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConstraint_anchorPoint_get")]
         public static extern global::System.IntPtr ParticleConstraint_anchorPoint_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_new_ParticleConstraint")]
+        public static extern global::System.IntPtr new_ParticleConstraint();
+
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_delete_ParticleConstraint")]
         public static extern void delete_ParticleConstraint(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleCableConstraint_AddContact")]
-        public static extern bool ParticleCableConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool ParticleCableConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleCableConstraint_maxLength_set")]
         public static extern void ParticleCableConstraint_maxLength_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
@@ -436,7 +447,7 @@ namespace PhysicsEngineForFun
         public static extern void delete_ParticleCableConstraint(global::System.Runtime.InteropServices.HandleRef jarg1);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConnectingRodConstraint_AddContact")]
-        public static extern bool ParticleConnectingRodConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
+        public static extern bool ParticleConnectingRodConstraint_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConnectingRodConstraint_Length_set")]
         public static extern void ParticleConnectingRodConstraint_Length_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
@@ -630,39 +641,6 @@ namespace PhysicsEngineForFun
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_delete_ParticleWorld")]
         public static extern void delete_ParticleWorld(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_AddContact")]
-        public static extern bool SimpleGroundContactGenerator_AddContact(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, uint jarg3);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_pointInGround_set")]
-        public static extern void SimpleGroundContactGenerator_pointInGround_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_pointInGround_get")]
-        public static extern global::System.IntPtr SimpleGroundContactGenerator_pointInGround_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_normal_set")]
-        public static extern void SimpleGroundContactGenerator_normal_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_normal_get")]
-        public static extern global::System.IntPtr SimpleGroundContactGenerator_normal_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_particle_set")]
-        public static extern void SimpleGroundContactGenerator_particle_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_particle_get")]
-        public static extern global::System.IntPtr SimpleGroundContactGenerator_particle_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_restitutionCoefficient_set")]
-        public static extern void SimpleGroundContactGenerator_restitutionCoefficient_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_restitutionCoefficient_get")]
-        public static extern float SimpleGroundContactGenerator_restitutionCoefficient_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_new_SimpleGroundContactGenerator")]
-        public static extern global::System.IntPtr new_SimpleGroundContactGenerator();
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_delete_SimpleGroundContactGenerator")]
-        public static extern void delete_SimpleGroundContactGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
-
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleLink_SWIGUpcast")]
         public static extern global::System.IntPtr ParticleLink_SWIGUpcast(global::System.IntPtr jarg1);
 
@@ -680,9 +658,6 @@ namespace PhysicsEngineForFun
 
         [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_ParticleConnectingRodConstraint_SWIGUpcast")]
         public static extern global::System.IntPtr ParticleConnectingRodConstraint_SWIGUpcast(global::System.IntPtr jarg1);
-
-        [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint = "CSharp_SimpleGroundContactGenerator_SWIGUpcast")]
-        public static extern global::System.IntPtr SimpleGroundContactGenerator_SWIGUpcast(global::System.IntPtr jarg1);
     }
 
 }

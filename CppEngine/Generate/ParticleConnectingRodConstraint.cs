@@ -38,8 +38,8 @@ public class ParticleConnectingRodConstraint : ParticleConstraint {
     }
   }
 
-  public override bool AddContact(ParticleContact contact, uint limit) {
-    bool ret = PhysicsEngineForFunPINVOKE.ParticleConnectingRodConstraint_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+  public override bool AddContact(ParticleContact contact) {
+    bool ret = PhysicsEngineForFunPINVOKE.ParticleConnectingRodConstraint_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
     return ret;
   }
 

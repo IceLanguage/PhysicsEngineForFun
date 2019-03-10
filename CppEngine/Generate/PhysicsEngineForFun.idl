@@ -46,24 +46,21 @@ public:
 class IParticleContactGenerator
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-	unsigned int limit) const = 0;
+	virtual bool AddContact(ParticleContact *contact) const;
 };
 
 class ParticleLink : public IParticleContactGenerator
 {
 public:
 	float GetCurrentLength() const;
-	virtual bool AddContact(ParticleContact *contact,
-	unsigned int limit) const = 0;
+	virtual bool AddContact(ParticleContact *contact) const;
 	Particle * particle0, *particle1;
 };
 
 class ParticleCable : public ParticleLink
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-	unsigned int limit) const;
+	virtual bool AddContact(ParticleContact *contact) const;
 	float maxLength;
 	float restitutionCoefficient;
 };
@@ -71,8 +68,7 @@ public:
 class ParticleConnectingRod : public ParticleLink
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-	unsigned int limit) const;
+	virtual bool AddContact(ParticleContact *contact) const;
 	float Length;
 };
 
@@ -80,8 +76,7 @@ class ParticleConstraint : public IParticleContactGenerator
 {
 public:
 	float GetCurrentLength() const;
-	virtual bool AddContact(ParticleContact *contact,
-		unsigned int limit) const = 0;
+	virtual bool AddContact(ParticleContact *contact) const;
 	Particle * particle;
 	Vector3 anchorPoint;
 };
@@ -89,8 +84,7 @@ public:
 class ParticleCableConstraint : public ParticleConstraint
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-		unsigned int limit) const;
+	virtual bool AddContact(ParticleContact *contact) const;
 	float maxLength;
 	float restitutionCoefficient;
 };
@@ -98,8 +92,7 @@ public:
 class ParticleConnectingRodConstraint : public ParticleConstraint
 {
 public:
-	virtual bool AddContact(ParticleContact *contact,
-	unsigned int limit) const;
+	virtual bool AddContact(ParticleContact *contact) const;
 	float Length;
 };
 
@@ -113,15 +106,4 @@ public:
 	void RunPhysics(float duration);
 	std::vector<Particle*> particles;
 	std::vector<IParticleContactGenerator*> contactGenerators;
-};
-
-class SimpleGroundContactGenerator : public IParticleContactGenerator
-{
-public:
-	virtual bool AddContact(ParticleContact *contact,
-		unsigned int limit) const;
-	Vector3 pointInGround;
-	Vector3 normal;
-	Particle* particle;
-	float restitutionCoefficient;
 };

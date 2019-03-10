@@ -6,7 +6,7 @@ float ParticleConstraint::GetCurrentLength() const
 	return relativePos.Magnitude();
 }
 
-bool ParticleCableConstraint::AddContact(ParticleContact * contact, unsigned int limit) const
+bool ParticleCableConstraint::AddContact(ParticleContact * contact) const
 {
 	float length = GetCurrentLength();
 
@@ -29,7 +29,7 @@ bool ParticleCableConstraint::AddContact(ParticleContact * contact, unsigned int
 	return true;
 }
 
-bool ParticleConnectingRodConstraint::AddContact(ParticleContact * contact, unsigned int limit) const
+bool ParticleConnectingRodConstraint::AddContact(ParticleContact * contact) const
 {
 	float curlength = GetCurrentLength();
 

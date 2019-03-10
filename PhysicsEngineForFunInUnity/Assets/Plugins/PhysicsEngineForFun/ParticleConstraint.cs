@@ -53,9 +53,9 @@ namespace PhysicsEngineForFun
             return ret;
         }
 
-        public override bool AddContact(ParticleContact contact, uint limit)
+        public override bool AddContact(ParticleContact contact)
         {
-            bool ret = PhysicsEngineForFunPINVOKE.ParticleConstraint_AddContact(swigCPtr, ParticleContact.getCPtr(contact), limit);
+            bool ret = PhysicsEngineForFunPINVOKE.ParticleConstraint_AddContact(swigCPtr, ParticleContact.getCPtr(contact));
             return ret;
         }
 
@@ -85,6 +85,10 @@ namespace PhysicsEngineForFun
                 Vector3 ret = (cPtr == global::System.IntPtr.Zero) ? null : new Vector3(cPtr, false);
                 return ret;
             }
+        }
+
+        public ParticleConstraint() : this(PhysicsEngineForFunPINVOKE.new_ParticleConstraint(), true)
+        {
         }
 
     }
