@@ -13,6 +13,15 @@
     <ClInclude Include="Generate\PhysicsEngineForFun_wrap.h">
       <Filter>Generate</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -34,6 +43,15 @@
     <ClCompile Include="ParticleConstraint.cpp" />
     <ClCompile Include="Generate\PhysicsEngineForFun_wrap.cxx">
       <Filter>Generate</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

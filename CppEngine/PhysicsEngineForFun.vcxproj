@@ -20,22 +20,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Generate\PhysicsEngineForFun_wrap.h" />
+    <ClInclude Include="Matrix3.h" />
+    <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleConstraint.h" />
     <ClInclude Include="ParticleContact.h" />
     <ClInclude Include="ParticleForceGenerator.h" />
     <ClInclude Include="ParticleLink.h" />
     <ClInclude Include="ParticleWorld.h" />
+    <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Generate\PhysicsEngineForFun_wrap.cxx" />
+    <ClCompile Include="Matrix3.cpp" />
+    <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleConstraint.cpp" />
     <ClCompile Include="ParticleContact.cpp" />
     <ClCompile Include="ParticleForceGenerator.cpp" />
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
