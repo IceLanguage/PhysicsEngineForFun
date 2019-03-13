@@ -13,7 +13,6 @@ public:
 	
 	Vector3 operator*(const Vector3 &vector) const;
 	Matrix3 operator*(const Matrix3 &o) const;
-	
 	void SetInverse(const Matrix3 &m);
 	void Invert();
 	Matrix3 Inverse() const;

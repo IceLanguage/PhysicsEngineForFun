@@ -4,12 +4,6 @@
     <ClInclude Include="Vector3.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Particle.h" />
-    <ClInclude Include="ParticleForceGenerator.h" />
-    <ClInclude Include="ParticleContact.h" />
-    <ClInclude Include="ParticleLink.h" />
-    <ClInclude Include="ParticleWorld.h" />
-    <ClInclude Include="ParticleConstraint.h" />
     <ClInclude Include="Generate\PhysicsEngineForFun_wrap.h">
       <Filter>Generate</Filter>
     </ClInclude>
@@ -22,6 +16,25 @@
     <ClInclude Include="Quaternion.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleConstraint.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleContact.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleForceGenerator.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleLink.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleWorld.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -30,17 +43,14 @@
     <Filter Include="Generate">
       <UniqueIdentifier>{8f822f86-92e2-4501-8ce4-fe789aed54d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle">
+      <UniqueIdentifier>{a6a56f40-4897-4e1d-99c4-b652162c67f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector3.cpp">
       <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="ParticleForceGenerator.cpp" />
-    <ClCompile Include="ParticleContact.cpp" />
-    <ClCompile Include="ParticleLink.cpp" />
-    <ClCompile Include="ParticleWorld.cpp" />
-    <ClCompile Include="ParticleConstraint.cpp" />
     <ClCompile Include="Generate\PhysicsEngineForFun_wrap.cxx">
       <Filter>Generate</Filter>
     </ClCompile>
@@ -53,6 +63,25 @@
     <ClCompile Include="Quaternion.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleConstraint.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleContact.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleForceGenerator.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleLink.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleWorld.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />

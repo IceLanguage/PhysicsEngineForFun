@@ -138,3 +138,35 @@ Vector3 Matrix4::TransformInverseDirection(const Vector3 & vector) const
 		vector.z * data[10]
 	);
 }
+
+Matrix3 Matrix4::operator*(const Matrix3 & o) const
+{
+	return Matrix3(
+		data[0] * o.data[0] + data[1] * o.data[3] + data[2] * o.data[6],
+		data[0] * o.data[1] + data[1] * o.data[4] + data[2] * o.data[7],
+		data[0] * o.data[2] + data[1] * o.data[5] + data[2] * o.data[8],
+
+		data[4] * o.data[0] + data[5] * o.data[3] + data[6] * o.data[6],
+		data[4] * o.data[1] + data[5] * o.data[4] + data[6] * o.data[7],
+		data[4] * o.data[2] + data[5] * o.data[5] + data[6] * o.data[8],
+
+		data[8] * o.data[0] + data[9] * o.data[3] + data[10] * o.data[6],
+		data[8] * o.data[1] + data[9] * o.data[4] + data[10] * o.data[7],
+		data[8] * o.data[2] + data[9] * o.data[5] + data[10] * o.data[8]
+	);
+}
+
+Matrix3 Matrix4::GetTransposeMatrix3() const
+{
+	Matrix3 result;
+	result.data[0] = data[0];
+	result.data[1] = data[4];
+	result.data[2] = data[8];
+	result.data[3] = data[1];
+	result.data[4] = data[5];
+	result.data[5] = data[9];
+	result.data[6] = data[2];
+	result.data[7] = data[6];
+	result.data[8] = data[10];
+	return result;
+}

@@ -1,8 +1,7 @@
 #ifndef _PhysicsEngineForFun_Matrix4_
 #define _PhysicsEngineForFun_Matrix4_
 
-#include "Vector3.h"
-#include "Quaternion.h"
+#include "Matrix3.h"
 
 struct Matrix4
 {
@@ -16,6 +15,8 @@ public:
 	Vector3 TransformInverse(const Vector3 &vector) const;
 	Vector3 TransformDirection(const Vector3 &vector) const;
 	Vector3 TransformInverseDirection(const Vector3 &vector) const;
+	Matrix3 operator*(const Matrix3 &o) const;
+	Matrix3 GetTransposeMatrix3() const;
 	float data[12];
 };
 

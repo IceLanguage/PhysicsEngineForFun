@@ -29,6 +29,7 @@
     <ClInclude Include="ParticleLink.h" />
     <ClInclude Include="ParticleWorld.h" />
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +43,7 @@
     <ClCompile Include="ParticleLink.cpp" />
     <ClCompile Include="ParticleWorld.cpp" />
     <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
