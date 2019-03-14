@@ -19,6 +19,7 @@ public:
 	void SetTranspose(const Matrix3 &m);
 	Matrix3 Transpose() const;
 	void SetOrientation(const Quaternion &q);
+	Vector3 Transform(const Vector3 &vector) const;
 	float data[9];
 };
 

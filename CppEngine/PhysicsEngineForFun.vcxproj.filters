@@ -34,7 +34,12 @@
     <ClInclude Include="ParticleWorld.h">
       <Filter>Particle</Filter>
     </ClInclude>
-    <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="RigidBody.h">
+      <Filter>RigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyForceGenerator.h">
+      <Filter>RigidBody</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -42,6 +47,9 @@
     </Filter>
     <Filter Include="Generate">
       <UniqueIdentifier>{8f822f86-92e2-4501-8ce4-fe789aed54d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RigidBody">
+      <UniqueIdentifier>{32a183a1-1cec-465d-9569-f5e91c098183}</UniqueIdentifier>
     </Filter>
     <Filter Include="Particle">
       <UniqueIdentifier>{a6a56f40-4897-4e1d-99c4-b652162c67f3}</UniqueIdentifier>
@@ -81,7 +89,12 @@
     <ClCompile Include="ParticleWorld.cpp">
       <Filter>Particle</Filter>
     </ClCompile>
-    <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>RigidBody</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyForceGenerator.cpp">
+      <Filter>RigidBody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PhysicsEngineForFun.vcxproj.user" />

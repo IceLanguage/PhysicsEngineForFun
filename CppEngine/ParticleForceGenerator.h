@@ -27,7 +27,7 @@ public:
 	virtual void UpdateForce(Particle *particle, float duration);
 };
 
-class SpringForceOnParticle :IParticleForceGenerator
+class SpringForceOnParticle : public IParticleForceGenerator
 {
 protected:
 	Particle* other;
@@ -38,7 +38,7 @@ public:
 	virtual void UpdateForce(Particle *particle, float duration);
 };
 
-class RubberBandElasticOnParticle :IParticleForceGenerator
+class RubberBandElasticOnParticle : public IParticleForceGenerator
 {
 protected:
 	Particle * other;
@@ -49,7 +49,7 @@ public:
 	virtual void UpdateForce(Particle *particle, float duration);
 };
 
-class BuoyancyOnParticle :IParticleForceGenerator
+class BuoyancyOnParticle : public IParticleForceGenerator
 {
 protected:
 	float liquidDensity;
@@ -61,7 +61,7 @@ public:
 	virtual void UpdateForce(Particle *particle, float duration);
 };
 
-class FakesSpringForceOnParticle :IParticleForceGenerator
+class FakesSpringForceOnParticle : public IParticleForceGenerator
 {
 protected:
 	Particle * other;//is attached to a fixed point in space.
