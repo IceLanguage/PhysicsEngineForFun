@@ -28,4 +28,16 @@ public:
 	SpringForceOnRigidBody(RigidBody* other, float restLength, float elasticCoefficient, const Vector3 &localConnectionPt, const Vector3 &otherConnectionPt);
 	virtual void UpdateForce(RigidBody *body, float duration);
 };
+
+class AeroForceOnRigidBody :public IRigidBodyForceGenerator
+{
+protected:
+	Matrix3 tensor;//Holds the aerodynamic tensor for the surface in body space.
+	const Vector3* windspeed;
+	Vector3 position;
+public:
+	AeroForceOnRigidBody(const Matrix3 &tensor, const Vector3 &position,
+		const Vector3 *windspeed);
+	virtual void UpdateForce(RigidBody *body, float duration);
+};
 #endif

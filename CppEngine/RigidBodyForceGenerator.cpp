@@ -29,3 +29,24 @@ void SpringForceOnRigidBody::UpdateForce(RigidBody * body, float duration)
 	force *= -forceValue;
 	body->AddForceAtPoint(force, v1);
 }
+
+AeroForceOnRigidBody::AeroForceOnRigidBody(const Matrix3 & tensor, const Vector3 & position, const Vector3 * windspeed)
+	:tensor(tensor),position(position),windspeed(windspeed)
+{
+}
+
+void AeroForceOnRigidBody::UpdateForce(RigidBody * body, float duration)
+{
+	Vector3 velocity = body->velocity;
+	velocity += *windspeed;
+
+	// Calculate the velocity in body coordinates
+	Vector3 bodyVel = body->transformMatrix.TransformInverseDirection(velocity);
+
+	// Calculate the force in body coordinates
+	Vector3 bodyForce = tensor.Transform(bodyVel);
+	Vector3 force = body->transformMatrix.TransformDirection(bodyForce);
+
+	// Apply the force
+	body->AddForceAtBodyPoint(force, position);
+}
