@@ -31,6 +31,7 @@
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="RigidBodyForceGenerator.h" />
+    <ClInclude Include="RigidBodyWorld.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +47,7 @@
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="RigidBodyForceGenerator.cpp" />
+    <ClCompile Include="RigidBodyWorld.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
