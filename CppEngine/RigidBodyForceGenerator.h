@@ -40,4 +40,17 @@ public:
 		const Vector3 *windspeed);
 	virtual void UpdateForce(RigidBody *body, float duration);
 };
+
+class AeroForceControlOnRigidBody :public AeroForceOnRigidBody
+{
+private:
+	void ReCalculateTensor();
+	Matrix3 maxTensor, minTensor;
+public:
+	AeroForceControlOnRigidBody(const Matrix3 &base,
+		const Matrix3 &min, const Matrix3 &max,
+		const Vector3 &position, const Vector3 *windspeed);
+	virtual void UpdateForce(RigidBody *body, float duration);
+	float controlSetting;
+};
 #endif

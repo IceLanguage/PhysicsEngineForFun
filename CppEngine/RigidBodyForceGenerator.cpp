@@ -50,3 +50,42 @@ void AeroForceOnRigidBody::UpdateForce(RigidBody * body, float duration)
 	// Apply the force
 	body->AddForceAtBodyPoint(force, position);
 }
+
+void AeroForceControlOnRigidBody::ReCalculateTensor()
+{
+	if (controlSetting <= -1.0f)
+	{
+		tensor = minTensor;
+		return;
+	}
+	else if (controlSetting >= 1.0f)
+	{
+		tensor = maxTensor;
+		return;
+	}
+	else if (controlSetting == 0)
+	{
+		return;
+	}
+	else if (controlSetting < 0)
+	{
+		tensor = Matrix3::linearInterpolate(minTensor, tensor, controlSetting + 1.0f);
+		return;
+	}
+	else if(controlSetting > 0)
+	{
+		tensor = Matrix3::linearInterpolate(tensor, maxTensor, controlSetting);
+		return;
+	}
+}
+
+AeroForceControlOnRigidBody::AeroForceControlOnRigidBody(const Matrix3 & base, const Matrix3 & min, const Matrix3 & max, const Vector3 & position, const Vector3 * windspeed)
+	:AeroForceOnRigidBody(base, position, windspeed), maxTensor(max), minTensor(min)
+{
+}
+
+void AeroForceControlOnRigidBody::UpdateForce(RigidBody * body, float duration)
+{
+	ReCalculateTensor();
+	AeroForceOnRigidBody::UpdateForce(body, duration);
+}

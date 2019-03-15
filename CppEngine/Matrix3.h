@@ -20,6 +20,8 @@ public:
 	Matrix3 Transpose() const;
 	void SetOrientation(const Quaternion &q);
 	Vector3 Transform(const Vector3 &vector) const;
+	static Matrix3 linearInterpolate(const Matrix3& a, const Matrix3& b, float prop);
+	
 	float data[9];
 };
 
