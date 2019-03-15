@@ -123,6 +123,25 @@ Vector3 Matrix3::Transform(const Vector3 & vector) const
 	return (*this) * vector;
 }
 
+void Matrix3::SetInertiaTensorCoeffs(float ix, float iy, float iz, float ixy, float ixz, float iyz)
+{
+	data[0] = ix;
+	data[1] = data[3] = -ixy;
+	data[2] = data[6] = -ixz;
+	data[4] = iy;
+	data[5] = data[7] = -iyz;
+	data[8] = iz;
+}
+
+// I can not understand
+void Matrix3::SetBlockInertiaTensor(const Vector3 & halfSizes, float mass)
+{
+	Vector3 squares = Vector3(halfSizes.x * halfSizes.x, halfSizes.y * halfSizes.y, halfSizes.z * halfSizes.z);
+	SetInertiaTensorCoeffs(0.3f*mass*(squares.y + squares.z),
+		0.3f*mass*(squares.x + squares.z),
+		0.3f*mass*(squares.x + squares.y));
+}
+
 Matrix3 Matrix3::linearInterpolate(const Matrix3 & a, const Matrix3 & b, float prop)
 {
 	Matrix3 result;

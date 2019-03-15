@@ -39,5 +39,19 @@ private:
     void swig_init_callbacks();
 };
 
+class SwigDirector_IRigidBodyForceGenerator : public IRigidBodyForceGenerator, public Swig::Director {
+
+public:
+    SwigDirector_IRigidBodyForceGenerator();
+    virtual void UpdateForce(RigidBody *body, float duration);
+
+    typedef void (SWIGSTDCALL* SWIG_Callback0_t)(void *, float);
+    void swig_connect_director(SWIG_Callback0_t callbackUpdateForce);
+
+private:
+    SWIG_Callback0_t swig_callbackUpdateForce;
+    void swig_init_callbacks();
+};
+
 
 #endif

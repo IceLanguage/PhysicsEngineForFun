@@ -6,10 +6,12 @@
 	#include "../ParticleWorld.h"
 	#include "../ParticleConstraint.h"
 	#include "../ParticleLink.h"
+	#include "../RigidBodyWorld.h"
 %}
 
 %feature("director") IParticleContactGenerator;
 %feature("director") IParticleForceGenerator;
+%feature("director") IRigidBodyForceGenerator;
 
 struct Vector3
 {
@@ -18,6 +20,56 @@ public:
 	Vector3(const float x, const float y, const float z)
 		: x(x), y(y), z(z) {}
 	float x, y, z;
+};
+
+struct Quaternion
+{
+public:
+	Quaternion();
+	Quaternion(const float r, const float i, const float j, const float k);
+	float Get_r() const;
+	float Get_i() const;
+	float Get_j() const;
+	float Get_k() const;
+	void Set_r(float value);
+	void Set_i(float value);
+	void Set_j(float value);
+	void Set_k(float value);
+	void Normalize();
+	void RotateByVector(const Vector3& vector);
+	void AddScaledVector(const Vector3& vector, float scale);
+};
+
+struct Matrix3
+{
+public:
+	Matrix3();
+	Matrix3(float c0, float c1, float c2, float c3, float c4, float c5,
+		float c6, float c7, float c8);
+	void SetInverse(const Matrix3 &m);
+	void Invert();
+	Matrix3 Inverse() const;
+	void SetTranspose(const Matrix3 &m);
+	Matrix3 Transpose() const;
+	void SetOrientation(const Quaternion &q);
+	Vector3 Transform(const Vector3 &vector) const;
+	void SetInertiaTensorCoeffs(float ix, float iy, float iz,
+		float ixy = 0, float ixz = 0, float iyz = 0);//Sets the value of the matrix from inertia tensor values.
+	void SetBlockInertiaTensor(const Vector3 &halfSizes, float mass);
+	static Matrix3 linearInterpolate(const Matrix3& a, const Matrix3& b, float prop);
+};
+
+struct Matrix4
+{
+public:
+	Matrix4();
+	float GetDeterminant() const;
+	void SetOrientationAndPos(const Quaternion &q, const Vector3 &pos);
+	Vector3 Transform(const Vector3 &vector) const;
+	Vector3 TransformInverse(const Vector3 &vector) const;
+	Vector3 TransformDirection(const Vector3 &vector) const;
+	Vector3 TransformInverseDirection(const Vector3 &vector) const;
+	Matrix3 GetTransposeMatrix3() const;
 };
 
 class Particle
@@ -165,6 +217,7 @@ public:
 	Vector3 GetPointInWorldSpace(const Vector3 &point) const;
 	bool hasFiniteMass() const;
 	float GetMass() const;
+	void SetMass(float mass);
 	Vector3 position;
 	Vector3 velocity;
 	Vector3 rotation;

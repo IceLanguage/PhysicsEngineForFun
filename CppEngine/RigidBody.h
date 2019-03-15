@@ -24,6 +24,8 @@ public:
 	Vector3 GetPointInWorldSpace(const Vector3 &point) const;
 	bool hasFiniteMass() const;
 	float GetMass() const;
+	void SetMass(float mass);
+	
 	Vector3 position;
 	Vector3 velocity;
 	Vector3 rotation;

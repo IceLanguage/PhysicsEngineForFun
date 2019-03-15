@@ -1,6 +1,8 @@
 #include "RigidBody.h"
 #include <float.h>
 #include <math.h>
+#include <assert.h>
+
 void RigidBody::CalculateDerivedData()
 {
 	transformMatrix.SetOrientationAndPos(orientation, position);
@@ -75,4 +77,10 @@ float RigidBody::GetMass() const
 	else {
 		return ((float)1.0) / inverseMass;
 	}
+}
+
+void RigidBody::SetMass(float mass)
+{
+	assert(mass != 0);
+	RigidBody::inverseMass = 1.f / mass;
 }

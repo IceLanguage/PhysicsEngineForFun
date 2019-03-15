@@ -2,6 +2,7 @@
 #define _PhysicsEngineForFun_RigidBodyWorld_
 
 #include "RigidBody.h"
+#include "RigidBodyForceGenerator.h"
 
 class RigidBodyWorld
 {

@@ -20,6 +20,9 @@ public:
 	Matrix3 Transpose() const;
 	void SetOrientation(const Quaternion &q);
 	Vector3 Transform(const Vector3 &vector) const;
+	void SetInertiaTensorCoeffs(float ix, float iy, float iz,
+		float ixy = 0, float ixz = 0, float iyz = 0);//Sets the value of the matrix from inertia tensor values.
+	void SetBlockInertiaTensor(const Vector3 &halfSizes, float mass);
 	static Matrix3 linearInterpolate(const Matrix3& a, const Matrix3& b, float prop);
 	
 	float data[9];
