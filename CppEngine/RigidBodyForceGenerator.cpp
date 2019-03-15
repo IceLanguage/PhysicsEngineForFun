@@ -89,3 +89,38 @@ void AeroForceControlOnRigidBody::UpdateForce(RigidBody * body, float duration)
 	ReCalculateTensor();
 	AeroForceOnRigidBody::UpdateForce(body, duration);
 }
+
+void RigidBodyForceRegistry::Add(RigidBody * body, IRigidBodyForceGenerator * fg)
+{
+	ForceRegistration registration;
+	registration.body = body;
+	registration.fg = fg;
+	registrations.push_back(registration);
+}
+
+void RigidBodyForceRegistry::Remove(RigidBody * body, IRigidBodyForceGenerator * fg)
+{
+	auto it = registrations.begin();
+	for (; it != registrations.end(); it++)
+	{
+		if (it->body == body && it->fg == fg)
+		{
+			registrations.erase(it);
+			break;
+		}
+	}
+}
+
+void RigidBodyForceRegistry::Clear()
+{
+	registrations.clear();
+}
+
+void RigidBodyForceRegistry::UpdateForces(float duration)
+{
+	auto i = registrations.begin();
+	for (; i != registrations.end(); i++)
+	{
+		i->fg->UpdateForce(i->body, duration);
+	}
+}

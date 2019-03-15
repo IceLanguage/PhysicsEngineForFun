@@ -2,6 +2,7 @@
 #define _PhysicsEngineForFun_RigidBodyForceGenerator_
 
 #include "RigidBody.h"
+#include <vector>
 
 class IRigidBodyForceGenerator
 {
@@ -52,5 +53,22 @@ public:
 		const Vector3 &position, const Vector3 *windspeed);
 	virtual void UpdateForce(RigidBody *body, float duration);
 	float controlSetting;
+};
+
+class RigidBodyForceRegistry
+{
+protected:
+	struct ForceRegistration
+	{
+		RigidBody *body;
+		IRigidBodyForceGenerator *fg;
+	};
+	std::vector<ForceRegistration> registrations;
+
+public:
+	void Add(RigidBody* body, IRigidBodyForceGenerator *fg);
+	void Remove(RigidBody* body, IRigidBodyForceGenerator *fg);
+	void Clear();
+	void UpdateForces(float duration);
 };
 #endif

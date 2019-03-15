@@ -127,3 +127,58 @@ public:
 	std::vector<IParticleContactGenerator*> contactGenerators;
 	ParticleForceRegistry registry;
 };
+
+class IRigidBodyForceGenerator
+{
+public:
+	virtual void UpdateForce(RigidBody * body, float duration);
+};
+
+class AeroForceOnRigidBody : public IRigidBodyForceGenerator
+{
+public:
+	AeroForceOnRigidBody(const Matrix3 &tensor, const Vector3 &position,
+		const Vector3 *windspeed);
+	virtual void UpdateForce(RigidBody *body, float duration);
+};
+
+class AeroForceControlOnRigidBody : public AeroForceOnRigidBody
+{
+public:
+	AeroForceControlOnRigidBody(const Matrix3 &base,
+		const Matrix3 &min, const Matrix3 &max,
+		const Vector3 &position, const Vector3 *windspeed);
+	virtual void UpdateForce(RigidBody *body, float duration);
+	float controlSetting;
+};
+
+class RigidBody
+{
+public:
+	void CalculateDerivedData();
+	void SetInertiaTensor(const Matrix3 &inertiaTensor);
+	void AddForce(const Vector3 &force);
+	void AddForceAtBodyPoint(const Vector3 &force, const Vector3 &point);
+	void AddForceAtPoint(const Vector3 &force, const Vector3 &point);
+	void ClearAccumulator();
+	void Integrate(float duration);
+	Vector3 GetPointInWorldSpace(const Vector3 &point) const;
+	bool hasFiniteMass() const;
+	float GetMass() const;
+	Vector3 position;
+	Vector3 velocity;
+	Vector3 rotation;
+	Vector3 acceleration;
+	Matrix4 transformMatrix;
+	float angularDamping;
+	float linearDamping;
+};
+
+class RigidBodyForceRegistry
+{
+public:
+	void Add(RigidBody* body, IRigidBodyForceGenerator *fg);
+	void Remove(RigidBody* body, IRigidBodyForceGenerator *fg);
+	void Clear();
+	void UpdateForces(float duration);
+};
