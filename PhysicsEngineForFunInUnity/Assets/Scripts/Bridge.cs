@@ -27,11 +27,13 @@ public class Bridge : MonoBehaviour
                 damping = 0.9f,
                 acceleration = new PhysicsEngineForFun.Vector3(0, -9.8f, 0)
             };
+
             p.ClearAccumulator();
 
             world.particles.Add(p);
 
             particles[i] = p;
+
         }
 
         for (int i = 0; i < 10; ++i)

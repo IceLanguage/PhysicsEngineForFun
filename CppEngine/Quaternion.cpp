@@ -5,6 +5,7 @@
 Quaternion::Quaternion()
 {
 	for (int i = 0; i < 4; ++i) data[i] = 0;
+	data[0] = 1;
 }
 
 Quaternion::Quaternion(const float r, const float i, const float j, const float k)
@@ -73,14 +74,19 @@ void Quaternion::operator*=(const Quaternion & multiplier)
 {
 	Quaternion q = *this;
 
-	data[0] = q.Get_r() * multiplier.Get_r() - q.Get_i() * multiplier.Get_i() -
+	float r = q.Get_r() * multiplier.Get_r() - q.Get_i() * multiplier.Get_i() -
 		q.Get_j() * multiplier.Get_j() - q.Get_k() * multiplier.Get_k();
-	data[1] = q.Get_r() * multiplier.Get_i() + q.Get_i() * multiplier.Get_r() +
+	float i = q.Get_r() * multiplier.Get_i() + q.Get_i() * multiplier.Get_r() +
 		q.Get_j() * multiplier.Get_k() - q.Get_k() * multiplier.Get_j();
-	data[2] = q.Get_r() * multiplier.Get_j() + q.Get_j() * multiplier.Get_r() +
+	float j = q.Get_r() * multiplier.Get_j() + q.Get_j() * multiplier.Get_r() +
 		q.Get_k() * multiplier.Get_i() - q.Get_i() * multiplier.Get_k();
-	data[3] = q.Get_r() * multiplier.Get_k() + q.Get_k() * multiplier.Get_r() +
+	float k = q.Get_r() * multiplier.Get_k() + q.Get_k() * multiplier.Get_r() +
 		q.Get_i() * multiplier.Get_j() - q.Get_j() * multiplier.Get_i();
+
+	data[0] = r;
+	data[1] = i;
+	data[2] = j;
+	data[3] = k;
 }
 
 void Quaternion::RotateByVector(const Vector3 & vector)

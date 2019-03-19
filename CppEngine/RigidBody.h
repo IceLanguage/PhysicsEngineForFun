@@ -12,7 +12,6 @@ private:
 	float inverseMass;
 	Matrix3 inverseInertiaTensorWorld;
 	Matrix3 inverseInertiaTensor;
-	Quaternion orientation;
 public:
 	void CalculateDerivedData();
 	void SetInertiaTensor(const Matrix3 &inertiaTensor);
@@ -25,7 +24,7 @@ public:
 	bool hasFiniteMass() const;
 	float GetMass() const;
 	void SetMass(float mass);
-	
+	Quaternion orientation;
 	Vector3 position;
 	Vector3 velocity;
 	Vector3 rotation;

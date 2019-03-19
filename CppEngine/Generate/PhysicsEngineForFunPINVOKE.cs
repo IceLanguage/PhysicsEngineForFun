@@ -850,6 +850,12 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_RigidBody_SetMass")]
   public static extern void RigidBody_SetMass(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_RigidBody_orientation_set")]
+  public static extern void RigidBody_orientation_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_RigidBody_orientation_get")]
+  public static extern global::System.IntPtr RigidBody_orientation_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_RigidBody_position_set")]
   public static extern void RigidBody_position_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 

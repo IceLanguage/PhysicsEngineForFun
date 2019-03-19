@@ -5,6 +5,7 @@
 
 void RigidBody::CalculateDerivedData()
 {
+	orientation.Normalize();
 	transformMatrix.SetOrientationAndPos(orientation, position);
 	inverseInertiaTensorWorld = transformMatrix * inverseInertiaTensor * transformMatrix.GetTransposeMatrix3();
 }
@@ -30,7 +31,7 @@ void RigidBody::AddForceAtPoint(const Vector3 & force, const Vector3 & point)
 	Vector3 pt = point - position;
 
 	forceAccum += force;
-	torqueAccum += Vector3::Cross(force,pt);
+	torqueAccum += Vector3::Cross(pt,force);
 }
 
 void RigidBody::ClearAccumulator()
@@ -41,11 +42,12 @@ void RigidBody::ClearAccumulator()
 
 void RigidBody::Integrate(float duration)
 {
-	acceleration.AddScaledVector(forceAccum, inverseMass);
+	Vector3 lastFrameAcceleration = acceleration;
+	lastFrameAcceleration.AddScaledVector(forceAccum, inverseMass);
 
 	Vector3 angularAcceleration = inverseInertiaTensorWorld.Transform(torqueAccum);
 
-	velocity.AddScaledVector(acceleration, duration);
+	velocity.AddScaledVector(lastFrameAcceleration, duration);
 	rotation.AddScaledVector(angularAcceleration, duration);
 
 	velocity *= powf(linearDamping, duration);

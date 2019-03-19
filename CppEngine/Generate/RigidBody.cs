@@ -91,6 +91,17 @@ public class RigidBody : global::System.IDisposable {
     PhysicsEngineForFunPINVOKE.RigidBody_SetMass(swigCPtr, mass);
   }
 
+  public Quaternion orientation {
+    set {
+      PhysicsEngineForFunPINVOKE.RigidBody_orientation_set(swigCPtr, Quaternion.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.RigidBody_orientation_get(swigCPtr);
+      Quaternion ret = (cPtr == global::System.IntPtr.Zero) ? null : new Quaternion(cPtr, false);
+      return ret;
+    } 
+  }
+
   public Vector3 position {
     set {
       PhysicsEngineForFunPINVOKE.RigidBody_position_set(swigCPtr, Vector3.getCPtr(value));

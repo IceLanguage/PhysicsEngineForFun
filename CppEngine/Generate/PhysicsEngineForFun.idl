@@ -218,6 +218,7 @@ public:
 	bool hasFiniteMass() const;
 	float GetMass() const;
 	void SetMass(float mass);
+	Quaternion orientation;
 	Vector3 position;
 	Vector3 velocity;
 	Vector3 rotation;

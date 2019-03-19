@@ -111,6 +111,20 @@ namespace PhysicsEngineForFun
             PhysicsEngineForFunPINVOKE.RigidBody_SetMass(swigCPtr, mass);
         }
 
+        public Quaternion orientation
+        {
+            set
+            {
+                PhysicsEngineForFunPINVOKE.RigidBody_orientation_set(swigCPtr, Quaternion.getCPtr(value));
+            }
+            get
+            {
+                global::System.IntPtr cPtr = PhysicsEngineForFunPINVOKE.RigidBody_orientation_get(swigCPtr);
+                Quaternion ret = (cPtr == global::System.IntPtr.Zero) ? null : new Quaternion(cPtr, false);
+                return ret;
+            }
+        }
+
         public Vector3 position
         {
             set

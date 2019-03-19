@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\BlobGame.cs" />
     <Compile Include="Assets\Scripts\Bridge.cs" />
     <Compile Include="Assets\Scripts\FireWorks.cs" />
+    <Compile Include="Assets\Scripts\FlightSim.cs" />
     <Compile Include="Assets\Scripts\PhysicsEngineForFunHelp.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Reference Include="UnityEditor.StandardEvents">

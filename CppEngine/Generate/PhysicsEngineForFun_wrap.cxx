@@ -3574,6 +3574,28 @@ SWIGEXPORT void SWIGSTDCALL CSharp_RigidBody_SetMass(void * jarg1, float jarg2) 
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_RigidBody_orientation_set(void * jarg1, void * jarg2) {
+  RigidBody *arg1 = (RigidBody *) 0 ;
+  Quaternion *arg2 = (Quaternion *) 0 ;
+  
+  arg1 = (RigidBody *)jarg1; 
+  arg2 = (Quaternion *)jarg2; 
+  if (arg1) (arg1)->orientation = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_RigidBody_orientation_get(void * jarg1) {
+  void * jresult ;
+  RigidBody *arg1 = (RigidBody *) 0 ;
+  Quaternion *result = 0 ;
+  
+  arg1 = (RigidBody *)jarg1; 
+  result = (Quaternion *)& ((arg1)->orientation);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_RigidBody_position_set(void * jarg1, void * jarg2) {
   RigidBody *arg1 = (RigidBody *) 0 ;
   Vector3 *arg2 = (Vector3 *) 0 ;
