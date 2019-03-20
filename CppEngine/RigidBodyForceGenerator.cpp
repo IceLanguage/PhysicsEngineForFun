@@ -80,7 +80,7 @@ void AeroForceControlOnRigidBody::ReCalculateTensor()
 }
 
 AeroForceControlOnRigidBody::AeroForceControlOnRigidBody(const Matrix3 & base, const Matrix3 & min, const Matrix3 & max, const Vector3 & position, const Vector3 * windspeed)
-	:AeroForceOnRigidBody(base, position, windspeed), maxTensor(max), minTensor(min)
+	:AeroForceOnRigidBody(base, position, windspeed), maxTensor(max), minTensor(min) ,controlSetting(0)
 {
 }
 
@@ -123,4 +123,29 @@ void RigidBodyForceRegistry::UpdateForces(float duration)
 	{
 		i->fg->UpdateForce(i->body, duration);
 	}
+}
+
+BuoyancyOnRigidBody::BuoyancyOnRigidBody(const Vector3 & centerOfBuoyancy, float maxDepth, float volume, float waterBootomHeight, float liquidDensity)
+	:maxDepth(maxDepth), volume(volume), waterSurfaceHeight(waterSurfaceHeight), liquidDensity(liquidDensity), centerOfBuoyancy(centerOfBuoyancy)
+{
+}
+
+void BuoyancyOnRigidBody::UpdateForce(RigidBody * body, float duration)
+{
+	Vector3 pointWorldPos = body->transformMatrix.Transform(centerOfBuoyancy);
+	float y = pointWorldPos.y;
+
+	if (y >= waterSurfaceHeight) return;
+	Vector3 force(0, 0, 0);
+
+	if (y <= waterSurfaceHeight - maxDepth)
+	{
+		force.y = liquidDensity * volume;
+		body->AddForceAtBodyPoint(force, centerOfBuoyancy);
+		return;
+	}
+
+	force.y = liquidDensity * volume *
+		(waterSurfaceHeight - y) * 2 / maxDepth;
+	body->AddForceAtBodyPoint(force, centerOfBuoyancy);
 }

@@ -55,6 +55,21 @@ public:
 	float controlSetting;
 };
 
+class BuoyancyOnRigidBody :public IRigidBodyForceGenerator
+{
+private:
+	float maxDepth;
+	float volume;
+	float waterSurfaceHeight;
+	float liquidDensity;
+	Vector3 centerOfBuoyancy;//The center of buoyancy of the rigid body, in body coordinates.
+public:
+	BuoyancyOnRigidBody(const Vector3 &centerOfBuoyancy,
+		float maxDepth, float volume, float waterBootomHeight,
+		float liquidDensity = 1000.0f);
+	virtual void UpdateForce(RigidBody *body, float duration);
+};
+
 class RigidBodyForceRegistry
 {
 protected:

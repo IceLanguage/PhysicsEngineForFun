@@ -8,9 +8,9 @@ public class FlightSim : MonoBehaviour
     private readonly PhysicsEngineForFun.RigidBody aircraft = new PhysicsEngineForFun.RigidBody();
     private readonly PhysicsEngineForFun.RigidBodyForceRegistry registry = new PhysicsEngineForFun.RigidBodyForceRegistry();
     private readonly PhysicsEngineForFun.Vector3 PhysicsEngineWindSpeed = new PhysicsEngineForFun.Vector3(0, 0, 0);
-    private float left_wing_control;
-    private float right_wing_control;
-    private float rudder_control;
+    public float left_wing_control;
+    public float right_wing_control;
+    public float rudder_control;
     public Vector3 windSpeed;
 
     private void Start()
@@ -23,24 +23,24 @@ public class FlightSim : MonoBehaviour
 
         left_wing = new PhysicsEngineForFun.AeroForceControlOnRigidBody(
             new PhysicsEngineForFun.Matrix3(0, 0, 0, -1, -0.5f, 0, 0, 0, 0),
-            new PhysicsEngineForFun.Matrix3(0, 0, 0, -0.995f, -0.5f, 0, 0, 0, 0),
             new PhysicsEngineForFun.Matrix3(0, 0, 0, -1.005f, -0.5f, 0, 0, 0, 0),
+            new PhysicsEngineForFun.Matrix3(0, 0, 0, -0.995f, -0.5f, 0, 0, 0, 0),
             new PhysicsEngineForFun.Vector3(-1, 0, -2),
             PhysicsEngineWindSpeed);
         left_wing.controlSetting = 0;
 
        right_wing = new PhysicsEngineForFun.AeroForceControlOnRigidBody(
             new PhysicsEngineForFun.Matrix3(0, 0, 0, -1, -0.5f, 0, 0, 0, 0),
-            new PhysicsEngineForFun.Matrix3(0, 0, 0, -0.995f, -0.5f, 0, 0, 0, 0),
             new PhysicsEngineForFun.Matrix3(0, 0, 0, -1.005f, -0.5f, 0, 0, 0, 0),
+            new PhysicsEngineForFun.Matrix3(0, 0, 0, -0.995f, -0.5f, 0, 0, 0, 0),  
             new PhysicsEngineForFun.Vector3(-1, 0, 2),
             PhysicsEngineWindSpeed);
         right_wing.controlSetting = 0;
 
         rudder = new PhysicsEngineForFun.AeroForceControlOnRigidBody(
             new PhysicsEngineForFun.Matrix3(0, 0, 0, 0, 0, 0, 0, 0, 0),
-            new PhysicsEngineForFun.Matrix3(0, 0, 0, 0, 0, 0, 0.01f, 0, 0),
             new PhysicsEngineForFun.Matrix3(0, 0, 0, 0, 0, 0, -0.01f, 0, 0),
+            new PhysicsEngineForFun.Matrix3(0, 0, 0, 0, 0, 0, 0.01f, 0, 0),    
             new PhysicsEngineForFun.Vector3(2.0f, 0.5f, 0),
             PhysicsEngineWindSpeed);
         rudder.controlSetting = 0f;
@@ -85,41 +85,41 @@ public class FlightSim : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             rudder_control += 0.1f;
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             rudder_control -= 0.1f;
         }
-        else if (Input.GetKey(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W))
         {
             left_wing_control -= 0.1f;
             right_wing_control -= 0.1f;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             left_wing_control += 0.1f;
             right_wing_control += 0.1f;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             left_wing_control -= 0.1f;
             right_wing_control += 0.1f;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             left_wing_control += 0.1f;
             right_wing_control -= 0.1f;
         }
-        else if (Input.GetKey(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.X))
         {
             left_wing_control = 0.0f;
             right_wing_control = 0.0f;
             rudder_control = 0.0f;
         }
-        else if (Input.GetKey(KeyCode.R))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             ResetAircraft(); 
         }
