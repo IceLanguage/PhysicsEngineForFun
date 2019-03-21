@@ -180,6 +180,30 @@ public:
 	ParticleForceRegistry registry;
 };
 
+class RigidBody
+{
+public:
+	void CalculateDerivedData();
+	void SetInertiaTensor(const Matrix3 &inertiaTensor);
+	void AddForce(const Vector3 &force);
+	void AddForceAtBodyPoint(const Vector3 &force, const Vector3 &point);
+	void AddForceAtPoint(const Vector3 &force, const Vector3 &point);
+	void ClearAccumulator();
+	void Integrate(float duration);
+	Vector3 GetPointInWorldSpace(const Vector3 &point) const;
+	bool hasFiniteMass() const;
+	float GetMass() const;
+	void SetMass(float mass);
+	Quaternion orientation;
+	Vector3 position;
+	Vector3 velocity;
+	Vector3 rotation;
+	Vector3 acceleration;
+	Matrix4 transformMatrix;
+	float angularDamping;
+	float linearDamping;
+};
+
 class IRigidBodyForceGenerator
 {
 public:
@@ -204,28 +228,13 @@ public:
 	float controlSetting;
 };
 
-class RigidBody
+class BuoyancyOnRigidBody : public IRigidBodyForceGenerator
 {
 public:
-	void CalculateDerivedData();
-	void SetInertiaTensor(const Matrix3 &inertiaTensor);
-	void AddForce(const Vector3 &force);
-	void AddForceAtBodyPoint(const Vector3 &force, const Vector3 &point);
-	void AddForceAtPoint(const Vector3 &force, const Vector3 &point);
-	void ClearAccumulator();
-	void Integrate(float duration);
-	Vector3 GetPointInWorldSpace(const Vector3 &point) const;
-	bool hasFiniteMass() const;
-	float GetMass() const;
-	void SetMass(float mass);
-	Quaternion orientation;
-	Vector3 position;
-	Vector3 velocity;
-	Vector3 rotation;
-	Vector3 acceleration;
-	Matrix4 transformMatrix;
-	float angularDamping;
-	float linearDamping;
+	BuoyancyOnRigidBody(const Vector3 &centerOfBuoyancy,
+		float maxDepth, float volume, float waterSurfaceHeight,
+		float liquidDensity = 1000.0f);
+	virtual void UpdateForce(RigidBody *body, float duration);
 };
 
 class RigidBodyForceRegistry

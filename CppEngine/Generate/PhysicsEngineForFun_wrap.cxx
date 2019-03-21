@@ -3255,179 +3255,6 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_ParticleWorld(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_IRigidBodyForceGenerator_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
-  IRigidBodyForceGenerator *arg1 = (IRigidBodyForceGenerator *) 0 ;
-  RigidBody *arg2 = (RigidBody *) 0 ;
-  float arg3 ;
-  
-  arg1 = (IRigidBodyForceGenerator *)jarg1; 
-  arg2 = (RigidBody *)jarg2; 
-  arg3 = (float)jarg3; 
-  (arg1)->UpdateForce(arg2,arg3);
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_IRigidBodyForceGenerator_UpdateForceSwigExplicitIRigidBodyForceGenerator(void * jarg1, void * jarg2, float jarg3) {
-  IRigidBodyForceGenerator *arg1 = (IRigidBodyForceGenerator *) 0 ;
-  RigidBody *arg2 = (RigidBody *) 0 ;
-  float arg3 ;
-  
-  arg1 = (IRigidBodyForceGenerator *)jarg1; 
-  arg2 = (RigidBody *)jarg2; 
-  arg3 = (float)jarg3; 
-  (arg1)->IRigidBodyForceGenerator::UpdateForce(arg2,arg3);
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_IRigidBodyForceGenerator() {
-  void * jresult ;
-  IRigidBodyForceGenerator *result = 0 ;
-  
-  result = (IRigidBodyForceGenerator *)new SwigDirector_IRigidBodyForceGenerator();
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_IRigidBodyForceGenerator(void * jarg1) {
-  IRigidBodyForceGenerator *arg1 = (IRigidBodyForceGenerator *) 0 ;
-  
-  arg1 = (IRigidBodyForceGenerator *)jarg1; 
-  delete arg1;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_IRigidBodyForceGenerator_director_connect(void *objarg, SwigDirector_IRigidBodyForceGenerator::SWIG_Callback0_t callback0) {
-  IRigidBodyForceGenerator *obj = (IRigidBodyForceGenerator *)objarg;
-  SwigDirector_IRigidBodyForceGenerator *director = dynamic_cast<SwigDirector_IRigidBodyForceGenerator *>(obj);
-  if (director) {
-    director->swig_connect_director(callback0);
-  }
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_AeroForceOnRigidBody(void * jarg1, void * jarg2, void * jarg3) {
-  void * jresult ;
-  Matrix3 *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  Vector3 *arg3 = (Vector3 *) 0 ;
-  AeroForceOnRigidBody *result = 0 ;
-  
-  arg1 = (Matrix3 *)jarg1;
-  if (!arg1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
-    return 0;
-  } 
-  arg2 = (Vector3 *)jarg2;
-  if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
-    return 0;
-  } 
-  arg3 = (Vector3 *)jarg3; 
-  result = (AeroForceOnRigidBody *)new AeroForceOnRigidBody((Matrix3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const *)arg3);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_AeroForceOnRigidBody_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
-  AeroForceOnRigidBody *arg1 = (AeroForceOnRigidBody *) 0 ;
-  RigidBody *arg2 = (RigidBody *) 0 ;
-  float arg3 ;
-  
-  arg1 = (AeroForceOnRigidBody *)jarg1; 
-  arg2 = (RigidBody *)jarg2; 
-  arg3 = (float)jarg3; 
-  (arg1)->UpdateForce(arg2,arg3);
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_AeroForceOnRigidBody(void * jarg1) {
-  AeroForceOnRigidBody *arg1 = (AeroForceOnRigidBody *) 0 ;
-  
-  arg1 = (AeroForceOnRigidBody *)jarg1; 
-  delete arg1;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_AeroForceControlOnRigidBody(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5) {
-  void * jresult ;
-  Matrix3 *arg1 = 0 ;
-  Matrix3 *arg2 = 0 ;
-  Matrix3 *arg3 = 0 ;
-  Vector3 *arg4 = 0 ;
-  Vector3 *arg5 = (Vector3 *) 0 ;
-  AeroForceControlOnRigidBody *result = 0 ;
-  
-  arg1 = (Matrix3 *)jarg1;
-  if (!arg1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
-    return 0;
-  } 
-  arg2 = (Matrix3 *)jarg2;
-  if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
-    return 0;
-  } 
-  arg3 = (Matrix3 *)jarg3;
-  if (!arg3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
-    return 0;
-  } 
-  arg4 = (Vector3 *)jarg4;
-  if (!arg4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
-    return 0;
-  } 
-  arg5 = (Vector3 *)jarg5; 
-  result = (AeroForceControlOnRigidBody *)new AeroForceControlOnRigidBody((Matrix3 const &)*arg1,(Matrix3 const &)*arg2,(Matrix3 const &)*arg3,(Vector3 const &)*arg4,(Vector3 const *)arg5);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
-  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
-  RigidBody *arg2 = (RigidBody *) 0 ;
-  float arg3 ;
-  
-  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
-  arg2 = (RigidBody *)jarg2; 
-  arg3 = (float)jarg3; 
-  (arg1)->UpdateForce(arg2,arg3);
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_controlSetting_set(void * jarg1, float jarg2) {
-  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
-  float arg2 ;
-  
-  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
-  arg2 = (float)jarg2; 
-  if (arg1) (arg1)->controlSetting = arg2;
-}
-
-
-SWIGEXPORT float SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_controlSetting_get(void * jarg1) {
-  float jresult ;
-  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
-  float result;
-  
-  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
-  result = (float) ((arg1)->controlSetting);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_AeroForceControlOnRigidBody(void * jarg1) {
-  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
-  
-  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
-  delete arg1;
-}
-
-
 SWIGEXPORT void SWIGSTDCALL CSharp_RigidBody_CalculateDerivedData(void * jarg1) {
   RigidBody *arg1 = (RigidBody *) 0 ;
   
@@ -3768,6 +3595,245 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_RigidBody(void * jarg1) {
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_IRigidBodyForceGenerator_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
+  IRigidBodyForceGenerator *arg1 = (IRigidBodyForceGenerator *) 0 ;
+  RigidBody *arg2 = (RigidBody *) 0 ;
+  float arg3 ;
+  
+  arg1 = (IRigidBodyForceGenerator *)jarg1; 
+  arg2 = (RigidBody *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->UpdateForce(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_IRigidBodyForceGenerator_UpdateForceSwigExplicitIRigidBodyForceGenerator(void * jarg1, void * jarg2, float jarg3) {
+  IRigidBodyForceGenerator *arg1 = (IRigidBodyForceGenerator *) 0 ;
+  RigidBody *arg2 = (RigidBody *) 0 ;
+  float arg3 ;
+  
+  arg1 = (IRigidBodyForceGenerator *)jarg1; 
+  arg2 = (RigidBody *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->IRigidBodyForceGenerator::UpdateForce(arg2,arg3);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_IRigidBodyForceGenerator() {
+  void * jresult ;
+  IRigidBodyForceGenerator *result = 0 ;
+  
+  result = (IRigidBodyForceGenerator *)new SwigDirector_IRigidBodyForceGenerator();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_IRigidBodyForceGenerator(void * jarg1) {
+  IRigidBodyForceGenerator *arg1 = (IRigidBodyForceGenerator *) 0 ;
+  
+  arg1 = (IRigidBodyForceGenerator *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_IRigidBodyForceGenerator_director_connect(void *objarg, SwigDirector_IRigidBodyForceGenerator::SWIG_Callback0_t callback0) {
+  IRigidBodyForceGenerator *obj = (IRigidBodyForceGenerator *)objarg;
+  SwigDirector_IRigidBodyForceGenerator *director = dynamic_cast<SwigDirector_IRigidBodyForceGenerator *>(obj);
+  if (director) {
+    director->swig_connect_director(callback0);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_AeroForceOnRigidBody(void * jarg1, void * jarg2, void * jarg3) {
+  void * jresult ;
+  Matrix3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  Vector3 *arg3 = (Vector3 *) 0 ;
+  AeroForceOnRigidBody *result = 0 ;
+  
+  arg1 = (Matrix3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (Vector3 *)jarg3; 
+  result = (AeroForceOnRigidBody *)new AeroForceOnRigidBody((Matrix3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const *)arg3);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AeroForceOnRigidBody_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
+  AeroForceOnRigidBody *arg1 = (AeroForceOnRigidBody *) 0 ;
+  RigidBody *arg2 = (RigidBody *) 0 ;
+  float arg3 ;
+  
+  arg1 = (AeroForceOnRigidBody *)jarg1; 
+  arg2 = (RigidBody *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->UpdateForce(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_AeroForceOnRigidBody(void * jarg1) {
+  AeroForceOnRigidBody *arg1 = (AeroForceOnRigidBody *) 0 ;
+  
+  arg1 = (AeroForceOnRigidBody *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_AeroForceControlOnRigidBody(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5) {
+  void * jresult ;
+  Matrix3 *arg1 = 0 ;
+  Matrix3 *arg2 = 0 ;
+  Matrix3 *arg3 = 0 ;
+  Vector3 *arg4 = 0 ;
+  Vector3 *arg5 = (Vector3 *) 0 ;
+  AeroForceControlOnRigidBody *result = 0 ;
+  
+  arg1 = (Matrix3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (Matrix3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (Matrix3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Matrix3 const & type is null", 0);
+    return 0;
+  } 
+  arg4 = (Vector3 *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg5 = (Vector3 *)jarg5; 
+  result = (AeroForceControlOnRigidBody *)new AeroForceControlOnRigidBody((Matrix3 const &)*arg1,(Matrix3 const &)*arg2,(Matrix3 const &)*arg3,(Vector3 const &)*arg4,(Vector3 const *)arg5);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
+  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
+  RigidBody *arg2 = (RigidBody *) 0 ;
+  float arg3 ;
+  
+  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
+  arg2 = (RigidBody *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->UpdateForce(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_controlSetting_set(void * jarg1, float jarg2) {
+  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
+  float arg2 ;
+  
+  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->controlSetting = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_controlSetting_get(void * jarg1) {
+  float jresult ;
+  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
+  float result;
+  
+  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
+  result = (float) ((arg1)->controlSetting);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_AeroForceControlOnRigidBody(void * jarg1) {
+  AeroForceControlOnRigidBody *arg1 = (AeroForceControlOnRigidBody *) 0 ;
+  
+  arg1 = (AeroForceControlOnRigidBody *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_BuoyancyOnRigidBody__SWIG_0(void * jarg1, float jarg2, float jarg3, float jarg4, float jarg5) {
+  void * jresult ;
+  Vector3 *arg1 = 0 ;
+  float arg2 ;
+  float arg3 ;
+  float arg4 ;
+  float arg5 ;
+  BuoyancyOnRigidBody *result = 0 ;
+  
+  arg1 = (Vector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (float)jarg2; 
+  arg3 = (float)jarg3; 
+  arg4 = (float)jarg4; 
+  arg5 = (float)jarg5; 
+  result = (BuoyancyOnRigidBody *)new BuoyancyOnRigidBody((Vector3 const &)*arg1,arg2,arg3,arg4,arg5);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_BuoyancyOnRigidBody__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
+  void * jresult ;
+  Vector3 *arg1 = 0 ;
+  float arg2 ;
+  float arg3 ;
+  float arg4 ;
+  BuoyancyOnRigidBody *result = 0 ;
+  
+  arg1 = (Vector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (float)jarg2; 
+  arg3 = (float)jarg3; 
+  arg4 = (float)jarg4; 
+  result = (BuoyancyOnRigidBody *)new BuoyancyOnRigidBody((Vector3 const &)*arg1,arg2,arg3,arg4);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_BuoyancyOnRigidBody_UpdateForce(void * jarg1, void * jarg2, float jarg3) {
+  BuoyancyOnRigidBody *arg1 = (BuoyancyOnRigidBody *) 0 ;
+  RigidBody *arg2 = (RigidBody *) 0 ;
+  float arg3 ;
+  
+  arg1 = (BuoyancyOnRigidBody *)jarg1; 
+  arg2 = (RigidBody *)jarg2; 
+  arg3 = (float)jarg3; 
+  (arg1)->UpdateForce(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_BuoyancyOnRigidBody(void * jarg1) {
+  BuoyancyOnRigidBody *arg1 = (BuoyancyOnRigidBody *) 0 ;
+  
+  arg1 = (BuoyancyOnRigidBody *)jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_RigidBodyForceRegistry_Add(void * jarg1, void * jarg2, void * jarg3) {
   RigidBodyForceRegistry *arg1 = (RigidBodyForceRegistry *) 0 ;
   RigidBody *arg2 = (RigidBody *) 0 ;
@@ -3858,6 +3924,10 @@ SWIGEXPORT IRigidBodyForceGenerator * SWIGSTDCALL CSharp_AeroForceOnRigidBody_SW
 
 SWIGEXPORT AeroForceOnRigidBody * SWIGSTDCALL CSharp_AeroForceControlOnRigidBody_SWIGUpcast(AeroForceControlOnRigidBody *jarg1) {
     return (AeroForceOnRigidBody *)jarg1;
+}
+
+SWIGEXPORT IRigidBodyForceGenerator * SWIGSTDCALL CSharp_BuoyancyOnRigidBody_SWIGUpcast(BuoyancyOnRigidBody *jarg1) {
+    return (IRigidBodyForceGenerator *)jarg1;
 }
 
 #ifdef __cplusplus

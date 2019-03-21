@@ -778,45 +778,6 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_ParticleWorld")]
   public static extern void delete_ParticleWorld(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IRigidBodyForceGenerator_UpdateForce")]
-  public static extern void IRigidBodyForceGenerator_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IRigidBodyForceGenerator_UpdateForceSwigExplicitIRigidBodyForceGenerator")]
-  public static extern void IRigidBodyForceGenerator_UpdateForceSwigExplicitIRigidBodyForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_IRigidBodyForceGenerator")]
-  public static extern global::System.IntPtr new_IRigidBodyForceGenerator();
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_IRigidBodyForceGenerator")]
-  public static extern void delete_IRigidBodyForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IRigidBodyForceGenerator_director_connect")]
-  public static extern void IRigidBodyForceGenerator_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, IRigidBodyForceGenerator.SwigDelegateIRigidBodyForceGenerator_0 delegate0);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_AeroForceOnRigidBody")]
-  public static extern global::System.IntPtr new_AeroForceOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceOnRigidBody_UpdateForce")]
-  public static extern void AeroForceOnRigidBody_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_AeroForceOnRigidBody")]
-  public static extern void delete_AeroForceOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_AeroForceControlOnRigidBody")]
-  public static extern global::System.IntPtr new_AeroForceControlOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_UpdateForce")]
-  public static extern void AeroForceControlOnRigidBody_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_controlSetting_set")]
-  public static extern void AeroForceControlOnRigidBody_controlSetting_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_controlSetting_get")]
-  public static extern float AeroForceControlOnRigidBody_controlSetting_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_AeroForceControlOnRigidBody")]
-  public static extern void delete_AeroForceControlOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_RigidBody_CalculateDerivedData")]
   public static extern void RigidBody_CalculateDerivedData(global::System.Runtime.InteropServices.HandleRef jarg1);
 
@@ -904,6 +865,57 @@ class PhysicsEngineForFunPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_RigidBody")]
   public static extern void delete_RigidBody(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IRigidBodyForceGenerator_UpdateForce")]
+  public static extern void IRigidBodyForceGenerator_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IRigidBodyForceGenerator_UpdateForceSwigExplicitIRigidBodyForceGenerator")]
+  public static extern void IRigidBodyForceGenerator_UpdateForceSwigExplicitIRigidBodyForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_IRigidBodyForceGenerator")]
+  public static extern global::System.IntPtr new_IRigidBodyForceGenerator();
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_IRigidBodyForceGenerator")]
+  public static extern void delete_IRigidBodyForceGenerator(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_IRigidBodyForceGenerator_director_connect")]
+  public static extern void IRigidBodyForceGenerator_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, IRigidBodyForceGenerator.SwigDelegateIRigidBodyForceGenerator_0 delegate0);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_AeroForceOnRigidBody")]
+  public static extern global::System.IntPtr new_AeroForceOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceOnRigidBody_UpdateForce")]
+  public static extern void AeroForceOnRigidBody_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_AeroForceOnRigidBody")]
+  public static extern void delete_AeroForceOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_AeroForceControlOnRigidBody")]
+  public static extern global::System.IntPtr new_AeroForceControlOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_UpdateForce")]
+  public static extern void AeroForceControlOnRigidBody_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_controlSetting_set")]
+  public static extern void AeroForceControlOnRigidBody_controlSetting_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_controlSetting_get")]
+  public static extern float AeroForceControlOnRigidBody_controlSetting_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_AeroForceControlOnRigidBody")]
+  public static extern void delete_AeroForceControlOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_BuoyancyOnRigidBody__SWIG_0")]
+  public static extern global::System.IntPtr new_BuoyancyOnRigidBody__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4, float jarg5);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_new_BuoyancyOnRigidBody__SWIG_1")]
+  public static extern global::System.IntPtr new_BuoyancyOnRigidBody__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_BuoyancyOnRigidBody_UpdateForce")]
+  public static extern void BuoyancyOnRigidBody_UpdateForce(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_delete_BuoyancyOnRigidBody")]
+  public static extern void delete_BuoyancyOnRigidBody(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_RigidBodyForceRegistry_Add")]
   public static extern void RigidBodyForceRegistry_Add(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
@@ -945,4 +957,7 @@ class PhysicsEngineForFunPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_AeroForceControlOnRigidBody_SWIGUpcast")]
   public static extern global::System.IntPtr AeroForceControlOnRigidBody_SWIGUpcast(global::System.IntPtr jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("PhysicsEngineForFun", EntryPoint="CSharp_BuoyancyOnRigidBody_SWIGUpcast")]
+  public static extern global::System.IntPtr BuoyancyOnRigidBody_SWIGUpcast(global::System.IntPtr jarg1);
 }

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\AeroForceControlOnRigidBody.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\AeroForceOnRigidBody.cs" />
+    <Compile Include="Assets\Plugins\PhysicsEngineForFun\BuoyancyOnRigidBody.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\IParticleContactGenerator.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\IParticleForceGenerator.cs" />
     <Compile Include="Assets\Plugins\PhysicsEngineForFun\IRigidBodyForceGenerator.cs" />

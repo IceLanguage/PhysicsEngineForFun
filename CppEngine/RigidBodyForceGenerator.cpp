@@ -125,7 +125,7 @@ void RigidBodyForceRegistry::UpdateForces(float duration)
 	}
 }
 
-BuoyancyOnRigidBody::BuoyancyOnRigidBody(const Vector3 & centerOfBuoyancy, float maxDepth, float volume, float waterBootomHeight, float liquidDensity)
+BuoyancyOnRigidBody::BuoyancyOnRigidBody(const Vector3 & centerOfBuoyancy, float maxDepth, float volume, float waterSurfaceHeight, float liquidDensity)
 	:maxDepth(maxDepth), volume(volume), waterSurfaceHeight(waterSurfaceHeight), liquidDensity(liquidDensity), centerOfBuoyancy(centerOfBuoyancy)
 {
 }

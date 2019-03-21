@@ -65,7 +65,7 @@ private:
 	Vector3 centerOfBuoyancy;//The center of buoyancy of the rigid body, in body coordinates.
 public:
 	BuoyancyOnRigidBody(const Vector3 &centerOfBuoyancy,
-		float maxDepth, float volume, float waterBootomHeight,
+		float maxDepth, float volume, float waterSurfaceHeight,
 		float liquidDensity = 1000.0f);
 	virtual void UpdateForce(RigidBody *body, float duration);
 };

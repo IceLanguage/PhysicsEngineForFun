@@ -12,6 +12,7 @@ public class FlightSim : MonoBehaviour
     public float right_wing_control;
     public float rudder_control;
     public Vector3 windSpeed;
+    public Vector3 showAircraftVelocity;
 
     private void Start()
     {
@@ -52,7 +53,6 @@ public class FlightSim : MonoBehaviour
         aircraft.SetMass(2.5f);
         aircraft.SetInertiaTensor(i);
         aircraft.linearDamping = aircraft.angularDamping = 0.8f;
-        aircraft.angularDamping = 0.8f;
         aircraft.acceleration = new PhysicsEngineForFun.Vector3(0, -9.8f, 0);
         aircraft.CalculateDerivedData();
 
@@ -81,37 +81,39 @@ public class FlightSim : MonoBehaviour
         aircraft.Integrate(0.02f);
 
         if (aircraft.position.y < 0) aircraft.position.y = 0;
+
+        showAircraftVelocity = aircraft.velocity.GetUnityEngineVector3();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            rudder_control += 0.1f;
+            rudder_control += 0.01f;
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            rudder_control -= 0.1f;
+            rudder_control -= 0.01f;
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            left_wing_control -= 0.1f;
-            right_wing_control -= 0.1f;
+            left_wing_control -= 0.01f;
+            right_wing_control -= 0.01f;
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            left_wing_control += 0.1f;
-            right_wing_control += 0.1f;
+            left_wing_control += 0.01f;
+            right_wing_control += 0.01f;
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            left_wing_control -= 0.1f;
-            right_wing_control += 0.1f;
+            left_wing_control -= 0.01f;
+            right_wing_control += 0.01f;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            left_wing_control += 0.1f;
-            right_wing_control -= 0.1f;
+            left_wing_control += 0.01f;
+            right_wing_control -= 0.01f;
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
@@ -134,6 +136,7 @@ public class FlightSim : MonoBehaviour
         left_wing.controlSetting = left_wing_control;
         right_wing.controlSetting = right_wing_control;
         rudder.controlSetting = rudder_control;
+        
     }
 
     private void LateUpdate()
