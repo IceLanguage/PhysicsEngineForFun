@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoarseCollisionDetection.h" />
     <ClInclude Include="Generate\PhysicsEngineForFun_wrap.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
@@ -35,6 +36,7 @@
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CoarseCollisionDetection.cpp" />
     <ClCompile Include="Generate\PhysicsEngineForFun_wrap.cxx" />
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Matrix4.cpp" />

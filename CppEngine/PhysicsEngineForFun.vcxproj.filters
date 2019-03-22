@@ -43,6 +43,9 @@
     <ClInclude Include="RigidBodyWorld.h">
       <Filter>RigidBody</Filter>
     </ClInclude>
+    <ClInclude Include="CoarseCollisionDetection.h">
+      <Filter>RigidBody</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">
@@ -99,6 +102,9 @@
       <Filter>RigidBody</Filter>
     </ClCompile>
     <ClCompile Include="RigidBodyWorld.cpp">
+      <Filter>RigidBody</Filter>
+    </ClCompile>
+    <ClCompile Include="CoarseCollisionDetection.cpp">
       <Filter>RigidBody</Filter>
     </ClCompile>
   </ItemGroup>
