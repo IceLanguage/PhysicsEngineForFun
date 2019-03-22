@@ -4,7 +4,7 @@
 #include "RigidBody.h"
 #include <cstddef>
 
-class BoundingSphere
+struct BoundingSphere
 {
 private:
 	Vector3 center;

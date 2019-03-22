@@ -31,6 +31,7 @@
     <ClInclude Include="ParticleWorld.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="RigidBodyContact.h" />
     <ClInclude Include="RigidBodyForceGenerator.h" />
     <ClInclude Include="RigidBodyWorld.h" />
     <ClInclude Include="Vector3.h" />
@@ -48,6 +49,7 @@
     <ClCompile Include="ParticleWorld.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="RigidBodyContact.cpp" />
     <ClCompile Include="RigidBodyForceGenerator.cpp" />
     <ClCompile Include="RigidBodyWorld.cpp" />
     <ClCompile Include="Vector3.cpp" />

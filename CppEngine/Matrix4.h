@@ -17,6 +17,7 @@ public:
 	Vector3 TransformInverseDirection(const Vector3 &vector) const;
 	Matrix3 operator*(const Matrix3 &o) const;
 	Matrix3 GetTransposeMatrix3() const;
+	Vector3 GetColumn(int i) const;
 	float data[12];
 };
 

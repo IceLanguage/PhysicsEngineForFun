@@ -170,3 +170,8 @@ Matrix3 Matrix4::GetTransposeMatrix3() const
 	result.data[8] = data[10];
 	return result;
 }
+
+Vector3 Matrix4::GetColumn(int i) const
+{
+	return Vector3(data[i], data[i + 4], data[i + 8]);
+}
