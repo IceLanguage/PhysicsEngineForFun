@@ -151,3 +151,16 @@ Matrix3 Matrix3::linearInterpolate(const Matrix3 & a, const Matrix3 & b, float p
 	return result;
 }
 
+void Matrix3::SetComponents(const Vector3 & compOne, const Vector3 & compTwo, const Vector3 & compThree)
+{
+	data[0] = compOne.x;
+	data[1] = compTwo.x;
+	data[2] = compThree.x;
+	data[3] = compOne.y;
+	data[4] = compTwo.y;
+	data[5] = compThree.y;
+	data[6] = compOne.z;
+	data[7] = compTwo.z;
+	data[8] = compThree.z;
+}
+

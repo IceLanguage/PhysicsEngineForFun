@@ -25,6 +25,9 @@ public:
 	* second of these can be NULL, for contacts with the scenery.
 	*/
 	RigidBody* body[2];
+private:
+	Matrix3 contactToWorld;
+	void CalculateContactBasis();//Change to contact coordinates
 };
 
 struct CollisionData

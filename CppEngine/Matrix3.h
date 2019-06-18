@@ -24,7 +24,8 @@ public:
 		float ixy = 0, float ixz = 0, float iyz = 0);//Sets the value of the matrix from inertia tensor values.
 	void SetBlockInertiaTensor(const Vector3 &halfSizes, float mass);
 	static Matrix3 linearInterpolate(const Matrix3& a, const Matrix3& b, float prop);
-	
+	void SetComponents(const Vector3 &compOne, const Vector3 &compTwo,
+		const Vector3 &compThree);//These are arranged as the three columns of the vector.
 	float data[9];
 };
 

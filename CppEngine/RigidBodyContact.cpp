@@ -481,3 +481,42 @@ void CollisionData::AddContacts(int count)
 
 	contacts += count;
 }
+
+void Contact::CalculateContactBasis()
+{
+	Vector3 contactTangent[2];
+
+	if (fabsf(contactNormal.x) > fabs(contactNormal.y))
+	{
+		const float s = 1.0f / sqrtf(contactNormal.z * contactNormal.z +
+			contactNormal.x * contactNormal.x);
+
+		contactTangent[0].x = contactNormal.z * s;
+		contactTangent[0].y = 0;
+		contactTangent[0].z = -contactNormal.x * s;
+
+		contactTangent[1].x = contactNormal.y * contactTangent[0].x;
+		contactTangent[1].y = contactNormal.z * contactTangent[0].x -
+			contactNormal.x * contactTangent[0].z;
+		contactTangent[1].z = -contactNormal.y * contactTangent[0].x;
+	}
+	else
+	{
+		const float s = 1.0f / sqrtf(contactNormal.z * contactNormal.z +
+			contactNormal.y * contactNormal.y);
+
+		contactTangent[0].x = 0;
+		contactTangent[0].y = -contactNormal.z * s;
+		contactTangent[0].z = contactNormal.y * s;
+
+		contactTangent[1].x = contactNormal.y * contactTangent[0].z -
+			contactNormal.z * contactTangent[0].y;
+		contactTangent[1].y = -contactNormal.x * contactTangent[0].z;
+		contactTangent[1].z = contactNormal.x * contactTangent[0].y;
+	}
+
+	contactToWorld.SetComponents(
+		contactNormal,
+		contactTangent[0],
+		contactTangent[1]);
+}
